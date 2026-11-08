@@ -1,0 +1,2330 @@
+/* ==========================================
+   SAFE AID - PREMIUM DESIGN SYSTEM
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #315B68;
+    --primary-dark: #244752;
+    --accent: #D36B60;
+    --dark: #203642;
+    --text: #63747D;
+    --muted: #84939A;
+    --bg: #F5F8F9;
+    --surface: #FFFFFF;
+    --border: #E3EAED;
+}
+
+body {
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.section {
+    padding: 75px 7%;
+    background: var(--bg);
+}
+
+
+/* ==========================================
+   ANIMATED BORDER
+========================================== */
+
+.animated-border {
+    position: relative;
+    isolation: isolate;
+    border-radius: 17px;
+    z-index: 0;
+}
+
+.animated-border::before {
+    content: "";
+    position: absolute;
+    inset: -1.5px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--border-angle, 0deg),
+        #315B68,
+        #64B7B2,
+        #D6A66A,
+        #D36B60,
+        #315B68
+    );
+    animation: borderRotate 5s linear infinite;
+    z-index: -2;
+}
+
+.animated-border::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--surface);
+    z-index: -1;
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes borderRotate {
+    to {
+        --border-angle: 360deg;
+    }
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+    width: 100%;
+    padding: 17px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: rgba(245,248,249,.96);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--dark);
+    white-space: nowrap;
+}
+
+.logo i {
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links a {
+    font-size: 12px;
+    font-weight: 600;
+    color: #52636C;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 9px;
+}
+
+.login-btn,
+.volunteer-btn {
+    padding: 11px 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.login-btn {
+    background: #E8EFF1;
+    color: var(--primary-dark);
+    border: 1px solid #D9E3E6;
+}
+
+.login-btn:hover {
+    background: #DDE9EB;
+}
+
+.volunteer-btn {
+    color: white;
+    background: var(--primary);
+    box-shadow: 0 4px 12px rgba(49,91,104,.15);
+}
+
+.volunteer-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.menu-btn {
+    display: none;
+    font-size: 22px;
+    color: var(--dark);
+    background: transparent;
+}
+
+
+/* ==========================================
+   HERO - CENTERED
+========================================== */
+
+.hero {
+    min-height: 510px;
+    padding: 95px 7% 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background: var(--bg);
+}
+
+.hero-content {
+    max-width: 820px;
+    margin: auto;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 17px;
+    background: #E8EFF1;
+    color: var(--primary-dark);
+    border: 1px solid #DCE6E8;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #3E9B83;
+    display: inline-block;
+    box-shadow: 0 0 0 4px rgba(62,155,131,.12);
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.15;
+    letter-spacing: -2.5px;
+    margin: 28px 0 20px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-content > p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    min-height: 46px;
+    padding: 13px 21px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.primary-btn {
+    color: white;
+    background: var(--primary);
+    box-shadow: 0 5px 15px rgba(49,91,104,.15);
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    background: #E8EFF1;
+    color: var(--primary-dark);
+    border: 1px solid #D9E3E6;
+}
+
+.secondary-btn:hover {
+    background: #DDE9EB;
+}
+
+.hero-trust {
+    display: flex;
+    justify-content: center;
+    gap: 27px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.hero-trust span {
+    font-size: 11px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.hero-trust i {
+    color: var(--primary);
+    margin-right: 5px;
+}
+
+.hero-bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #C8D9DD,
+        transparent
+    );
+}
+
+
+/* ==========================================
+   SECTION HEADINGS
+========================================== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-tag {
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    letter-spacing: -.8px;
+    margin: 11px 0;
+    color: var(--dark);
+}
+
+.section-heading h2 span {
+    color: var(--primary);
+}
+
+.section-heading p {
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   ABOUT - VERTICAL BOX
+========================================== */
+
+.about-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 34px 40px;
+    background: var(--surface);
+    box-shadow: 0 10px 35px rgba(32,54,66,.045);
+}
+
+.about-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+.about-number {
+    min-width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    background: #E8EFF1;
+    color: var(--primary);
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.about-intro h3 {
+    font-size: 18px;
+    margin-bottom: 9px;
+}
+
+.about-intro p {
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.about-timeline {
+    margin: 28px 0 20px 20px;
+    padding-left: 30px;
+    border-left: 1px solid #B9CFD2;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+    margin-bottom: 27px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: -53px;
+    top: 0;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #E8EFF1;
+    color: var(--primary);
+    border: 1px solid #D9E3E6;
+}
+
+.timeline-label {
+    font-size: 9px;
+    color: var(--accent);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.timeline-item h3 {
+    font-size: 15px;
+    margin: 5px 0 7px;
+}
+
+.timeline-item p {
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.about-join {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 17px;
+    border-radius: 7px;
+    color: white;
+    background: var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.about-join:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   INCIDENTS
+========================================== */
+
+.incidents {
+    padding-top: 70px;
+}
+
+.incident-main-box {
+    max-width: 950px;
+    margin: auto;
+    padding: 24px;
+    background: white;
+    box-shadow: 0 10px 35px rgba(32,54,66,.04);
+}
+
+.incident-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.incident-top h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.incident-top p {
+    font-size: 11px;
+    color: var(--text);
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 11px;
+    background: #EEF5F2;
+    color: #367A67;
+    border-radius: 20px;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.incident-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+}
+
+.incident-card {
+    padding: 19px 16px;
+    border-radius: 10px;
+    background: #F8FAFB;
+    border: 1px solid #E8EEF0;
+    transition: .3s;
+}
+
+.incident-card:hover {
+    background: #EFF5F6;
+    border-color: #B6CDD1;
+    transform: translateY(-4px);
+}
+
+.incident-icon {
+    width: 41px;
+    height: 41px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    font-size: 17px;
+    margin-bottom: 14px;
+}
+
+.accident {
+    color: #BD625B;
+    background: #F9EAE8;
+}
+
+.fire {
+    color: #C17B42;
+    background: #F8EFE4;
+}
+
+.other {
+    color: #527B9A;
+    background: #E8F0F6;
+}
+
+.incident-card h3 {
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.incident-card p {
+    font-size: 10px;
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 34px;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 13px;
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* ==========================================
+   LIVE MAP
+========================================== */
+
+.live-map {
+    padding-top: 60px;
+    padding-bottom: 65px;
+}
+
+.map-card {
+    max-width: 760px;
+    margin: auto;
+    border: 1px solid #D9E4E7;
+    border-radius: 13px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 8px 25px rgba(32,54,66,.045);
+}
+
+.map-card-header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.map-card-header h3 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.map-card-header h3 i {
+    color: var(--primary);
+    margin-right: 7px;
+}
+
+.map-card-header p {
+    font-size: 10px;
+    color: var(--text);
+}
+
+.map-status {
+    font-size: 9px;
+    padding: 7px 10px;
+    background: #E8EFF1;
+    color: var(--primary);
+    border-radius: 5px;
+    font-weight: 800;
+}
+
+.map-placeholder {
+    min-height: 235px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(244,248,249,.94),rgba(244,248,249,.94)),
+        repeating-linear-gradient(0deg, transparent, transparent 39px, #DCE6E8 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, #DCE6E8 40px);
+}
+
+.map-placeholder > i {
+    font-size: 29px;
+    color: var(--primary);
+    margin-bottom: 13px;
+}
+
+.map-placeholder h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.map-placeholder > p {
+    font-size: 10px;
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.map-btn {
+    padding: 11px 17px;
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.map-btn:hover {
+    background: var(--primary-dark);
+}
+
+.map-btn:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+.location-status {
+    margin-top: 12px;
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================================
+   MISSING PERSONS
+========================================== */
+
+.missing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.missing-card {
+    padding: 1.5px;
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(32,54,66,.06);
+    transition: .3s;
+}
+
+.missing-card:hover {
+    transform: translateY(-6px);
+}
+
+.missing-card::after {
+    background: white;
+}
+
+.missing-image {
+    height: 185px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.missing-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.missing-card:hover .missing-image img {
+    transform: scale(1.06);
+}
+
+.missing-badge {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    padding: 6px 9px;
+    border-radius: 5px;
+    background: rgba(32,54,66,.85);
+    color: white;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.missing-info {
+    padding: 17px;
+}
+
+.missing-label {
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.missing-info h3 {
+    font-size: 15px;
+    margin: 7px 0 13px;
+}
+
+.missing-info > p {
+    color: var(--text);
+    font-size: 10px;
+    margin-bottom: 9px;
+}
+
+.missing-info > p i {
+    color: var(--primary);
+    width: 17px;
+}
+
+.missing-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.missing-action {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* ==========================================
+   CONTACT
+========================================== */
+
+.contact {
+    padding-top: 70px;
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 45px;
+    padding: 32px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(32,54,66,.04);
+}
+
+.contact-info h3 {
+    font-size: 25px;
+    line-height: 1.4;
+    margin: 15px 0;
+}
+
+.contact-info > p {
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.9;
+    max-width: 350px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 25px;
+}
+
+.contact-icon {
+    min-width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: #E8EFF1;
+    color: var(--primary);
+    border-radius: 8px;
+}
+
+.contact-item h4 {
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.contact-item p {
+    font-size: 10px;
+    color: var(--text);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-row label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #DFE7E9;
+    background: #F9FBFC;
+    border-radius: 6px;
+    outline: none;
+    color: var(--dark);
+    font-size: 11px;
+    transition: .3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(49,91,104,.07);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.send-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 20px;
+    border-radius: 6px;
+    color: white;
+    background: var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.send-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   SOS RIPPLE ANIMATION
+========================================== */
+
+.floating-sos {
+    position: fixed;
+    right: 35px;
+    bottom: 32px;
+    width: 66px;
+    height: 66px;
+    background: transparent;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+}
+
+.sos-core {
+    position: relative;
+    z-index: 5;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #D36B60, #A94442);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    box-shadow: 0 5px 18px rgba(169,68,66,.3);
+}
+
+.sos-core i {
+    font-size: 17px;
+}
+
+.sos-core b {
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.sos-ripple {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(211,107,96,.7);
+    border-radius: 50%;
+    animation: sosRipple 3s ease-out infinite;
+}
+
+.ripple-two {
+    animation-delay: 1s;
+}
+
+.ripple-three {
+    animation-delay: 2s;
+}
+
+@keyframes sosRipple {
+    0% {
+        transform: scale(1);
+        opacity: .8;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.floating-sos:hover .sos-core {
+    background: linear-gradient(145deg, #B94F49, #8E3536);
+}
+
+
+/* ==========================================
+   SOS MODAL
+========================================== */
+
+.sos-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(22,42,53,.68);
+    backdrop-filter: blur(5px);
+}
+
+.sos-overlay.active {
+    display: flex;
+}
+
+.sos-modal {
+    width: 100%;
+    max-width: 570px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 32px;
+    position: relative;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.2);
+}
+
+.close-sos {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: #EFF3F4;
+    color: var(--dark);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.sos-modal h2 {
+    font-size: 24px;
+    margin: 12px 0 8px;
+}
+
+.sos-modal h2 span {
+    color: var(--primary);
+}
+
+.sos-modal > p {
+    color: var(--text);
+    font-size: 11px;
+    margin-bottom: 22px;
+}
+
+.sos-services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.sos-service {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 17px 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #F8FAFB;
+    transition: .3s;
+}
+
+.sos-service:hover {
+    border-color: #9CB8BF;
+    background: #EDF4F5;
+    transform: translateY(-3px);
+}
+
+.sos-service > i {
+    min-width: 35px;
+    font-size: 22px;
+    color: var(--primary);
+}
+
+.sos-service h3 {
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.sos-service p {
+    font-size: 9px;
+    color: var(--text);
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+    background: #EAF0F2;
+    border-top: 1px solid #DCE6E9;
+    padding: 45px 7% 0;
+    color: var(--dark);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 35px;
+}
+
+.footer-about .logo {
+    color: var(--dark);
+}
+
+.footer-about p {
+    max-width: 290px;
+    color: var(--text);
+    font-size: 11px;
+    line-height: 1.9;
+    margin-top: 14px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    color: var(--text);
+    font-size: 10px;
+    transition: .3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #D5E0E3;
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--text);
+    font-size: 10px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1150px) {
+
+    .navbar {
+        padding: 16px 4%;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .nav-actions a {
+        padding: 10px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .menu-btn {
+        display: block;
+        order: 3;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        order: 2;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 7%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .missing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 14px 5%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-actions {
+        width: 100%;
+        order: 4;
+    }
+
+    .nav-actions a {
+        flex: 1;
+    }
+
+    .hero {
+        min-height: 440px;
+        padding: 75px 5%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .hero-content > p {
+        font-size: 12px;
+    }
+
+    .hero-trust {
+        gap: 14px;
+    }
+
+    .hero-trust span {
+        font-size: 9px;
+    }
+
+    .section {
+        padding: 55px 5%;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .about-box {
+        padding: 25px 20px;
+    }
+
+    .about-timeline {
+        margin-left: 17px;
+        padding-left: 25px;
+    }
+
+    .timeline-icon {
+        left: -46px;
+        width: 37px;
+        height: 37px;
+    }
+
+    .incident-main-box {
+        padding: 17px;
+    }
+
+    .incident-container {
+        grid-template-columns: 1fr;
+    }
+
+    .incident-card {
+        display: grid;
+        grid-template-columns: 43px 1fr;
+        column-gap: 12px;
+        padding: 14px;
+    }
+
+    .incident-icon {
+        grid-row: span 3;
+        margin: 0;
+    }
+
+    .incident-card h3 {
+        margin-bottom: 4px;
+    }
+
+    .incident-card p {
+        min-height: auto;
+    }
+
+    .card-link {
+        margin-top: 9px;
+    }
+
+    .map-card-header {
+        padding: 14px;
+    }
+
+    .missing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .missing-image {
+        height: 220px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 22px;
+        gap: 28px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 27px 17px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .floating-sos {
+        right: 20px;
+        bottom: 22px;
+    }
+
+    .sos-modal {
+        padding: 27px 19px;
+    }
+
+    .sos-services {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* =====================================================
+   SAFE AID - PREMIUM ANIMATION UPDATE
+   SOS + LIVE MAP + MISSING PERSON + ABOUT
+===================================================== */
+
+
+/* =====================================================
+   1. PREMIUM BRIGHT PINK SOS BUTTON
+===================================================== */
+
+#floatingSOS {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    width: 72px;
+    height: 72px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    isolation: isolate;
+}
+
+#floatingSOS .sos-core {
+    position: relative;
+    z-index: 3;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ff55aa, #f00078);
+    border: 3px solid #fff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow:
+        0 6px 20px rgba(240, 0, 120, 0.35),
+        0 0 25px rgba(255, 85, 170, 0.25);
+    transition: all 0.3s ease;
+}
+
+#floatingSOS:hover .sos-core {
+    transform: scale(1.08);
+    box-shadow:
+        0 8px 28px rgba(240, 0, 120, 0.5),
+        0 0 35px rgba(255, 85, 170, 0.35);
+}
+
+/* SOS outward ripple circles */
+
+#floatingSOS .sos-ripple {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border: 2px solid #ff3f9b;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    animation: safeAidRipple 3s ease-out infinite;
+}
+
+#floatingSOS .ripple-one {
+    animation-delay: 0s;
+}
+
+#floatingSOS .ripple-two {
+    animation-delay: 1s;
+}
+
+#floatingSOS .ripple-three {
+    animation-delay: 2s;
+}
+
+@keyframes safeAidRipple {
+    0% {
+        transform: scale(1);
+        opacity: 0.85;
+        border-width: 3px;
+    }
+
+    70% {
+        opacity: 0.25;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+
+/* =====================================================
+   2. LIVE LOCATION - ROTATING GRADIENT BORDER
+===================================================== */
+
+@property --map-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.map-card {
+    position: relative;
+    isolation: isolate;
+    border: 2px solid transparent;
+    border-radius: 22px;
+
+    background:
+        linear-gradient(#fff, #fff) padding-box,
+        conic-gradient(
+            from var(--map-angle),
+            #ff4f9a,
+            #7c5cff,
+            #24c8c8,
+            #ffb347,
+            #ff4f9a
+        ) border-box;
+
+    animation: mapBorderRotate 5s linear infinite;
+
+    box-shadow:
+        0 10px 30px rgba(30, 65, 80, 0.08);
+}
+
+@keyframes mapBorderRotate {
+    from {
+        --map-angle: 0deg;
+    }
+
+    to {
+        --map-angle: 360deg;
+    }
+}
+
+
+/* =====================================================
+   3. MISSING PERSON - STANDARD SIZE CARDS
+===================================================== */
+
+.missing-carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 12px 4px 25px;
+}
+
+.missing-grid {
+    display: flex;
+    gap: 22px;
+    width: 100%;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.missing-card {
+    flex: 0 0 calc((100% - 44px) / 3);
+    min-width: 0;
+    max-width: none;
+    border-radius: 17px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.missing-card img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    display: block;
+}
+
+.missing-card:hover {
+    box-shadow: 0 12px 28px rgba(30, 65, 80, 0.13);
+}
+
+
+/* Missing person responsive */
+
+@media (max-width: 900px) {
+    .missing-card {
+        flex-basis: calc((100% - 22px) / 2);
+    }
+}
+
+@media (max-width: 600px) {
+    .missing-grid {
+        gap: 16px;
+    }
+
+    .missing-card {
+        flex-basis: 100%;
+    }
+
+    .missing-card img {
+        height: 190px;
+    }
+}
+
+
+/* =====================================================
+   4. ABOUT - TOP TO BOTTOM DROP ANIMATION
+===================================================== */
+
+.about-box > * {
+    animation: aboutDropIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-box > *:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.about-box > *:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.about-box > *:nth-child(3) {
+    animation-delay: 0.55s;
+}
+
+.about-box > *:nth-child(4) {
+    animation-delay: 0.75s;
+}
+
+.about-box > *:nth-child(5) {
+    animation-delay: 0.95s;
+}
+
+.about-box > *:nth-child(6) {
+    animation-delay: 1.15s;
+}
+
+@keyframes aboutDropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-45px);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateY(8px);
+    }
+
+    85% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   5. MOBILE SOS POSITION
+===================================================== */
+
+@media (max-width: 600px) {
+    #floatingSOS {
+        right: 18px;
+        bottom: 20px;
+        width: 65px;
+        height: 65px;
+    }
+
+    #floatingSOS .sos-core,
+    #floatingSOS .sos-ripple {
+        width: 58px;
+        height: 58px;
+    }
+}
+
+
+/* =====================================================
+   6. ACCESSIBILITY - REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    #floatingSOS .sos-ripple,
+    .map-card,
+    .about-box > * {
+        animation: none !important;
+    }
+
+    .missing-grid {
+        transition: none !important;
+    }
+}
+
+
+
+
+/* =========================================
+   SAFE AID - PREMIUM RED SOS BUTTON
+========================================= */
+
+#floatingSOS {
+    position: fixed !important;
+
+    right: 12px !important;
+    bottom: 2px !important;
+
+    width: 82px;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+    z-index: 9999;
+    isolation: isolate;
+}
+
+/* Main Button */
+
+#floatingSOS .sos-core {
+    position: relative;
+    z-index: 5;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+
+    background: linear-gradient(
+        145deg,
+        #ff4242,
+        #d60000
+    );
+
+    color: #ffffff;
+
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 5px 16px rgba(200, 0, 0, 0.35),
+        0 0 0 4px rgba(230, 0, 0, 0.10);
+
+    transition: transform 0.3s ease;
+}
+
+#floatingSOS:hover .sos-core {
+    transform: scale(1.07);
+}
+
+/* Thick Circular Rings */
+
+#floatingSOS .sos-ripple {
+    position: absolute;
+
+    width: 62px;
+    height: 62px;
+
+    border-radius: 50%;
+
+    border: 5px solid rgba(235, 0, 0, 0.65);
+
+    box-shadow:
+        0 0 0 2px rgba(255, 50, 50, 0.12),
+        inset 0 0 5px rgba(255, 0, 0, 0.15);
+
+    opacity: 0;
+
+    pointer-events: none;
+    z-index: 2;
+
+    animation: thickSOSRipple 2.4s ease-out infinite;
+}
+
+/* Close animation timing */
+
+#floatingSOS .ripple-one {
+    animation-delay: 0s;
+}
+
+#floatingSOS .ripple-two {
+    animation-delay: 0.65s;
+}
+
+#floatingSOS .ripple-three {
+    animation-delay: 1.3s;
+}
+
+/* Smooth circular expansion */
+
+@keyframes thickSOSRipple {
+
+    0% {
+        transform: scale(1);
+        opacity: 0.85;
+        border-width: 5px;
+    }
+
+    60% {
+        opacity: 0.55;
+        border-width: 4px;
+    }
+
+    100% {
+        transform: scale(1.75);
+        opacity: 0;
+        border-width: 3px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #floatingSOS {
+        right: 8px !important;
+        bottom: 0px !important;
+        width: 76px;
+        height: 76px;
+    }
+
+    #floatingSOS .sos-core,
+    #floatingSOS .sos-ripple {
+        width: 58px;
+        height: 58px;
+    }
+
+    #floatingSOS .sos-core {
+        font-size: 17px;
+    }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    #floatingSOS .sos-ripple {
+        animation: none !important;
+    }
+}
+
+
+/* =========================================
+   SAFEHER - PREMIUM FLOATING SOS BUTTON
+   MediConnect Inspired Animation
+========================================= */
+
+#floatingSOS {
+    position: fixed !important;
+    right: 12px !important;
+    bottom: 12px !important;
+
+    width: 92px !important;
+    height: 92px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+
+    z-index: 99999;
+    isolation: isolate;
+    cursor: pointer;
+}
+
+#floatingSOS .sos-ripple {
+    display: none !important;
+}
+
+/* MAIN SOS BUTTON */
+#floatingSOS .sos-core {
+    position: relative;
+    z-index: 1;
+
+    width: 76px !important;
+    height: 76px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none !important;
+    outline: none !important;
+    border-radius: 50% !important;
+
+    background: linear-gradient(
+        135deg,
+        #ff5252,
+        #ed1010,
+        #b90000,
+        #ff3030
+    ) !important;
+
+    background-size: 300% 300% !important;
+
+    color: #ffffff !important;
+    font-size: 21px !important;
+    font-weight: 900 !important;
+    letter-spacing: 1.5px;
+
+    box-shadow:
+        0 5px 18px rgba(190, 0, 0, 0.45),
+        0 8px 30px rgba(220, 0, 0, 0.25),
+        0 0 18px rgba(255, 30, 30, 0.25);
+
+    animation:
+        sosGradient 5s ease infinite,
+        sosButtonPulse 2.2s ease-in-out infinite;
+
+    overflow: visible !important;
+}
+
+/* REMOVE OLD ICON */
+#floatingSOS .sos-core i {
+    display: none !important;
+}
+
+/* OUTER RINGS */
+#floatingSOS .sos-core::before,
+#floatingSOS .sos-core::after {
+    content: "";
+
+    position: absolute;
+    inset: -6px;
+
+    border: 3px solid #ff3030;
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: -1;
+
+    animation: sosRing 2.4s ease-out infinite;
+}
+
+/* FIRST RING */
+#floatingSOS .sos-core::before {
+    animation-delay: 0s;
+}
+
+/* SECOND RING */
+#floatingSOS .sos-core::after {
+    animation-delay: 1.2s;
+}
+
+/* SMOOTH RING ANIMATION */
+@keyframes sosRing {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.85;
+        border-color: #ff2222;
+    }
+
+    70% {
+        opacity: 0.35;
+        border-color: #e60000;
+    }
+
+    100% {
+        transform: scale(1.45);
+        opacity: 0;
+        border-color: #ff7777;
+    }
+}
+
+/* BUTTON PULSE + STRONG SHADOW */
+@keyframes sosButtonPulse {
+    0%, 100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 5px 18px rgba(190, 0, 0, 0.45),
+            0 8px 30px rgba(220, 0, 0, 0.25),
+            0 0 18px rgba(255, 30, 30, 0.25);
+    }
+
+    50% {
+        transform: scale(1.06);
+
+        box-shadow:
+            0 7px 24px rgba(190, 0, 0, 0.65),
+            0 10px 38px rgba(220, 0, 0, 0.40),
+            0 0 25px rgba(255, 30, 30, 0.40);
+    }
+}
+
+/* ANIMATED RED GRADIENT */
+@keyframes sosGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* HOVER EFFECT */
+#floatingSOS:hover .sos-core {
+    filter: brightness(1.12);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    #floatingSOS {
+        right: 8px !important;
+        bottom: 8px !important;
+
+        width: 84px !important;
+        height: 84px !important;
+    }
+
+    #floatingSOS .sos-core {
+        width: 70px !important;
+        height: 70px !important;
+        font-size: 19px !important;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    #floatingSOS .sos-core,
+    #floatingSOS .sos-core::before,
+    #floatingSOS .sos-core::after {
+        animation: none !important;
+    }
+}
+
+/* =========================================
+   SAFE AID - PREMIUM PINK SOS BUTTON
+========================================= */
+
+#floatingSOS {
+    position: fixed !important;
+    right: 10px !important;
+    bottom: 10px !important;
+
+    width: 96px !important;
+    height: 96px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 50% !important;
+
+    z-index: 99999;
+    isolation: isolate;
+    cursor: pointer;
+}
+
+#floatingSOS .sos-ripple {
+    display: none !important;
+}
+
+/* MAIN BUTTON */
+#floatingSOS .sos-core {
+    position: relative;
+    z-index: 2;
+
+    width: 80px !important;
+    height: 80px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none !important;
+    outline: none !important;
+    border-radius: 50% !important;
+
+    background: linear-gradient(
+        135deg,
+        #FF5C9A,
+        #C2185B,
+        #FF5C9A
+    ) !important;
+
+    background-size: 250% 250% !important;
+
+    color: #ffffff !important;
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    letter-spacing: 1.5px;
+
+    box-shadow:
+        0 6px 18px rgba(194, 24, 91, 0.40),
+        0 10px 30px rgba(255, 92, 154, 0.30),
+        0 0 20px rgba(255, 92, 154, 0.25);
+
+    animation:
+        pinkGradient 5s ease infinite,
+        pinkButtonPulse 2.2s ease-in-out infinite;
+
+    overflow: visible !important;
+}
+
+/* SOS Bell Icon */
+#floatingSOS .sos-core {
+    flex-direction: column;
+    gap: 3px;
+}
+
+#floatingSOS .sos-core i {
+    display: block !important;
+    color: #ffffff !important;
+    font-size: 25px;
+    line-height: 1;
+    animation: bellShake 2s ease-in-out infinite;
+}
+
+#floatingSOS .sos-core span {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 1.5px;
+}
+
+/* Bell Animation */
+@keyframes bellShake {
+    0%, 80%, 100% {
+        transform: rotate(0deg);
+    }
+
+    84% {
+        transform: rotate(-15deg);
+    }
+
+    88% {
+        transform: rotate(15deg);
+    }
+
+    92% {
+        transform: rotate(-10deg);
+    }
+
+    96% {
+        transform: rotate(10deg);
+    }
+}
+
+/* OUTER COLOR RINGS */
+#floatingSOS .sos-core::before,
+#floatingSOS .sos-core::after {
+    content: "";
+
+    position: absolute;
+    inset: -5px;
+
+    border: 3px solid #FF5C9A;
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: -1;
+
+    animation: pinkOuterRing 2.6s ease-out infinite;
+}
+
+/* FIRST RING */
+#floatingSOS .sos-core::before {
+    animation-delay: 0s;
+}
+
+/* SECOND RING */
+#floatingSOS .sos-core::after {
+    animation-delay: 1.3s;
+}
+
+/* OUTWARD COLOR ANIMATION */
+@keyframes pinkOuterRing {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.9;
+        border-color: #FF5C9A;
+        box-shadow: 0 0 8px #FF5C9A;
+    }
+
+    50% {
+        opacity: 0.55;
+        border-color: #C2185B;
+        box-shadow: 0 0 14px #C2185B;
+    }
+
+    100% {
+        transform: scale(1.50);
+        opacity: 0;
+        border-color: #FF5C9A;
+        box-shadow: 0 0 20px #FF5C9A;
+    }
+}
+
+/* BUTTON SHADOW PULSE */
+@keyframes pinkButtonPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            0 6px 18px rgba(194, 24, 91, 0.40),
+            0 10px 30px rgba(255, 92, 154, 0.30);
+    }
+
+    50% {
+        transform: scale(1.06);
+        box-shadow:
+            0 8px 25px rgba(194, 24, 91, 0.55),
+            0 12px 38px rgba(255, 92, 154, 0.45),
+            0 0 25px rgba(255, 92, 154, 0.35);
+    }
+}
+
+/* GRADIENT MOVEMENT */
+@keyframes pinkGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* HOVER */
+#floatingSOS:hover .sos-core {
+    filter: brightness(1.12);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+    #floatingSOS {
+        right: 6px !important;
+        bottom: 6px !important;
+        width: 86px !important;
+        height: 86px !important;
+    }
+
+    #floatingSOS .sos-core {
+        width: 72px !important;
+        height: 72px !important;
+        font-size: 20px !important;
+    }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    #floatingSOS .sos-core,
+    #floatingSOS .sos-core::before,
+    #floatingSOS .sos-core::after {
+        animation: none !important;
+    }
+}
+
+/* =========================================
+   SAFE AID - SMOOTH PROFESSIONAL NAVBAR
+========================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    background: rgba(248, 250, 250, 0.94) !important;
+
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+
+    border-bottom: 1px solid rgba(49, 91, 104, 0.08);
+
+    box-shadow:
+        0 3px 12px rgba(36, 70, 80, 0.045),
+        0 8px 22px rgba(36, 70, 80, 0.025);
+
+    transition:
+        background 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Navigation Links */
+.navbar .nav-links a {
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Link Hover */
+.navbar .nav-links a:hover {
+    color: #315B68;
+}
+
+/* Login Button */
+.navbar .login-btn {
+    transition: all 0.3s ease;
+}
+
+.navbar .login-btn:hover {
+    background: #e2ebed;
+    transform: translateY(-1px);
+}
+
+/* Volunteer Button */
+.navbar .volunteer-btn {
+    transition: all 0.3s ease;
+}
+
+.navbar .volunteer-btn:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+/* Mobile Navbar Shadow */
+@media (max-width: 900px) {
+    .navbar {
+        box-shadow:
+            0 3px 14px rgba(36, 70, 80, 0.07);
+    }
+}
