@@ -2173,126 +2173,17 @@ button {
 }
 
 
-/* ===== DESKTOP NAVBAR ===== */
+/* ==========================================
+   SAFE AID - FINAL MOBILE RESPONSIVE FIX
+========================================== */
 
-.mobile-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    flex: 1;
-}
+/* ---------- DESKTOP NAVBAR ---------- */
 
-.mobile-menu .nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-}
-
-.mobile-menu .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-/* Hamburger hidden on desktop */
 .menu-btn {
     display: none;
 }
 
-/* ===== MOBILE SIDE NAVIGATION ===== */
-
-@media (max-width: 768px) {
-
-    .navbar {
-        position: sticky;
-        top: 0;
-        z-index: 9999;
-        justify-content: space-between;
-    }
-
-    .menu-btn {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        background: transparent;
-        font-size: 22px;
-        color: var(--primary);
-        cursor: pointer;
-        z-index: 10002;
-    }
-
-    .mobile-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 50vw;
-        height: 100vh;
-        background: #fff;
-        padding: 85px 18px 25px;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 25px;
-        overflow-y: auto;
-        box-shadow: -8px 0 25px rgba(0,0,0,.10);
-        transform: translateX(105%);
-        visibility: hidden;
-        transition: transform .3s ease, visibility .3s ease;
-        z-index: 10000;
-    }
-
-    .mobile-menu.active {
-        transform: translateX(0);
-        visibility: visible;
-    }
-
-    .mobile-menu .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        width: 100%;
-    }
-
-    .mobile-menu .nav-links a {
-        display: block;
-        padding: 12px 5px;
-        font-size: 12px;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .mobile-menu .nav-actions {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .mobile-menu .login-btn,
-    .mobile-menu .volunteer-btn {
-        width: 100%;
-        min-height: 38px;
-        justify-content: center;
-        box-sizing: border-box;
-    }
-}
-
-@media (max-width: 380px) {
-    .mobile-menu {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-}
-
-/* ===== DESKTOP NAVBAR ALIGNMENT ===== */
-
 @media (min-width: 769px) {
-
     .navbar {
         display: flex;
         align-items: center;
@@ -2304,10 +2195,20 @@ button {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+        transform: none;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .mobile-menu .nav-links {
-        flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2318,280 +2219,208 @@ button {
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-left: 20px;
-        flex-shrink: 0;
     }
-
 }
 
-
-
-/* ===== MOBILE NAVBAR FIX ===== */
+/* ---------- MOBILE NAVBAR ---------- */
 
 @media (max-width: 768px) {
 
     .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 99999;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        position: sticky;
-        top: 0;
-        z-index: 9999;
+        flex-wrap: nowrap;
+        min-height: 58px;
+        padding: 11px 16px;
     }
 
     .navbar .logo {
         flex-shrink: 0;
+        font-size: 21px;
     }
 
-    /* Hamburger */
-    .menu-btn {
+    /* Three-bar hamburger button */
+    .navbar > .menu-btn {
         display: flex !important;
         align-items: center;
         justify-content: center;
-        background: transparent;
-        border: none;
-        font-size: 25px;
-        color: var(--primary);
-        cursor: pointer;
-        z-index: 10002;
+        width: 42px;
+        height: 42px;
         flex-shrink: 0;
-    }
-
-    /* Side Menu */
-    .mobile-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-
-        width: 50vw;
-        height: 100vh;
-        height: 100dvh;
-
-        background: #ffffff;
-        padding: 85px 15px 25px;
-        box-sizing: border-box;
-
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 20px;
-
-        overflow-y: auto;
-
-        box-shadow: -8px 0 25px rgba(0,0,0,0.12);
-
-        transform: translateX(105%);
-        visibility: hidden;
-
-        transition: transform 0.3s ease,
-                    visibility 0.3s ease;
-
-        z-index: 10000;
-    }
-
-    /* Open Menu */
-    .mobile-menu.active {
-        transform: translateX(0);
-        visibility: visible;
-    }
-
-    /* Navigation Links */
-    .mobile-menu .nav-links {
-        display: flex !important;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        width: 100%;
-    }
-
-    .mobile-menu .nav-links a {
-        display: block;
-        padding: 12px 4px;
-        font-size: 12px;
-        border-bottom: 1px solid var(--border);
-        white-space: normal;
-    }
-
-    /* Login and Volunteer */
-    .mobile-menu .nav-actions {
-        display: flex !important;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        width: 100%;
-        margin: 5px 0 0;
-    }
-
-    .mobile-menu .login-btn,
-    .mobile-menu .volunteer-btn {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 38px;
-        padding: 8px 5px;
-        font-size: 11px;
-        text-align: center;
-        box-sizing: border-box;
-    }
-}
-
-/* Small Mobile */
-@media (max-width: 380px) {
-
-    .mobile-menu {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .mobile-menu .nav-links a {
-        font-size: 11px;
-    }
-}
-
-
-/* ===== MOBILE HERO BUTTONS ===== */
-
-@media (max-width: 768px) {
-
-    .hero-buttons {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: stretch;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .hero-buttons a {
-        flex: 1;
-        min-width: 0;
-        width: auto;
-        padding: 14px 8px;
-        font-size: 12px;
-        text-align: center;
-        white-space: normal;
-        box-sizing: border-box;
-    }
-
-}
-
-
-/* =====================================
-   MOBILE NAVBAR FIX
-===================================== */
-
-@media (max-width: 768px) {
-
-    .menu-btn {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
+        position: relative;
+        z-index: 100002;
         visibility: visible !important;
         opacity: 1 !important;
-        position: relative;
-        z-index: 10002;
+        color: var(--primary);
+        background: #E8EFF1;
+        border: 1px solid #D9E3E6;
+        border-radius: 8px;
+        font-size: 23px;
         cursor: pointer;
     }
 
-    .mobile-menu#navLinks {
+    .navbar > .menu-btn i {
+        display: block;
+        pointer-events: none;
+    }
+
+    /* Right-side 50% navigation panel */
+    .navbar > .mobile-menu#navLinks {
         position: fixed !important;
         top: 0;
         right: 0;
+        left: auto;
+
         width: 50vw !important;
+        max-width: 50vw;
+        height: 100vh;
         height: 100dvh;
         max-height: 100dvh;
-        padding: 85px 18px 25px;
+
+        padding: 85px 15px 25px;
+        margin: 0;
+
         display: flex !important;
         flex-direction: column;
         align-items: stretch;
         justify-content: flex-start;
-        gap: 20px;
+        gap: 22px;
 
-        background: var(--bg, #ffffff);
-        box-shadow: -8px 0 25px rgba(0, 0, 0, 0.14);
+        background: #FFFFFF;
+        border-left: 1px solid var(--border);
+        box-shadow: -8px 0 25px rgba(0,0,0,.13);
+
+        overflow-x: hidden;
+        overflow-y: auto;
 
         transform: translateX(105%);
         visibility: hidden;
         opacity: 0;
         pointer-events: none;
 
-        overflow-y: auto;
-        z-index: 10001;
+        z-index: 100001;
 
         transition:
-            transform 0.35s ease,
-            opacity 0.3s ease,
-            visibility 0.3s ease;
+            transform .35s ease,
+            opacity .3s ease,
+            visibility .3s ease;
     }
 
-    .mobile-menu#navLinks.active {
+    .navbar > .mobile-menu#navLinks.active {
         transform: translateX(0);
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
     }
 
-    .mobile-menu#navLinks .nav-links,
-    .mobile-menu#navLinks .nav-actions {
+    .mobile-menu .nav-links {
         width: 100%;
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         align-items: stretch;
-        gap: 15px;
+        gap: 0;
     }
 
-    .mobile-menu#navLinks a {
-        width: 100%;
+    .mobile-menu .nav-links a {
         display: block;
-        padding: 10px 8px;
+        width: 100%;
+        padding: 13px 5px;
+        font-size: 12px;
+        border-bottom: 1px solid var(--border);
+        white-space: normal;
     }
-}
 
-/* =====================================
-   MOBILE SOS BUTTON FIX
-===================================== */
-
-@media (max-width: 768px) {
-
-    #floatingSOS,
-    .floating-sos {
+    .mobile-menu .nav-actions {
+        width: 100%;
         display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin: 5px 0 0;
+    }
+
+    .mobile-menu .login-btn,
+    .mobile-menu .volunteer-btn {
+        display: flex !important;
+        width: 100%;
+        min-height: 38px;
+        justify-content: center;
+        padding: 9px 5px;
+        font-size: 11px;
+    }
+
+    /* Hero buttons side by side */
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: stretch;
+        gap: 9px;
+        width: 100%;
+    }
+
+    .hero-buttons a {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 7px;
+        font-size: 11px;
+        white-space: normal;
+    }
+
+    /* ---------- MOBILE SOS BUTTON ---------- */
+
+    #floatingSOS {
+        display: flex !important;
         position: fixed !important;
 
-        right: 16px !important;
-        bottom: 20px !important;
+        right: 12px !important;
+        bottom: 12px !important;
 
-        z-index: 9999 !important;
+        width: 76px !important;
+        height: 76px !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
         pointer-events: auto !important;
+
+        z-index: 999999 !important;
     }
-}
 
-/* =====================================
-   MOBILE MISSING PERSONS SLIDER
-===================================== */
+    #floatingSOS .sos-core {
+        width: 64px !important;
+        height: 64px !important;
+    }
 
-@media (max-width: 768px) {
+    #floatingSOS .sos-core i {
+        font-size: 20px;
+    }
+
+    #floatingSOS .sos-core b {
+        font-size: 13px;
+    }
+
+    /* ---------- MISSING PERSONS SLIDER ---------- */
 
     .missing-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
+        display: block !important;
         position: relative;
         width: 100%;
+        overflow: hidden;
     }
 
     .missing-grid > .missing-card {
         display: none !important;
         width: 100%;
-        grid-column: 1 / -1;
+        margin: 0;
     }
 
     .missing-grid > .missing-card.is-active {
         display: block !important;
-        animation: missingCardEnter 0.6s ease both;
+        animation: missingCardEnter .55s ease both;
     }
 
     .missing-image {
@@ -2608,5 +2437,150 @@ button {
             opacity: 1;
             transform: translateX(0);
         }
+    }
+
+    /* Community feed remains internally scrollable */
+    .community-posts-list {
+        height: 280px;
+        max-height: 280px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+    .navbar {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .mobile-menu .nav-links a {
+        font-size: 11px;
+        padding: 12px 3px;
+    }
+
+    .hero h1 {
+        font-size: 33px;
+    }
+}
+
+
+/* =================================
+   SAFE AID - NAVBAR ALIGNMENT FIX
+================================= */
+
+/* Laptop / Desktop */
+@media (min-width: 769px) {
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .navbar .logo {
+        flex-shrink: 0;
+    }
+
+    .mobile-menu#navLinks {
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+        padding: 0;
+        margin: 0 auto;
+        gap: 25px;
+    }
+
+    .mobile-menu#navLinks .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        margin: 0 auto;
+    }
+
+    .mobile-menu#navLinks .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .menu-btn {
+        display: none !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 100003;
+    }
+
+    .menu-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .mobile-menu#navLinks {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 85px 18px 25px;
+        background: #ffffff;
+        box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
+        transform: translateX(110%);
+        transition: transform 0.35s ease;
+        z-index: 1;
+        overflow-y: auto;
+    }
+
+    .mobile-menu#navLinks.active {
+        transform: translateX(0);
+    }
+
+    .mobile-menu#navLinks .nav-links,
+    .mobile-menu#navLinks .nav-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 18px;
+        margin: 0;
+    }
+
+    .mobile-menu#navLinks .nav-actions {
+        margin-top: 20px;
+    }
+}
+
+/* Laptop Navbar - Sticky Fix */
+@media (min-width: 769px) {
+    .navbar {
+        position: sticky !important;
+        top: 0;
+        z-index: 100003;
+        width: 100%;
+        background: #ffffff;
     }
 }
