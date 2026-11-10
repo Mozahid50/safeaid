@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Become a Volunteer | Safe Aid</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="volunteer-registration.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-shield-heart"></i>
+            Safe<span>Aid</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="index.html#incidents">Incidents</a>
+            <a href="index.html#live-map">Live Map</a>
+            <a href="index.html#community">Public Post</a>
+            <a href="index.html#missing-persons">Missing Persons</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="volunteer-registration.html" class="volunteer-btn active">
+                Get Volunteer
+            </a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </header>
+
+
+    <!-- VOLUNTEER REGISTRATION -->
+
+    <main class="volunteer-page">
+
+        <div class="volunteer-container">
+
+            <div class="volunteer-heading">
+                <h1>Become a <span>Volunteer</span></h1>
+                <p>Join Safe Aid and make a difference in your community.</p>
+            </div>
+
+
+            <section class="volunteer-card">
+
+                <div class="form-heading">
+                    <div>
+                        <h2>Volunteer Registration</h2>
+                        <p>Fill in your details to join our team.</p>
+                    </div>
+
+                    <span>* Required</span>
+                </div>
+
+
+                <form id="volunteerForm" novalidate>
+
+                    <!-- PERSONAL INFORMATION -->
+
+                    <div class="form-section">
+
+                        <h3>
+                            <i class="fa-regular fa-user"></i>
+                            Personal Information
+                        </h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" placeholder="Enter full name" maxlength="80" required>
+                                <small class="error-message" id="fullNameError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" placeholder="example@email.com" required>
+                                <small class="error-message" id="emailError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" placeholder="01XXXXXXXXX" maxlength="16" required>
+                                <small class="error-message" id="phoneError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth *</label>
+                                <input type="date" id="dateOfBirth" required>
+                                <small class="error-message" id="dateOfBirthError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender">Gender *</label>
+                                <select id="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Prefer not to say">Prefer not to say</option>
+                                </select>
+                                <small class="error-message" id="genderError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="occupation">Occupation</label>
+                                <input type="text" id="occupation" placeholder="Student / Professional">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div class="form-section">
+
+                        <h3>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Location Information
+                        </h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="district">District *</label>
+                                <input type="text" id="district" placeholder="Enter district" required>
+                                <small class="error-message" id="districtError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="area">Upazila / Area</label>
+                                <input type="text" id="area" placeholder="Enter your area">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="address">Present Address *</label>
+                                <textarea id="address" rows="2" placeholder="Enter your present address" required></textarea>
+                                <small class="error-message" id="addressError"></small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- VOLUNTEER INFORMATION -->
+
+                    <div class="form-section">
+
+                        <h3>
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            Volunteer Information
+                        </h3>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="interest">Preferred Activity *</label>
+                                <select id="interest" required>
+                                    <option value="">Select Activity</option>
+                                    <option value="Emergency Response">Emergency Response</option>
+                                    <option value="Rescue Support">Rescue Support</option>
+                                    <option value="Blood Donation Support">Blood Donation Support</option>
+                                    <option value="Missing Person Support">Missing Person Support</option>
+                                    <option value="Community Awareness">Community Awareness</option>
+                                    <option value="Relief Distribution">Relief Distribution</option>
+                                    <option value="Public Support">Public Support</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <small class="error-message" id="interestError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="availability">Availability *</label>
+                                <select id="availability" required>
+                                    <option value="">Select Availability</option>
+                                    <option value="Full Time">Full Time</option>
+                                    <option value="Part Time">Part Time</option>
+                                    <option value="Weekends">Weekends</option>
+                                    <option value="When Needed">When Needed</option>
+                                </select>
+                                <small class="error-message" id="availabilityError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience">Previous Experience</label>
+                                <select id="experience">
+                                    <option value="">Select Experience</option>
+                                    <option value="No Experience">No Experience</option>
+                                    <option value="Less than 1 Year">Less than 1 Year</option>
+                                    <option value="1-3 Years">1-3 Years</option>
+                                    <option value="3+ Years">3+ Years</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="skills">Skills & Expertise</label>
+                                <input type="text" id="skills" placeholder="First Aid, Communication, etc.">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="motivation">Why do you want to volunteer? *</label>
+                                <textarea id="motivation" rows="2" placeholder="Write a short description..." required></textarea>
+                                <small class="error-message" id="motivationError"></small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AGREEMENT -->
+
+                    <div class="volunteer-agreement">
+
+                        <label class="agreement-label">
+                            <input type="checkbox" id="agreement" required>
+
+                            <span>
+                                I confirm that my information is accurate and agree to follow Safe Aid's volunteer guidelines.
+                                <strong>*</strong>
+                            </span>
+                        </label>
+
+                        <small class="error-message" id="agreementError"></small>
+
+                    </div>
+
+
+                    <button type="submit" class="submit-volunteer-btn" id="submitVolunteer">
+                        Submit Registration
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div id="volunteerMessage" class="volunteer-message"></div>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    Safe<span>Aid</span>
+                </a>
+
+                <p>
+                    Safe Aid is dedicated to building safer communities
+                    through awareness, emergency support and volunteer action.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About Us</a>
+                <a href="index.html#incidents">Incidents</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Our Services</h3>
+                <a href="index.html#live-map">Live Map</a>
+                <a href="index.html#community">Public Post</a>
+                <a href="index.html#missing-persons">Missing Persons</a>
+                <a href="volunteer-registration.html">Become a Volunteer</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Get Involved</h3>
+                <a href="login.html">Login</a>
+                <a href="volunteer-registration.html">Join as Volunteer</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Safe Aid. All rights reserved.</p>
+            <p>Together for a Safer Community.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="volunteer-registration.js"></script>
+
+</body>
+</html>

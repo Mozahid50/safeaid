@@ -1,0 +1,890 @@
+/* =====================================================
+   SAFE AID - INCIDENT REPORT PAGE
+   Additional Page Styling
+===================================================== */
+
+
+/* =================================
+   PAGE LAYOUT
+================================= */
+
+.incident-report-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 45px 20px 70px;
+    background: var(--bg, #F5F8F9);
+}
+
+
+/* =================================
+   PAGE HEADER
+================================= */
+
+.incident-report-header {
+    max-width: 760px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.incident-breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    color: var(--muted, #84939A);
+    font-size: 13px;
+}
+
+.incident-breadcrumb a {
+    color: var(--primary, #315B68);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.incident-breadcrumb a:hover {
+    color: var(--accent, #D36B60);
+}
+
+.incident-breadcrumb i {
+    font-size: 10px;
+}
+
+.incident-header-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    background: rgba(211, 107, 96, 0.10);
+    color: var(--accent, #D36B60);
+    font-size: 23px;
+}
+
+.incident-report-header h1 {
+    margin: 0 0 12px;
+    color: var(--dark, #203642);
+    font-size: clamp(27px, 4vw, 36px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.incident-report-header p {
+    max-width: 580px;
+    margin: 0 auto;
+    color: var(--text, #63747D);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =================================
+   FORM SECTION
+================================= */
+
+.incident-form-section {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.incident-form-card {
+    padding: 35px;
+    background: var(--surface, #FFFFFF);
+    border: 1px solid var(--border, #E3EAED);
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(32, 54, 66, 0.045);
+}
+
+
+/* =================================
+   FORM TITLE
+================================= */
+
+.incident-form-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    padding-bottom: 22px;
+    margin-bottom: 27px;
+    border-bottom: 1px solid var(--border, #E3EAED);
+}
+
+.incident-form-title h2 {
+    margin: 0 0 7px;
+    color: var(--dark, #203642);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.incident-form-title p {
+    margin: 0;
+    color: var(--muted, #84939A);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.required-note {
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: rgba(211, 107, 96, 0.08);
+    color: var(--accent, #D36B60);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* =================================
+   FORM GROUP
+================================= */
+
+.incident-form-group {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 22px;
+}
+
+.incident-form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--dark, #203642);
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.incident-form-group label > span:first-child {
+    color: var(--accent, #D36B60);
+}
+
+.optional-label {
+    color: var(--muted, #84939A) !important;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+
+/* =================================
+   INPUT WRAPPER
+================================= */
+
+.incident-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.incident-input-wrapper > i {
+    position: absolute;
+    left: 15px;
+    z-index: 1;
+    color: var(--muted, #84939A);
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.incident-input-wrapper input,
+.incident-input-wrapper select {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px 0 43px;
+    outline: none;
+    border: 1px solid var(--border, #E3EAED);
+    border-radius: 9px;
+    background: #FFFFFF;
+    color: var(--dark, #203642);
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.incident-input-wrapper select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 35px;
+}
+
+.incident-input-wrapper input::placeholder {
+    color: #A4B0B5;
+}
+
+.incident-input-wrapper input:focus,
+.incident-input-wrapper select:focus,
+.incident-form-group textarea:focus {
+    border-color: var(--primary, #315B68);
+    box-shadow: 0 0 0 3px rgba(49, 91, 104, 0.08);
+}
+
+.incident-input-wrapper:has(select)::after {
+    content: "\f107";
+    position: absolute;
+    right: 16px;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--muted, #84939A);
+    pointer-events: none;
+}
+
+
+/* =================================
+   FORM ROW
+================================= */
+
+.incident-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* =================================
+   LOCATION BUTTON
+================================= */
+
+.get-location-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 9px 13px;
+    border: 1px solid rgba(49, 91, 104, 0.18);
+    border-radius: 7px;
+    background: rgba(49, 91, 104, 0.055);
+    color: var(--primary, #315B68);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.get-location-btn:hover {
+    background: var(--primary, #315B68);
+    color: #FFFFFF;
+}
+
+.get-location-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#incidentLocationStatus {
+    display: block;
+    margin-top: 8px;
+    color: var(--muted, #84939A);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =================================
+   DESCRIPTION
+================================= */
+
+.incident-form-group textarea {
+    width: 100%;
+    min-height: 125px;
+    padding: 14px;
+    resize: vertical;
+    outline: none;
+    border: 1px solid var(--border, #E3EAED);
+    border-radius: 9px;
+    background: #FFFFFF;
+    color: var(--dark, #203642);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.7;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.incident-form-group textarea::placeholder {
+    color: #A4B0B5;
+}
+
+.incident-character-count {
+    margin-top: 6px;
+    color: var(--muted, #84939A);
+    font-size: 11px;
+    text-align: right;
+}
+
+
+/* =================================
+   FILE UPLOAD
+================================= */
+
+.incident-upload-area {
+    width: 100%;
+    border: 1.5px dashed #CAD8DD;
+    border-radius: 11px;
+    background: #FAFCFC;
+    transition: all 0.2s ease;
+}
+
+.incident-upload-area:hover {
+    border-color: var(--primary, #315B68);
+    background: rgba(49, 91, 104, 0.025);
+}
+
+.incident-upload-content {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 170px;
+    padding: 22px 15px;
+    margin: 0 !important;
+    cursor: pointer;
+    text-align: center;
+}
+
+.incident-upload-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(49, 91, 104, 0.08);
+    color: var(--primary, #315B68);
+    font-size: 19px;
+}
+
+.incident-upload-content strong {
+    color: var(--dark, #203642);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.incident-upload-content span {
+    margin-top: 6px;
+    color: var(--text, #63747D);
+    font-size: 12px;
+}
+
+.incident-upload-content small {
+    margin-top: 8px;
+    color: var(--muted, #84939A);
+    font-size: 10px;
+}
+
+.incident-file-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.incident-file-item {
+    position: relative;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid var(--border, #E3EAED);
+    border-radius: 9px;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.incident-file-item img {
+    display: block;
+    width: 100%;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.incident-file-item i {
+    display: block;
+    margin: 12px 0;
+    color: var(--primary, #315B68);
+    font-size: 26px;
+    text-align: center;
+}
+
+.incident-file-item span {
+    display: block;
+    overflow: hidden;
+    color: var(--text, #63747D);
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.incident-file-remove {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 23px;
+    height: 23px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent, #D36B60);
+    color: #FFFFFF;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+
+/* =================================
+   SECTION DIVIDER
+================================= */
+
+.incident-section-divider {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 30px 0 22px;
+    color: var(--primary, #315B68);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.incident-section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border, #E3EAED);
+}
+
+
+/* =================================
+   PRIVACY NOTICE
+================================= */
+
+.incident-privacy-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 15px;
+    margin-top: 8px;
+    border: 1px solid rgba(49, 91, 104, 0.10);
+    border-radius: 9px;
+    background: rgba(49, 91, 104, 0.045);
+}
+
+.incident-privacy-notice > i {
+    margin-top: 2px;
+    color: var(--primary, #315B68);
+    font-size: 16px;
+}
+
+.incident-privacy-notice p {
+    margin: 0;
+    color: var(--text, #63747D);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* =================================
+   FORM ACTIONS
+================================= */
+
+.incident-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 27px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border, #E3EAED);
+}
+
+.incident-cancel-btn,
+.incident-submit-btn {
+    min-height: 45px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.incident-cancel-btn {
+    border: 1px solid var(--border, #E3EAED);
+    background: #FFFFFF;
+    color: var(--text, #63747D);
+}
+
+.incident-cancel-btn:hover {
+    border-color: var(--primary, #315B68);
+    color: var(--primary, #315B68);
+}
+
+.incident-submit-btn {
+    border: 1px solid var(--primary, #315B68);
+    background: var(--primary, #315B68);
+    color: #FFFFFF;
+}
+
+.incident-submit-btn:hover {
+    border-color: var(--primary-dark, #244752);
+    background: var(--primary-dark, #244752);
+    box-shadow: 0 5px 14px rgba(49, 91, 104, 0.18);
+    transform: translateY(-1px);
+}
+
+.incident-submit-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =================================
+   EMERGENCY NOTICE
+================================= */
+
+.incident-emergency-notice {
+    max-width: 850px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 25px auto 0;
+    padding: 19px 22px;
+    border: 1px solid rgba(211, 107, 96, 0.16);
+    border-radius: 12px;
+    background: rgba(211, 107, 96, 0.055);
+}
+
+.emergency-notice-icon {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: rgba(211, 107, 96, 0.12);
+    color: var(--accent, #D36B60);
+    font-size: 17px;
+}
+
+.incident-emergency-notice h3 {
+    margin: 0 0 5px;
+    color: var(--dark, #203642);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.incident-emergency-notice p {
+    margin: 0;
+    color: var(--text, #63747D);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 768px) {
+
+    .incident-report-page {
+        padding: 35px 16px 55px;
+    }
+
+    .incident-report-header {
+        margin-bottom: 27px;
+    }
+
+    .incident-form-card {
+        padding: 25px 22px;
+    }
+
+    .incident-form-title h2 {
+        font-size: 18px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .incident-report-page {
+        padding: 27px 13px 45px;
+    }
+
+    .incident-breadcrumb {
+        margin-bottom: 20px;
+        font-size: 11px;
+    }
+
+    .incident-header-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 20px;
+    }
+
+    .incident-report-header h1 {
+        font-size: 27px;
+    }
+
+    .incident-report-header p {
+        font-size: 12px;
+    }
+
+    .incident-form-card {
+        padding: 21px 16px;
+        border-radius: 13px;
+    }
+
+    .incident-form-title {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .incident-form-title h2 {
+        font-size: 17px;
+    }
+
+    .incident-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .incident-form-group {
+        margin-bottom: 19px;
+    }
+
+    .incident-input-wrapper input,
+    .incident-input-wrapper select {
+        height: 46px;
+        font-size: 12px;
+    }
+
+    .incident-form-group textarea {
+        min-height: 115px;
+        font-size: 12px;
+    }
+
+    .incident-upload-content {
+        min-height: 150px;
+    }
+
+    .incident-form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .incident-cancel-btn,
+    .incident-submit-btn {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .incident-emergency-notice {
+        align-items: flex-start;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .emergency-notice-icon {
+        width: 37px;
+        height: 37px;
+        font-size: 15px;
+    }
+
+    .incident-emergency-notice h3 {
+        font-size: 12px;
+    }
+
+    .incident-emergency-notice p {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =================================
+   ACCESSIBILITY
+================================= */
+
+.incident-form-group input:focus-visible,
+.incident-form-group select:focus-visible,
+.incident-form-group textarea:focus-visible,
+.incident-form-actions button:focus-visible,
+.incident-form-actions a:focus-visible,
+.get-location-btn:focus-visible {
+    outline: 2px solid var(--primary, #315B68);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .incident-report-page *,
+    .incident-report-page *::before,
+    .incident-report-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+}
+
+/* ===== INCIDENT FORM - REDUCED HEIGHT ===== */
+
+.incident-report-page {
+    padding: 15px 15px 25px !important;
+}
+
+.incident-report-header {
+    margin-bottom: 12px !important;
+}
+
+.incident-breadcrumb {
+    margin-bottom: 8px !important;
+}
+
+.incident-header-icon {
+    width: 36px !important;
+    height: 36px !important;
+    margin-bottom: 7px !important;
+    font-size: 15px !important;
+}
+
+.incident-report-header h1 {
+    font-size: 23px !important;
+    margin-bottom: 4px !important;
+}
+
+.incident-report-header p {
+    font-size: 11px !important;
+}
+
+.incident-form-section {
+    max-width: 720px !important;
+}
+
+.incident-form-card {
+    padding: 16px 20px !important;
+    border-radius: 12px !important;
+}
+
+.incident-form-title {
+    padding-bottom: 9px !important;
+    margin-bottom: 12px !important;
+}
+
+.incident-form-title h2 {
+    font-size: 15px !important;
+}
+
+.incident-form-title p {
+    font-size: 10px !important;
+}
+
+.incident-form-group {
+    margin-bottom: 9px !important;
+}
+
+.incident-form-group label {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+}
+
+.incident-input-wrapper input,
+.incident-input-wrapper select {
+    height: 35px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    font-size: 11px !important;
+}
+
+.incident-input-wrapper > i {
+    font-size: 11px !important;
+}
+
+.incident-form-row {
+    gap: 10px !important;
+}
+
+.incident-form-group textarea {
+    min-height: 65px !important;
+    height: 65px !important;
+    padding: 8px 10px !important;
+    font-size: 11px !important;
+}
+
+.get-location-btn {
+    margin-top: 4px !important;
+    padding: 5px 8px !important;
+    font-size: 10px !important;
+}
+
+.incident-upload-content {
+    min-height: 85px !important;
+    padding: 8px !important;
+}
+
+.incident-upload-icon {
+    width: 28px !important;
+    height: 28px !important;
+    margin-bottom: 4px !important;
+    font-size: 13px !important;
+}
+
+.incident-section-divider {
+    margin: 12px 0 10px !important;
+}
+
+.incident-privacy-notice {
+    padding: 8px 10px !important;
+    margin-top: 3px !important;
+    font-size: 10px !important;
+}
+
+.incident-form-actions {
+    margin-top: 12px !important;
+    padding-top: 10px !important;
+}
+
+.incident-cancel-btn,
+.incident-submit-btn {
+    min-height: 34px !important;
+    padding: 0 13px !important;
+    font-size: 10px !important;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .incident-report-page {
+        padding: 12px 10px 20px !important;
+    }
+
+    .incident-form-card {
+        padding: 13px 12px !important;
+    }
+
+    .incident-form-row {
+        gap: 0 !important;
+    }
+
+    .incident-form-group {
+        margin-bottom: 8px !important;
+    }
+
+    .incident-form-group textarea {
+        min-height: 60px !important;
+        height: 60px !important;
+    }
+
+    .incident-upload-content {
+        min-height: 75px !important;
+    }
+}

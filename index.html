@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,419 +18,680 @@
 
 <!-- NAVBAR -->
 <header class="navbar">
-    <a href="#home" class="logo">
+
+    <a href="index.html" class="logo">
         <i class="fa-solid fa-shield-heart"></i>
         Safe<span>Aid</span>
     </a>
 
-    <nav class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#incidents">Incidents</a>
-        <a href="#live-map">Live Map</a>
-        <a href="#missing">Missing Persons</a>
-         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <div class="mobile-menu" id="navLinks">
 
-    <div class="nav-actions">
-        <a href="login.html" class="login-btn">
-            <i class="fa-regular fa-user"></i> Login
-        </a>
-        <a href="volunteer-registration.html" class="volunteer-btn">
-            <i class="fa-solid fa-handshake-angle"></i> Get Volunteer
-        </a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#incidents">Incidents</a>
+            <a href="index.html#live-map">Live Map</a>
+            <a href="index.html#community">Public Post</a>
+            <a href="index.html#missing">Missing Persons</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="volunteer-registration.html" class="volunteer-btn">
+                Get Volunteer
+            </a>
+        </div>
+
     </div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
         <i class="fa-solid fa-bars"></i>
     </button>
+
 </header>
 
 
-<!-- HERO -->
-<section class="hero" id="home">
+<!-- ALL HOME PAGE CONTENT -->
+<div class="home-page-content">
 
-    <div class="hero-content">
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
 
-        <div class="hero-tag">
-            <span class="status-dot"></span>
-            EMERGENCY & PUBLIC SAFETY PLATFORM
+            <h1>
+                Together We Make<br>
+                The World <span>Safer.</span>
+            </h1>
+
+            <p>
+                Your trusted platform for emergency assistance,
+                incident reporting, missing person support and
+                community safety.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#incidents" class="primary-btn">
+                    Report an Incident
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="#about" class="secondary-btn">
+                    Discover Safe Aid
+                </a>
+            </div>
+
+            <div class="hero-trust">
+                <span><i class="fa-solid fa-shield-halved"></i> Community Safety</span>
+                <span><i class="fa-solid fa-location-dot"></i> Emergency Support</span>
+                <span><i class="fa-solid fa-people-group"></i> Volunteer Network</span>
+            </div>
         </div>
 
-        <h1>
-            Together We Make<br>
-            The World <span>Safer.</span>
-        </h1>
+        <div class="hero-bottom-line"></div>
+    </section>
 
-        <p>
-            Your trusted platform for emergency assistance,
-            incident reporting, missing person support and
-            community safety.
-        </p>
 
-        <div class="hero-buttons">
-            <a href="#incidents" class="primary-btn">
-                Report an Incident
+    <!-- INCIDENTS -->
+    <section class="incidents section" id="incidents">
+
+        <div class="section-heading">
+            <span class="section-tag">REPORT AN EMERGENCY</span>
+            <h2>Incident <span>Reporting</span></h2>
+            <p>Report an incident and help your community stay informed.</p>
+        </div>
+
+        <div class="incident-main-box animated-border">
+
+            <div class="incident-top">
+                <div>
+                    <h3>Emergency Categories</h3>
+                    <p>Select an incident category to report.</p>
+                </div>
+
+                <span class="live-indicator">
+                    <span class="status-dot"></span> REPORTING
+                </span>
+            </div>
+
+           <div class="incident-container">
+
+    <!-- ROAD ACCIDENTS -->
+    <a href="incident-report.html?type=road-accident" class="incident-card">
+        <div class="incident-icon accident">
+            <i class="fa-solid fa-car-burst"></i>
+        </div>
+        <h3>Road Accidents</h3>
+        <p>Traffic accidents and road emergencies.</p>
+        <span class="card-link">
+            Report Incident <i class="fa-solid fa-arrow-right"></i>
+        </span>
+    </a>
+
+    <!-- FIRE INCIDENTS -->
+    <a href="incident-report.html?type=fire" class="incident-card">
+        <div class="incident-icon fire">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+        </div>
+        <h3>Fire Incidents</h3>
+        <p>Fire emergencies and rescue situations.</p>
+        <span class="card-link">
+            Report Incident <i class="fa-solid fa-arrow-right"></i>
+        </span>
+    </a>
+
+    <!-- FLOOD INCIDENTS -->
+    <a href="incident-report.html?type=flood" class="incident-card">
+        <div class="incident-icon flood">
+            <i class="fa-solid fa-house-flood-water"></i>
+        </div>
+        <h3>Flood Incidents</h3>
+        <p>Flooding, waterlogging and water-related emergencies.</p>
+        <span class="card-link">
+            Report Incident <i class="fa-solid fa-arrow-right"></i>
+        </span>
+    </a>
+
+</div>
+        </div>
+    </section>
+
+
+    <!-- LIVE MAP -->
+    <section class="live-map section" id="live-map">
+
+        <div class="section-heading">
+            <span class="section-tag">LOCATION SERVICES</span>
+            <h2>Live Location <span>Map</span></h2>
+            <p>Check your current location and explore nearby assistance.</p>
+        </div>
+
+        <div class="map-card">
+
+            <div class="map-card-header">
+                <div>
+                    <h3>
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        Location Explorer
+                    </h3>
+                    <p>Location access is controlled by your browser.</p>
+                </div>
+
+                <span class="map-status">LOCATION</span>
+            </div>
+
+            <div class="map-placeholder">
+                <i class="fa-solid fa-location-crosshairs"></i>
+
+                <h3>Explore Your Location</h3>
+
+                <p>
+                    Allow location permission to view your position on Google Maps.
+                </p>
+
+                <button class="map-btn" id="locationBtn">
+                    <i class="fa-solid fa-crosshairs"></i>
+                    Find My Location
+                </button>
+
+                <p id="locationStatus" class="location-status" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PUBLIC COMMUNITY FEED -->
+    <section class="section community-section" id="community">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="section-tag">SAFE AID COMMUNITY</span>
+                <h2>Public Community Feed</h2>
+                <p>
+                    Share updates, ask for help and support your community.
+                    Everyone can view and contribute.
+                </p>
+            </div>
+
+            <div class="community-layout">
+
+                <!-- CREATE POST -->
+                <div class="community-create-card">
+
+                    <h3>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Create a Post
+                    </h3>
+
+                    <p class="community-subtitle">
+                        Share useful information with your community.
+                    </p>
+
+                    <form id="communityPostForm">
+
+                        <div class="community-name-row">
+
+                            <input
+                                type="text"
+                                id="communityAuthor"
+                                placeholder="Your name (optional)"
+                                maxlength="40"
+                            >
+
+                            <label class="anonymous-option">
+                                <input type="checkbox" id="communityAnonymous">
+                                Post anonymously
+                            </label>
+
+                        </div>
+
+                        <textarea
+                            id="communityPostText"
+                            placeholder="What's happening in your community?"
+                            rows="4"
+                            maxlength="1500"
+                            required
+                        ></textarea>
+
+                        <div class="community-extra-fields">
+
+                            <label class="community-upload">
+                                <i class="fa-regular fa-image"></i>
+                                Add Photo
+
+                                <input
+                                    type="file"
+                                    id="communityPostImage"
+                                    accept="image/*"
+                                    hidden
+                                >
+                            </label>
+
+                            <input
+                                type="text"
+                                id="communityPostLocation"
+                                placeholder="Location (optional)"
+                                maxlength="100"
+                            >
+
+                        </div>
+
+                        <div id="communityImagePreview" class="community-image-preview"></div>
+
+                        <div class="community-submit-row">
+
+                            <span class="community-public-note">
+                                <i class="fa-solid fa-earth-asia"></i>
+                                Public post
+                            </span>
+
+                            <button type="submit" class="community-submit-btn">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                Publish Post
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+
+
+                <!-- MODERATION DEMO -->
+                <div class="community-admin-demo">
+
+                    <div>
+                        <strong>
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Moderation Demo
+                        </strong>
+
+                        <p>Enable demo controls to hide or delete posts.</p>
+                    </div>
+
+                    <label class="community-admin-switch">
+                        <input type="checkbox" id="communityAdminMode">
+                        <span>Admin Demo Mode</span>
+                    </label>
+
+                </div>
+
+
+                <!-- COMMUNITY POSTS -->
+                <div class="community-feed-area">
+
+                    <div class="community-feed-heading">
+                        <h3>Community Updates</h3>
+                        <span id="communityPostCount">0 Posts</span>
+                    </div>
+
+                    <div id="communityPostsList" class="community-posts-list">
+                        <!-- Posts will be rendered here -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- MISSING PERSONS -->
+    <section class="missing section" id="missing">
+
+        <div class="section-heading">
+            <span class="section-tag">COMMUNITY ALERTS</span>
+            <h2>Missing <span>Persons</span></h2>
+            <p>Help reunite families by sharing verified information.</p>
+        </div>
+
+        <div class="missing-grid">
+
+            <article class="missing-card animated-border">
+
+                <div class="missing-image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500" alt="Missing person profile placeholder">
+                    <span class="missing-badge">DEMO PROFILE</span>
+                </div>
+
+                <div class="missing-info">
+                    <span class="missing-label">MISSING PERSON</span>
+                    <h3>Sample Person One</h3>
+                    <p><i class="fa-solid fa-user"></i> Age: 25 years</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Last seen: Chattogram</p>
+                    <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
+
+                    <a href="login.html" class="missing-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="missing-card animated-border">
+
+                <div class="missing-image">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Missing person profile placeholder">
+                    <span class="missing-badge">DEMO PROFILE</span>
+                </div>
+
+                <div class="missing-info">
+                    <span class="missing-label">MISSING PERSON</span>
+                    <h3>Sample Person Two</h3>
+                    <p><i class="fa-solid fa-user"></i> Age: 19 years</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Last seen: Dhaka</p>
+                    <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
+
+                    <a href="login.html" class="missing-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="missing-card animated-border">
+
+                <div class="missing-image">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500" alt="Missing person profile placeholder">
+                    <span class="missing-badge">DEMO PROFILE</span>
+                </div>
+
+                <div class="missing-info">
+                    <span class="missing-label">MISSING PERSON</span>
+                    <h3>Sample Person Three</h3>
+                    <p><i class="fa-solid fa-user"></i> Age: 30 years</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Last seen: Cox's Bazar</p>
+                    <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
+
+                    <a href="login.html" class="missing-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="missing-action">
+            <a href="login.html" class="secondary-btn">
+                Report Missing Person
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+
+        <div class="section-heading">
+            <span class="section-tag">WHO WE ARE</span>
+            <h2>About <span>Safe Aid</span></h2>
+            <p>
+                Building a connected and safer community through technology and teamwork.
+            </p>
+        </div>
+
+        <div class="about-box animated-border">
+
+            <div class="about-intro">
+
+                <span class="about-number">01</span>
+
+                <div>
+                    <h3>Our Purpose</h3>
+                    <p>
+                        Safe Aid is a community-focused emergency assistance
+                        platform that connects people with essential safety
+                        information and emergency support.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="about-timeline">
+
+                <div class="timeline-item">
+                    <span class="timeline-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </span>
+
+                    <div>
+                        <span class="timeline-label">STEP 01</span>
+                        <h3>Our Mission</h3>
+                        <p>
+                            Make emergency reporting easier and connect
+                            people with timely assistance.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="timeline-item">
+                    <span class="timeline-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+
+                    <div>
+                        <span class="timeline-label">STEP 02</span>
+                        <h3>Our Vision</h3>
+                        <p>
+                            Create a safer society where people can
+                            access reliable emergency support.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="timeline-item">
+                    <span class="timeline-icon">
+                        <i class="fa-solid fa-people-group"></i>
+                    </span>
+
+                    <div>
+                        <span class="timeline-label">STEP 03</span>
+                        <h3>Our Community</h3>
+                        <p>
+                            Connect citizens, volunteers, blood donors
+                            and emergency service providers.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="timeline-item">
+                    <span class="timeline-icon">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </span>
+
+                    <div>
+                        <span class="timeline-label">STEP 04</span>
+                        <h3>Our Commitment</h3>
+                        <p>
+                            Encourage responsible reporting, cooperation
+                            and accessible community assistance.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="volunteer-registration.html" class="about-join">
+                Become a Volunteer
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
 
-            <a href="#about" class="secondary-btn">
-                Discover Safe Aid
-            </a>
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+
+        <div class="section-heading">
+            <span class="section-tag">WE ARE HERE TO HELP</span>
+            <h2>Get In <span>Touch</span></h2>
+            <p>Have a question or need assistance? Contact our team.</p>
         </div>
 
-        <div class="hero-trust">
-            <span><i class="fa-solid fa-shield-halved"></i> Community Safety</span>
-            <span><i class="fa-solid fa-location-dot"></i> Emergency Support</span>
-            <span><i class="fa-solid fa-people-group"></i> Volunteer Network</span>
-        </div>
+        <div class="contact-container">
 
-    </div>
+            <div class="contact-info">
 
-    <div class="hero-bottom-line"></div>
-</section>
+                <span class="section-tag">CONTACT INFORMATION</span>
 
+                <h3>Let's Make A Difference Together.</h3>
 
-<!-- INCIDENTS -->
-<section class="incidents section" id="incidents">
-
-    <div class="section-heading">
-        <span class="section-tag">REPORT AN EMERGENCY</span>
-        <h2>Incident <span>Reporting</span></h2>
-        <p>Report an incident and help your community stay informed.</p>
-    </div>
-
-    <div class="incident-main-box animated-border">
-
-        <div class="incident-top">
-            <div>
-                <h3>Emergency Categories</h3>
-                <p>Select an incident category to report.</p>
-            </div>
-            <span class="live-indicator">
-                <span class="status-dot"></span> REPORTING
-            </span>
-        </div>
-
-        <div class="incident-container">
-
-            <a href="login.html" class="incident-card">
-                <div class="incident-icon accident">
-                    <i class="fa-solid fa-car-burst"></i>
-                </div>
-                <h3>Road Accidents</h3>
-                <p>Traffic accidents and road emergencies.</p>
-                <span class="card-link">Report Incident <i class="fa-solid fa-arrow-right"></i></span>
-            </a>
-
-            <a href="login.html" class="incident-card">
-                <div class="incident-icon fire">
-                    <i class="fa-solid fa-fire-flame-curved"></i>
-                </div>
-                <h3>Fire Incidents</h3>
-                <p>Fire emergencies and rescue situations.</p>
-                <span class="card-link">Report Incident <i class="fa-solid fa-arrow-right"></i></span>
-            </a>
-
-            <a href="login.html" class="incident-card">
-                <div class="incident-icon other">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-                <h3>Other Incidents</h3>
-                <p>Other public safety and emergency reports.</p>
-                <span class="card-link">Report Incident <i class="fa-solid fa-arrow-right"></i></span>
-            </a>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- LIVE MAP -->
-<section class="live-map section" id="live-map">
-
-    <div class="section-heading">
-        <span class="section-tag">LOCATION SERVICES</span>
-        <h2>Live Location <span>Map</span></h2>
-        <p>Check your current location and explore nearby assistance.</p>
-    </div>
-
-    <div class="map-card">
-
-        <div class="map-card-header">
-            <div>
-                <h3><i class="fa-solid fa-map-location-dot"></i> Location Explorer</h3>
-                <p>Location access is controlled by your browser.</p>
-            </div>
-            <span class="map-status">LOCATION</span>
-        </div>
-
-        <div class="map-placeholder">
-            <i class="fa-solid fa-location-crosshairs"></i>
-            <h3>Explore Your Location</h3>
-            <p>Allow location permission to view your position on Google Maps.</p>
-
-            <button class="map-btn" id="locationBtn">
-                <i class="fa-solid fa-crosshairs"></i>
-                Find My Location
-            </button>
-
-            <p id="locationStatus" class="location-status" aria-live="polite"></p>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- MISSING PERSONS -->
-<section class="missing section" id="missing">
-
-    <div class="section-heading">
-        <span class="section-tag">COMMUNITY ALERTS</span>
-        <h2>Missing <span>Persons</span></h2>
-        <p>Help reunite families by sharing verified information.</p>
-    </div>
-
-    <div class="missing-grid">
-
-        <article class="missing-card animated-border">
-            <div class="missing-image">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500" alt="Missing person profile placeholder">
-                <span class="missing-badge">DEMO PROFILE</span>
-            </div>
-            <div class="missing-info">
-                <span class="missing-label">MISSING PERSON</span>
-                <h3>Sample Person One</h3>
-                <p><i class="fa-solid fa-user"></i> Age: 25 years</p>
-                <p><i class="fa-solid fa-location-dot"></i> Last seen: Chattogram</p>
-                <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
-                <a href="login.html" class="missing-link">
-                    View Details <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </article>
-
-        <article class="missing-card animated-border">
-            <div class="missing-image">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Missing person profile placeholder">
-                <span class="missing-badge">DEMO PROFILE</span>
-            </div>
-            <div class="missing-info">
-                <span class="missing-label">MISSING PERSON</span>
-                <h3>Sample Person Two</h3>
-                <p><i class="fa-solid fa-user"></i> Age: 19 years</p>
-                <p><i class="fa-solid fa-location-dot"></i> Last seen: Dhaka</p>
-                <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
-                <a href="login.html" class="missing-link">
-                    View Details <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </article>
-
-        <article class="missing-card animated-border">
-            <div class="missing-image">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500" alt="Missing person profile placeholder">
-                <span class="missing-badge">DEMO PROFILE</span>
-            </div>
-            <div class="missing-info">
-                <span class="missing-label">MISSING PERSON</span>
-                <h3>Sample Person Three</h3>
-                <p><i class="fa-solid fa-user"></i> Age: 30 years</p>
-                <p><i class="fa-solid fa-location-dot"></i> Last seen: Cox's Bazar</p>
-                <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
-                <a href="login.html" class="missing-link">
-                    View Details <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </article>
-
-    </div>
-
-    <div class="missing-action">
-        <a href="login.html" class="secondary-btn">
-            Report Missing Person <i class="fa-solid fa-arrow-right"></i>
-        </a>
-    </div>
-</section>
-
-
-<!-- ABOUT -->
-<section class="about section" id="about">
-
-    <div class="section-heading">
-        <span class="section-tag">WHO WE ARE</span>
-        <h2>About <span>Safe Aid</span></h2>
-        <p>Building a connected and safer community through technology and teamwork.</p>
-    </div>
-
-    <div class="about-box animated-border">
-
-        <div class="about-intro">
-            <span class="about-number">01</span>
-            <div>
-                <h3>Our Purpose</h3>
                 <p>
-                    Safe Aid is a community-focused emergency assistance
-                    platform that connects people with essential safety
-                    information and emergency support.
+                    Reach out to Safe Aid for information,
+                    community support and general enquiries.
                 </p>
-            </div>
-        </div>
 
-        <div class="about-timeline">
+                <div class="contact-item">
+                    <span class="contact-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
 
-            <div class="timeline-item">
-                <span class="timeline-icon">
-                    <i class="fa-solid fa-bullseye"></i>
-                </span>
-                <div>
-                    <span class="timeline-label">STEP 01</span>
-                    <h3>Our Mission</h3>
-                    <p>
-                        Make emergency reporting easier and connect
-                        people with timely assistance.
-                    </p>
+                    <div>
+                        <h4>Email Address</h4>
+                        <p>support@safeaid.com</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timeline-item">
-                <span class="timeline-icon">
-                    <i class="fa-solid fa-eye"></i>
-                </span>
-                <div>
-                    <span class="timeline-label">STEP 02</span>
-                    <h3>Our Vision</h3>
-                    <p>
-                        Create a safer society where people can
-                        access reliable emergency support.
-                    </p>
+
+                <div class="contact-item">
+                    <span class="contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+
+                    <div>
+                        <h4>Support</h4>
+                        <p>Contact our support team</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="timeline-item">
-                <span class="timeline-icon">
-                    <i class="fa-solid fa-people-group"></i>
-                </span>
-                <div>
-                    <span class="timeline-label">STEP 03</span>
-                    <h3>Our Community</h3>
-                    <p>
-                        Connect citizens, volunteers, blood donors
-                        and emergency service providers.
-                    </p>
+
+                <div class="contact-item">
+                    <span class="contact-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+
+                    <div>
+                        <h4>Location</h4>
+                        <p>Bangladesh</p>
+                    </div>
                 </div>
+
             </div>
 
-            <div class="timeline-item">
-                <span class="timeline-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </span>
-                <div>
-                    <span class="timeline-label">STEP 04</span>
-                    <h3>Our Commitment</h3>
-                    <p>
-                        Encourage responsible reporting, cooperation
-                        and accessible community assistance.
-                    </p>
+
+            <form class="contact-form" id="contactForm">
+
+                <div class="form-row">
+                    <label for="contactName">Full Name</label>
+                    <input type="text" id="contactName" placeholder="Enter your name" required>
                 </div>
-            </div>
 
-        </div>
-
-        <a href="volunteer-registration.html" class="about-join">
-            Become a Volunteer
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
-
-    </div>
-</section>
-
-
-<!-- CONTACT -->
-<section class="contact section" id="contact">
-
-    <div class="section-heading">
-        <span class="section-tag">WE ARE HERE TO HELP</span>
-        <h2>Get In <span>Touch</span></h2>
-        <p>Have a question or need assistance? Contact our team.</p>
-    </div>
-
-    <div class="contact-container">
-
-        <div class="contact-info">
-            <span class="section-tag">CONTACT INFORMATION</span>
-            <h3>Let's Make A Difference Together.</h3>
-            <p>
-                Reach out to Safe Aid for information,
-                community support and general enquiries.
-            </p>
-
-            <div class="contact-item">
-                <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
-                <div>
-                    <h4>Email Address</h4>
-                    <p>support@safeaid.com</p>
+                <div class="form-row">
+                    <label for="contactEmail">Email Address</label>
+                    <input type="email" id="contactEmail" placeholder="Enter your email" required>
                 </div>
-            </div>
 
-            <div class="contact-item">
-                <span class="contact-icon"><i class="fa-solid fa-phone"></i></span>
-                <div>
-                    <h4>Support</h4>
-                    <p>Contact our support team</p>
+                <div class="form-row">
+                    <label for="contactSubject">Subject</label>
+                    <input type="text" id="contactSubject" placeholder="Enter subject" required>
                 </div>
-            </div>
 
-            <div class="contact-item">
-                <span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span>
-                <div>
-                    <h4>Location</h4>
-                    <p>Bangladesh</p>
+                <div class="form-row">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" rows="4" placeholder="Write your message..." required></textarea>
                 </div>
-            </div>
+
+                <button type="submit" class="send-btn">
+                    Send Message
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </form>
 
         </div>
+    </section>
 
-        <form class="contact-form" id="contactForm">
 
-            <div class="form-row">
-                <label for="contactName">Full Name</label>
-                <input type="text" id="contactName" placeholder="Enter your name" required>
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-about">
+
+                <a href="#home" class="logo">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    Safe<span>Aid</span>
+                </a>
+
+                <p>
+                    Creating a safer community through awareness,
+                    emergency assistance and collective action.
+                </p>
+
             </div>
 
-            <div class="form-row">
-                <label for="contactEmail">Email Address</label>
-                <input type="email" id="contactEmail" placeholder="Enter your email" required>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#incidents">Incidents</a>
+                <a href="#live-map">Live Map</a>
             </div>
 
-            <div class="form-row">
-                <label for="contactSubject">Subject</label>
-                <input type="text" id="contactSubject" placeholder="Enter subject" required>
+
+            <div class="footer-links">
+                <h3>Our Services</h3>
+                <a href="#missing">Missing Persons</a>
+                <a href="login.html">Blood Donation</a>
+                <a href="login.html">Hospital Services</a>
+                <a href="login.html">Ambulance</a>
             </div>
 
-            <div class="form-row">
-                <label for="contactMessage">Message</label>
-                <textarea id="contactMessage" rows="4" placeholder="Write your message..." required></textarea>
+
+            <div class="footer-links">
+                <h3>Get Involved</h3>
+                <a href="login.html">Login</a>
+                <a href="volunteer-registration.html">Become a Volunteer</a>
+                <a href="#contact">Contact Us</a>
             </div>
 
-            <button type="submit" class="send-btn">
-                Send Message <i class="fa-solid fa-paper-plane"></i>
-            </button>
+        </div>
 
-        </form>
-    </div>
-</section>
+
+        <div class="footer-bottom">
+            <p>© 2026 Safe Aid. All Rights Reserved.</p>
+            <p>Designed for a Safer Tomorrow.</p>
+        </div>
+
+    </footer>
+
+</div>
+<!-- END HOME PAGE CONTENT -->
 
 
 <!-- SOS BUTTON -->
 <button class="floating-sos" id="floatingSOS" aria-label="Open emergency services">
+
     <span class="sos-ripple ripple-one"></span>
     <span class="sos-ripple ripple-two"></span>
     <span class="sos-ripple ripple-three"></span>
+
     <span class="sos-core">
         <i class="fa-solid fa-bell"></i>
         <b>SOS</b>
     </span>
+
 </button>
 
 
@@ -445,8 +705,11 @@
         </button>
 
         <span class="section-tag">EMERGENCY ASSISTANCE</span>
+
         <h2>How Can We <span>Help You?</span></h2>
+
         <p>Select the service you need.</p>
+
 
         <div class="sos-services">
 
@@ -458,6 +721,7 @@
                 </div>
             </a>
 
+
             <a href="login.html" class="sos-service">
                 <i class="fa-solid fa-hospital"></i>
                 <div>
@@ -466,6 +730,7 @@
                 </div>
             </a>
 
+
             <a href="login.html" class="sos-service">
                 <i class="fa-solid fa-phone-volume"></i>
                 <div>
@@ -473,6 +738,7 @@
                     <p>Important contact numbers</p>
                 </div>
             </a>
+
 
             <a href="login.html" class="sos-service">
                 <i class="fa-solid fa-truck-medical"></i>
@@ -486,54 +752,6 @@
     </div>
 </div>
 
-
-<!-- FOOTER -->
-<footer class="footer">
-
-    <div class="footer-container">
-
-        <div class="footer-about">
-            <a href="#home" class="logo">
-                <i class="fa-solid fa-shield-heart"></i>
-                Safe<span>Aid</span>
-            </a>
-            <p>
-                Creating a safer community through awareness,
-                emergency assistance and collective action.
-            </p>
-        </div>
-
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#incidents">Incidents</a>
-            <a href="#live-map">Live Map</a>
-        </div>
-
-        <div class="footer-links">
-            <h3>Our Services</h3>
-            <a href="#missing">Missing Persons</a>
-            <a href="login.html">Blood Donation</a>
-            <a href="login.html">Hospital Services</a>
-            <a href="login.html">Ambulance</a>
-        </div>
-
-        <div class="footer-links">
-            <h3>Get Involved</h3>
-            <a href="login.html">Login</a>
-            <a href="volunteer-registration.html">Become a Volunteer</a>
-            <a href="#contact">Contact Us</a>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <p>© 2026 Safe Aid. All Rights Reserved.</p>
-        <p>Designed for a Safer Tomorrow.</p>
-    </div>
-
-</footer>
 
 <script src="script.js"></script>
 

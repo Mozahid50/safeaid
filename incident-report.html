@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report an Incident | Safe Aid</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main Website CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Incident Report CSS -->
+    <link rel="stylesheet" href="incident-report.css">
+</head>
+
+<body>
+
+    <!-- =================================
+         NAVIGATION BAR
+    ================================== -->
+
+    <header class="navbar">
+
+    <a href="index.html" class="logo">
+        <i class="fa-solid fa-shield-heart"></i>
+        Safe<span>Aid</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#incidents">Incidents</a>
+        <a href="index.html#live-map">Live Map</a>
+        <a href="index.html#community">Public Post</a>
+        <a href="index.html#missing">Missing Persons</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <a href="login.html" class="login-btn">Login</a>
+
+        <a href="volunteer-registration.html"
+           class="volunteer-btn active">
+            Get Volunteer
+        </a>
+
+    </div>
+
+    <button class="menu-btn" id="menuBtn" type="button">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</header>
+
+
+    <!-- =================================
+         INCIDENT REPORT PAGE
+    ================================== -->
+
+    <main class="incident-report-page">
+
+        <!-- Page Heading -->
+
+        <section class="incident-report-header">
+
+            <div class="incident-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fa-solid fa-angle-right"></i>
+                <span>Report Incident</span>
+            </div>
+
+            <div class="incident-header-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <h1>Report an Incident</h1>
+
+            <p>
+                Help us respond faster. Share the details of an emergency
+                or incident in your area.
+            </p>
+
+        </section>
+
+
+        <!-- Report Form Section -->
+
+        <section class="incident-form-section">
+
+            <div class="incident-form-card">
+
+                <div class="incident-form-title">
+
+                    <div>
+                        <h2>Incident Information</h2>
+                        <p>Please provide accurate information.</p>
+                    </div>
+
+                    <span class="required-note">
+                        * Required fields
+                    </span>
+
+                </div>
+
+
+                <form id="incidentReportForm">
+
+                    <!-- Incident Type -->
+
+                    <div class="incident-form-group">
+
+                        <label for="incidentType">
+                            Incident Type <span>*</span>
+                        </label>
+
+                        <div class="incident-input-wrapper">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            <select id="incidentType"
+                                    name="incidentType"
+                                    required>
+
+                                <option value="">Select incident type</option>
+
+                                <option value="road-accident">
+                                    Road Accident
+                                </option>
+
+                                <option value="fire">
+                                    Fire Incident
+                                </option>
+
+                                <option value="flood">
+                                    Flood Incident
+                                </option>
+
+                                <option value="other">
+                                    Other Emergency
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Incident Title -->
+
+                    <div class="incident-form-group">
+
+                        <label for="incidentTitle">
+                            Incident Title <span>*</span>
+                        </label>
+
+                        <div class="incident-input-wrapper">
+
+                            <i class="fa-solid fa-heading"></i>
+
+                            <input type="text"
+                                   id="incidentTitle"
+                                   name="incidentTitle"
+                                   placeholder="Enter a short incident title"
+                                   maxlength="100"
+                                   required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Location -->
+
+                    <div class="incident-form-group">
+
+                        <label for="incidentLocation">
+                            Incident Location <span>*</span>
+                        </label>
+
+                        <div class="incident-input-wrapper">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <input type="text"
+                                   id="incidentLocation"
+                                   name="incidentLocation"
+                                   placeholder="Enter the incident location"
+                                   maxlength="200"
+                                   required>
+
+                        </div>
+
+                        <button type="button"
+                                class="get-location-btn"
+                                id="getIncidentLocation">
+
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                            Use My Current Location
+
+                        </button>
+
+                        <small id="incidentLocationStatus">
+                            You can enter the location manually or use your current location.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Date and Time -->
+
+                    <div class="incident-form-row">
+
+                        <div class="incident-form-group">
+
+                            <label for="incidentDate">
+                                Incident Date <span>*</span>
+                            </label>
+
+                            <div class="incident-input-wrapper">
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                <input type="date"
+                                       id="incidentDate"
+                                       name="incidentDate"
+                                       required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="incident-form-group">
+
+                            <label for="incidentTime">
+                                Incident Time <span>*</span>
+                            </label>
+
+                            <div class="incident-input-wrapper">
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                <input type="time"
+                                       id="incidentTime"
+                                       name="incidentTime"
+                                       required>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Description -->
+
+                    <div class="incident-form-group">
+
+                        <label for="incidentDescription">
+                            Incident Description <span>*</span>
+                        </label>
+
+                        <textarea id="incidentDescription"
+                                  name="incidentDescription"
+                                  rows="5"
+                                  maxlength="2000"
+                                  placeholder="Describe what happened, how many people are affected, and what kind of help is needed..."
+                                  required></textarea>
+
+                        <div class="incident-character-count">
+                            <span id="descriptionCount">0</span>/2000 characters
+                        </div>
+
+                    </div>
+
+
+                    <!-- Evidence Upload -->
+
+                    <div class="incident-form-group">
+
+                        <label for="incidentEvidence">
+                            Upload Photos or Videos
+                            <span class="optional-label">(Optional)</span>
+                        </label>
+
+                        <div class="incident-upload-area">
+
+                            <input type="file"
+                                   id="incidentEvidence"
+                                   name="incidentEvidence"
+                                   accept="image/*,video/*"
+                                   multiple
+                                   hidden>
+
+                            <label for="incidentEvidence"
+                                   class="incident-upload-content">
+
+                                <div class="incident-upload-icon">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                </div>
+
+                                <strong>Click to upload files</strong>
+
+                                <span>
+                                    Upload relevant photos or videos
+                                </span>
+
+                                <small>
+                                    Maximum 5 files · 5 MB each
+                                </small>
+
+                            </label>
+
+                        </div>
+
+                        <div id="incidentFilePreview"
+                             class="incident-file-preview"></div>
+
+                    </div>
+
+
+                    <!-- Reporter Information -->
+
+                    <div class="incident-section-divider">
+
+                        <span>Reporter Information</span>
+
+                    </div>
+
+
+                    <div class="incident-form-group">
+
+                        <label for="reporterName">
+                            Your Name <span>*</span>
+                        </label>
+
+                        <div class="incident-input-wrapper">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input type="text"
+                                   id="reporterName"
+                                   name="reporterName"
+                                   placeholder="Enter your name"
+                                   maxlength="100"
+                                   required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="incident-form-row">
+
+                        <div class="incident-form-group">
+
+                            <label for="reporterPhone">
+                                Phone Number <span>*</span>
+                            </label>
+
+                            <div class="incident-input-wrapper">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                <input type="tel"
+                                       id="reporterPhone"
+                                       name="reporterPhone"
+                                       placeholder="01XXXXXXXXX"
+                                       maxlength="20"
+                                       required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="incident-form-group">
+
+                            <label for="reporterEmail">
+                                Email Address
+                                <span class="optional-label">(Optional)</span>
+                            </label>
+
+                            <div class="incident-input-wrapper">
+
+                                <i class="fa-regular fa-envelope"></i>
+
+                                <input type="email"
+                                       id="reporterEmail"
+                                       name="reporterEmail"
+                                       placeholder="example@email.com">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Privacy Notice -->
+
+                    <div class="incident-privacy-notice">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <p>
+                            Your information will be used to help verify
+                            and respond to this incident.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Form Actions -->
+
+                    <div class="incident-form-actions">
+
+                        <a href="index.html#incidents"
+                           class="incident-cancel-btn">
+                            Cancel
+                        </a>
+
+                        <button type="submit"
+                                class="incident-submit-btn"
+                                id="submitIncidentBtn">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Submit Report
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- Emergency Notice -->
+
+        <section class="incident-emergency-notice">
+
+            <div class="emergency-notice-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <div>
+                <h3>Need Immediate Help?</h3>
+
+                <p>
+                    If someone is in immediate danger, contact the
+                    appropriate emergency services directly.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+
+   <footer class="footer incident-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-about">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-shield-heart"></i>
+                Safe<span>Aid</span>
+            </a>
+
+            <p>
+                Safe Aid is dedicated to building safer communities
+                through emergency reporting, awareness and public support.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About Us</a>
+            <a href="index.html#contact">Contact</a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Our Services</h3>
+
+            <a href="incident-report.html">Report an Incident</a>
+            <a href="index.html#live-map">Live Map</a>
+            <a href="index.html#community">Public Community</a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Get Involved</h3>
+
+            <a href="volunteer-registration.html">Become a Volunteer</a>
+            <a href="index.html#incidents">Emergency Updates</a>
+            <a href="index.html#missing">Missing Persons</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>© 2026 Safe Aid. All rights reserved.</p>
+
+        <p>Together for a Safer Community.</p>
+
+    </div>
+
+</footer>
+
+    <!-- Incident Report JavaScript -->
+    <script src="incident-report.js"></script>
+
+</body>
+</html>
