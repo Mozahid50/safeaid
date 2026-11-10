@@ -4810,3 +4810,90 @@ button {
     }
 
 }
+
+
+/* =====================================
+   SAFE AID - FINAL SOS & MENU HEIGHT FIX
+===================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* MOBILE MENU - REDUCE HEIGHT */
+    #navLinks.mobile-menu {
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: 70dvh !important;
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        top: 100% !important;
+        bottom: auto !important;
+
+        padding-top: 14px !important;
+        padding-bottom: 18px !important;
+
+        box-sizing: border-box !important;
+        z-index: 10001 !important;
+    }
+
+    #navLinks.mobile-menu.active {
+        height: auto !important;
+        max-height: 70dvh !important;
+    }
+
+    /* SOS - ALWAYS FIXED ON HOME PAGE */
+    body #floatingSOS {
+        display: flex !important;
+
+        position: fixed !important;
+
+        right: 14px !important;
+        bottom: 18px !important;
+        left: auto !important;
+        top: auto !important;
+
+        width: 60px !important;
+        height: 60px !important;
+
+        min-width: 60px !important;
+        min-height: 60px !important;
+
+        margin: 0 !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        pointer-events: auto !important;
+
+        z-index: 10020 !important;
+
+        transform: none !important;
+    }
+
+    /* KEEP SOS ANIMATION */
+    #floatingSOS .sos-ripple {
+        pointer-events: none !important;
+    }
+
+}
+
+/* SMALL MOBILE */
+@media screen and (max-width: 380px) {
+
+    #navLinks.mobile-menu,
+    #navLinks.mobile-menu.active {
+        max-height: 68dvh !important;
+    }
+
+    body #floatingSOS {
+        width: 55px !important;
+        height: 55px !important;
+        min-width: 55px !important;
+        min-height: 55px !important;
+
+        right: 10px !important;
+        bottom: 14px !important;
+    }
+
+}
