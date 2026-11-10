@@ -4413,3 +4413,315 @@ button {
         background: #ffffff;
     }
 }
+
+
+/* ==========================================
+   SAFE AID - FINAL MOBILE RESPONSIVE OVERRIDE
+   Works with current index.html + script.js
+   Desktop design remains untouched.
+========================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 9998 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 12px 15px !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    .logo {
+        flex-shrink: 0 !important;
+    }
+
+    /* HAMBURGER */
+    .menu-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        width: 42px !important;
+        height: 42px !important;
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 9px !important;
+        font-size: 22px !important;
+        cursor: pointer !important;
+        position: relative !important;
+        z-index: 10002 !important;
+    }
+
+    /* NAVIGATION PANEL */
+    .mobile-menu {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+
+        position: absolute !important;
+        top: 100% !important;
+        right: 0 !important;
+        left: auto !important;
+
+        width: 50vw !important;
+        min-width: 0 !important;
+        max-height: calc(100dvh - 65px) !important;
+
+        padding: 18px 12px !important;
+        gap: 16px !important;
+
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        background: #ffffff !important;
+        box-shadow: -6px 10px 25px rgba(0,0,0,0.16) !important;
+        border-left: 1px solid #e5eeee !important;
+        border-bottom-left-radius: 14px !important;
+
+        transform: translateX(110%) !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+
+        transition: transform 0.3s ease,
+                    opacity 0.3s ease,
+                    visibility 0.3s ease !important;
+
+        z-index: 10001 !important;
+    }
+
+    /* JS adds this exact class */
+    .mobile-menu.active {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    /* ALL SEVEN LINKS */
+    .nav-links {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 0 !important;
+    }
+
+    .nav-links a {
+        display: block !important;
+        width: 100% !important;
+        padding: 12px 5px !important;
+        box-sizing: border-box !important;
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        border-bottom: 1px solid #edf1f1 !important;
+    }
+
+    /* LOGIN + GET VOLUNTEER */
+    .nav-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .nav-actions a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        min-height: 38px !important;
+        padding: 8px 4px !important;
+        box-sizing: border-box !important;
+        font-size: 11px !important;
+        text-align: center !important;
+        white-space: normal !important;
+    }
+
+
+    /* HERO BUTTONS - SIDE BY SIDE */
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .hero-buttons a {
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 11px 6px !important;
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* FLOATING SOS */
+    .floating-sos {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        position: fixed !important;
+        right: 14px !important;
+        bottom: 18px !important;
+
+        width: 60px !important;
+        height: 60px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+
+        z-index: 10001 !important;
+        isolation: isolate !important;
+        cursor: pointer !important;
+    }
+
+    .sos-core {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 52px !important;
+        height: 52px !important;
+        border-radius: 50% !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    .sos-core i {
+        font-size: 17px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .sos-core b {
+        font-size: 12px !important;
+        line-height: 1 !important;
+    }
+
+    .sos-ripple {
+        position: absolute !important;
+        inset: 0 !important;
+        border-radius: 50% !important;
+        pointer-events: none !important;
+    }
+
+
+    /* MISSING PERSONS - ONE CARD AT A TIME */
+    .missing-grid {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .missing-card {
+        display: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .missing-card.is-active {
+        display: block !important;
+        animation: missingMobileFade 0.5s ease;
+    }
+
+    @keyframes missingMobileFade {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    /* COMMUNITY FEED - INTERNAL SCROLL */
+    .community-feed-area {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .community-posts-list {
+        max-height: 420px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        overscroll-behavior: contain !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .community-post-card {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+}
+
+
+/* EXTRA SMALL MOBILE */
+@media screen and (max-width: 380px) {
+
+    .navbar {
+        padding: 10px 11px !important;
+    }
+
+    .menu-btn {
+        width: 39px !important;
+        height: 39px !important;
+    }
+
+    .mobile-menu {
+        padding: 15px 9px !important;
+    }
+
+    .nav-links a {
+        font-size: 11px !important;
+        padding: 11px 3px !important;
+    }
+
+    .nav-actions a {
+        font-size: 10px !important;
+    }
+
+    .floating-sos {
+        width: 55px !important;
+        height: 55px !important;
+        min-width: 55px !important;
+        min-height: 55px !important;
+        right: 10px !important;
+        bottom: 14px !important;
+    }
+
+    .sos-core {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    .hero-buttons a {
+        font-size: 10px !important;
+        padding: 10px 4px !important;
+    }
+
+}
