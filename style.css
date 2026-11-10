@@ -4725,3 +4725,88 @@ button {
     }
 
 }
+
+
+/* =====================================
+   SAFE AID - NAVIGATION & SOS FINAL FIX
+===================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* SHOW ALL NAVIGATION LINKS */
+    #navLinks.mobile-menu .nav-links,
+    #navLinks.mobile-menu.active .nav-links {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        transform: none !important;
+
+        flex: 0 0 auto !important;
+        gap: 0 !important;
+    }
+
+    /* FORCE EVERY NAV LINK TO BE VISIBLE */
+    #navLinks.mobile-menu .nav-links a {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        width: 100% !important;
+        height: auto !important;
+        min-height: 42px !important;
+
+        padding: 12px 6px !important;
+
+        color: #315966 !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+
+        text-decoration: none !important;
+        text-align: left !important;
+
+        background: transparent !important;
+        border-bottom: 1px solid #e8eeee !important;
+
+        position: static !important;
+        transform: none !important;
+    }
+
+    /* KEEP LOGIN AND VOLUNTEER BELOW LINKS */
+    #navLinks.mobile-menu .nav-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+    }
+
+    /* SOS MUST ALWAYS REMAIN VISIBLE */
+    body #floatingSOS {
+        display: flex !important;
+
+        position: fixed !important;
+        right: 14px !important;
+        bottom: 18px !important;
+
+        width: 60px !important;
+        height: 60px !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+
+        z-index: 10010 !important;
+    }
+
+}
