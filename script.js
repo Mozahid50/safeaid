@@ -771,4 +771,57 @@ if (menuBtn && navLinks) {
 }
 
 
+/* =====================================
+   MOBILE MISSING PERSONS SLIDER
+===================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const missingGrid = document.querySelector(".missing-grid");
+
+    if (!missingGrid) return;
+
+    const cards = Array.from(
+        missingGrid.querySelectorAll(".missing-card")
+    );
+
+    if (cards.length <= 1) return;
+
+    let currentIndex = 0;
+    let sliderInterval = null;
+
+    function showCard(index) {
+        cards.forEach((card, i) => {
+            card.classList.toggle("is-active", i === index);
+        });
+    }
+
+    function startSlider() {
+        if (window.innerWidth > 768) {
+            clearInterval(sliderInterval);
+            sliderInterval = null;
+
+            cards.forEach(card => {
+                card.classList.remove("is-active");
+            });
+
+            return;
+        }
+
+        showCard(currentIndex);
+
+        if (!sliderInterval) {
+            sliderInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % cards.length;
+                showCard(currentIndex);
+            }, 3500);
+        }
+    }
+
+    startSlider();
+
+    window.addEventListener("resize", startSlider);
+
+});
+
 
