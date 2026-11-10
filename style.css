@@ -2323,3 +2323,156 @@ button {
     }
 
 }
+
+
+
+/* ===== MOBILE NAVBAR FIX ===== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+    }
+
+    .navbar .logo {
+        flex-shrink: 0;
+    }
+
+    /* Hamburger */
+    .menu-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        font-size: 25px;
+        color: var(--primary);
+        cursor: pointer;
+        z-index: 10002;
+        flex-shrink: 0;
+    }
+
+    /* Side Menu */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        width: 50vw;
+        height: 100vh;
+        height: 100dvh;
+
+        background: #ffffff;
+        padding: 85px 15px 25px;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 20px;
+
+        overflow-y: auto;
+
+        box-shadow: -8px 0 25px rgba(0,0,0,0.12);
+
+        transform: translateX(105%);
+        visibility: hidden;
+
+        transition: transform 0.3s ease,
+                    visibility 0.3s ease;
+
+        z-index: 10000;
+    }
+
+    /* Open Menu */
+    .mobile-menu.active {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    /* Navigation Links */
+    .mobile-menu .nav-links {
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+    }
+
+    .mobile-menu .nav-links a {
+        display: block;
+        padding: 12px 4px;
+        font-size: 12px;
+        border-bottom: 1px solid var(--border);
+        white-space: normal;
+    }
+
+    /* Login and Volunteer */
+    .mobile-menu .nav-actions {
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+        margin: 5px 0 0;
+    }
+
+    .mobile-menu .login-btn,
+    .mobile-menu .volunteer-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 38px;
+        padding: 8px 5px;
+        font-size: 11px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+
+    .mobile-menu {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .mobile-menu .nav-links a {
+        font-size: 11px;
+    }
+}
+
+
+/* ===== MOBILE HERO BUTTONS ===== */
+
+@media (max-width: 768px) {
+
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .hero-buttons a {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        padding: 14px 8px;
+        font-size: 12px;
+        text-align: center;
+        white-space: normal;
+        box-sizing: border-box;
+    }
+
+}

@@ -733,12 +733,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// Mobile Navigation
+
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
 if (menuBtn && navLinks) {
+
     menuBtn.addEventListener("click", () => {
+
         navLinks.classList.toggle("active");
 
         const icon = menuBtn.querySelector("i");
@@ -747,10 +749,13 @@ if (menuBtn && navLinks) {
             icon.classList.toggle("fa-bars");
             icon.classList.toggle("fa-xmark");
         }
+
     });
 
     navLinks.querySelectorAll("a").forEach(link => {
+
         link.addEventListener("click", () => {
+
             navLinks.classList.remove("active");
 
             const icon = menuBtn.querySelector("i");
@@ -759,8 +764,11 @@ if (menuBtn && navLinks) {
                 icon.classList.remove("fa-xmark");
                 icon.classList.add("fa-bars");
             }
+
         });
+
     });
 }
+
 
 
