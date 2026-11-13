@@ -1327,6 +1327,191 @@ if (missingGrid) {
 
 });
 
+
+// ================================================
+// MISSING PERSONS - VIEW DETAILS MODAL
+// Login Required: NO
+// ================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const missingCards = document.querySelectorAll(".missing-card");
+
+    if (!missingCards.length) return;
+
+    // Create Modal
+    const modal = document.createElement("div");
+
+    modal.className = "missing-details-modal";
+    modal.id = "missingDetailsModal";
+
+    modal.innerHTML = `
+        <div class="missing-details-overlay"></div>
+
+        <div class="missing-details-box" role="dialog"
+             aria-modal="true" aria-labelledby="missingDetailsName">
+
+            <button type="button" class="missing-details-close"
+                    aria-label="Close details">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="missing-details-header">
+                <i class="fa-solid fa-user-large"></i>
+                <span>COMMUNITY MISSING PERSON ALERT</span>
+            </div>
+
+            <div class="missing-details-content">
+
+                <span class="missing-details-badge">
+                    MISSING PERSON
+                </span>
+
+                <h2 id="missingDetailsName"></h2>
+
+                <div class="missing-details-information">
+
+                    <div>
+                        <i class="fa-solid fa-user"></i>
+                        <span id="missingDetailsAge"></span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span id="missingDetailsLocation"></span>
+                    </div>
+
+                    <div>
+                        <i class="fa-regular fa-calendar"></i>
+                        <span id="missingDetailsDate"></span>
+                    </div>
+
+                </div>
+
+                <div class="missing-details-description">
+                    <h3>
+                        <i class="fa-solid fa-circle-info"></i>
+                        Additional Information
+                    </h3>
+
+                    <p>
+                        No additional information has been provided
+                        for this demo profile.
+                    </p>
+                </div>
+
+                <div class="missing-details-note">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    If you have verified information about this person,
+                    please contact the appropriate authorities.
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const closeButton = modal.querySelector(
+        ".missing-details-close"
+    );
+
+    const overlay = modal.querySelector(
+        ".missing-details-overlay"
+    );
+
+    // Open Details
+    missingCards.forEach(function (card) {
+
+        const detailsButton = card.querySelector(
+            ".view-missing-details"
+        );
+
+        if (!detailsButton) return;
+
+        detailsButton.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const name = card.querySelector("h3");
+            const details = card.querySelectorAll(
+                ".missing-info > p"
+            );
+
+            const age = details[0]
+                ? details[0].textContent.trim()
+                : "Age information unavailable";
+
+            const location = details[1]
+                ? details[1].textContent.trim()
+                : "Location information unavailable";
+
+            const date = details[2]
+                ? details[2].textContent.trim()
+                : "Date information unavailable";
+
+            modal.querySelector(
+                "#missingDetailsName"
+            ).textContent = name
+                ? name.textContent.trim()
+                : "Missing Person";
+
+            modal.querySelector(
+                "#missingDetailsAge"
+            ).textContent = age;
+
+            modal.querySelector(
+                "#missingDetailsLocation"
+            ).textContent = location;
+
+            modal.querySelector(
+                "#missingDetailsDate"
+            ).textContent = date;
+
+            modal.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+            closeButton.focus();
+
+        });
+
+    });
+
+    // Close Modal
+    function closeMissingDetails() {
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+    closeButton.addEventListener(
+        "click",
+        closeMissingDetails
+    );
+
+    overlay.addEventListener(
+        "click",
+        closeMissingDetails
+    );
+
+    // Close with Escape
+    document.addEventListener("keydown", function (event) {
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+            closeMissingDetails();
+        }
+
+    });
+
+});
+
 /* =====================================================
    END OF SAFE AID JAVASCRIPT
 ===================================================== */

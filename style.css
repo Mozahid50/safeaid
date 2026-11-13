@@ -5391,3 +5391,365 @@ button {
         max-width: 240px;
     }
 }
+
+
+
+/* ================================================
+   MISSING PERSON DETAILS MODAL
+================================================ */
+
+.missing-details-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+}
+
+.missing-details-modal.active {
+    display: flex;
+}
+
+.missing-details-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 35, 40, 0.72);
+    backdrop-filter: blur(5px);
+}
+
+.missing-details-box {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #ffffff;
+    border-radius: 16px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+
+    animation: missingModalEnter 0.3s ease;
+}
+
+@keyframes missingModalEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.missing-details-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.2);
+    color: #ffffff;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.missing-details-header {
+    padding: 28px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #315B68,
+        #244752
+    );
+
+    color: #ffffff;
+}
+
+.missing-details-header > i {
+    font-size: 35px;
+}
+
+.missing-details-header span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.missing-details-content {
+    padding: 25px;
+}
+
+.missing-details-badge {
+    display: inline-block;
+    padding: 6px 12px;
+
+    background: #fff0ef;
+    color: #c45c55;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.missing-details-content h2 {
+    margin: 13px 0 20px;
+    color: #244752;
+    font-size: 23px;
+}
+
+.missing-details-information {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.missing-details-information > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px;
+
+    background: #f5f8f9;
+    border-radius: 9px;
+
+    color: #465b62;
+    font-size: 13px;
+}
+
+.missing-details-information i {
+    width: 18px;
+    color: #315B68;
+}
+
+.missing-details-description {
+    margin-top: 22px;
+    padding-top: 17px;
+    border-top: 1px solid #e9eeee;
+}
+
+.missing-details-description h3 {
+    color: #244752;
+    font-size: 15px;
+}
+
+.missing-details-description h3 i {
+    color: #315B68;
+    margin-right: 6px;
+}
+
+.missing-details-description p {
+    color: #687981;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.missing-details-note {
+    margin-top: 18px;
+    padding: 13px;
+
+    background: #edf4f5;
+    border-radius: 9px;
+
+    color: #315B68;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.missing-details-note i {
+    margin-right: 5px;
+}
+
+@media (max-width: 480px) {
+
+    .missing-details-content {
+        padding: 20px;
+    }
+
+    .missing-details-content h2 {
+        font-size: 20px;
+    }
+
+}
+
+
+/* VIEW DETAILS - PROFESSIONAL LIGHT BUTTON */
+
+.missing-info a.missing-link,
+.missing-info a.view-missing-details {
+    display: inline-flex !important;
+    width: auto !important;
+    min-width: 105px !important;
+    min-height: 34px !important;
+    padding: 7px 13px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+
+    background: #F1F4F5 !important;
+    color: #526B73 !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    text-indent: 0 !important;
+    text-decoration: none !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+
+    border: 1px solid #E3E9EB !important;
+    border-radius: 5px !important;
+
+    box-shadow: none !important;
+    transition: all 0.25s ease !important;
+}
+
+.missing-info a.missing-link::before,
+.missing-info a.missing-link::after {
+    content: none !important;
+}
+
+.missing-info a.missing-link:hover,
+.missing-info a.view-missing-details:hover {
+    background: #E8EFF1 !important;
+    color: #315B68 !important;
+    border-color: #D5E1E4 !important;
+}
+
+/* =========================================
+   FLOATING DONATION BUTTON
+   Pink Theme + Animated Outer Border
+========================================= */
+
+.floating-donate {
+    position: fixed;
+    right: 22px;
+    bottom: 130px;
+    z-index: 998;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 11px 18px;
+
+    background: #D85B83;
+    color: #FFFFFF !important;
+
+    border: 1px solid #F08BA9;
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none !important;
+
+    box-shadow: 0 4px 14px rgba(216, 91, 131, 0.25);
+
+    transition: all 0.3s ease;
+    animation: donateGlow 2.5s ease-in-out infinite;
+}
+
+/* ANIMATED OUTER RECTANGLE */
+
+.floating-donate::before {
+    content: "";
+    position: absolute;
+
+    inset: -4px;
+
+    border: 2px solid #EFA0B7;
+    border-radius: 11px;
+
+    pointer-events: none;
+
+    animation: donateBorder 2s ease-in-out infinite;
+}
+
+/* HEART ICON */
+
+.floating-donate i {
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+/* HOVER EFFECT */
+
+.floating-donate:hover {
+    background: #C94C75;
+    color: #FFFFFF !important;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 7px 20px rgba(216, 91, 131, 0.35);
+}
+
+/* OUTER BORDER ANIMATION */
+
+@keyframes donateBorder {
+    0%, 100% {
+        inset: -3px;
+        opacity: 0.55;
+    }
+
+    50% {
+        inset: -7px;
+        opacity: 1;
+    }
+}
+
+/* SOFT GLOW ANIMATION */
+
+@keyframes donateGlow {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(216, 91, 131, 0.18);
+    }
+
+    50% {
+        box-shadow: 0 5px 20px rgba(216, 91, 131, 0.42);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 768px) {
+    .floating-donate {
+        right: 14px;
+        bottom: 140px;
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-donate,
+    .floating-donate::before {
+        animation: none;
+    }
+}

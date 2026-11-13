@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donate | Safe Aid</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="donation.css">
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="donation-navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="brand">
+            <span class="brand-icon">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </span>
+            <span>Safe Aid</span>
+        </a>
+
+        <a href="index.html" class="back-home">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back Home
+        </a>
+
+    </div>
+</header>
+
+
+<!-- DONATION FORM -->
+<section class="donation-section" id="donation-form">
+
+    <div class="section-heading">
+        <span>SUPPORT OUR COMMUNITY</span>
+        <h2>Make a <span>Donation</span></h2>
+        <p>
+            Choose your contribution and payment method
+            to support someone in need.
+        </p>
+    </div>
+
+    <div class="donation-layout">
+
+        <!-- FORM -->
+        <div class="donation-form-card">
+
+            <form id="donationForm">
+
+                <h3>
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    Donation Details
+                </h3>
+
+                <!-- AMOUNT -->
+                <div class="form-group">
+
+                    <label>Select Donation Amount</label>
+
+                    <div class="amount-options">
+
+                        <button type="button" class="amount-btn" data-amount="100">
+                            ৳100
+                        </button>
+
+                        <button type="button" class="amount-btn" data-amount="200">
+                            ৳200
+                        </button>
+
+                        <button type="button" class="amount-btn active" data-amount="500">
+                            ৳500
+                        </button>
+
+                        <button type="button" class="amount-btn" data-amount="1000">
+                            ৳1,000
+                        </button>
+
+                        <button type="button" class="amount-btn" data-amount="2000">
+                            ৳2,000
+                        </button>
+
+                        <button type="button" class="amount-btn" data-amount="5000">
+                            ৳5,000
+                        </button>
+
+                    </div>
+
+                    <label for="customAmount">Or enter custom amount (BDT)</label>
+
+                    <div class="amount-input">
+                        <span>৳</span>
+                        <input
+                            type="number"
+                            id="customAmount"
+                            min="1"
+                            step="1"
+                            placeholder="Enter amount">
+                    </div>
+
+                </div>
+
+
+                <!-- PURPOSE -->
+                <div class="form-group">
+
+                    <label for="donationPurpose">Donation Purpose</label>
+
+                    <select id="donationPurpose" required>
+
+                        <option value="General Humanitarian Fund">
+                            General Humanitarian Fund
+                        </option>
+
+                        <option value="Medical Support">
+                            Medical Support
+                        </option>
+
+                        <option value="Food & Clothing">
+                            Food & Clothing
+                        </option>
+
+                        <option value="Emergency Relief">
+                            Emergency Relief
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- PAYMENT METHOD -->
+                <div class="form-group">
+
+                    <label>Select Payment Method</label>
+
+                    <div class="payment-options">
+
+                        <label class="payment-option selected">
+                            <input type="radio" name="paymentMethod"
+                                   value="bKash" checked>
+
+                            <span class="payment-logo bkash">bKash</span>
+                            <span class="payment-check">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod"
+                                   value="Nagad">
+
+                            <span class="payment-logo nagad">Nagad</span>
+                            <span class="payment-check">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod"
+                                   value="Bank Transfer">
+
+                            <span class="payment-logo bank">
+                                <i class="fa-solid fa-building-columns"></i>
+                                Bank
+                            </span>
+                            <span class="payment-check">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT INSTRUCTIONS -->
+                <div class="payment-instructions" id="paymentInstructions">
+
+                    <div class="instruction-heading">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Payment Instructions
+                    </div>
+
+                    <p id="paymentDescription">
+                        Please contact Safe Aid for the official
+                        verified bKash donation account details.
+                    </p>
+
+                    <div class="account-number">
+                        <span id="accountLabel">Official bKash Account</span>
+                        <strong id="accountNumber">
+                            Available from Safe Aid Admin
+                        </strong>
+                    </div>
+
+                    <small>
+                        Always verify the official account details
+                        before sending money.
+                    </small>
+
+                </div>
+
+
+                <!-- DONOR INFORMATION -->
+                <h3 class="sub-heading">
+                    <i class="fa-solid fa-user"></i>
+                    Donor Information
+                </h3>
+
+                <div class="form-group">
+                    <label for="donorName">Full Name</label>
+                    <input type="text" id="donorName"
+                           placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="donorPhone">Mobile Number</label>
+                    <input type="tel" id="donorPhone"
+                           placeholder="01XXXXXXXXX"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="donorEmail">Email Address (Optional)</label>
+                    <input type="email" id="donorEmail"
+                           placeholder="example@email.com">
+                </div>
+
+
+                <!-- TRANSACTION DETAILS -->
+                <h3 class="sub-heading">
+                    <i class="fa-solid fa-receipt"></i>
+                    Payment Confirmation
+                </h3>
+
+                <div class="form-group">
+
+                    <label for="transactionId">Transaction ID</label>
+
+                    <input type="text" id="transactionId"
+                           placeholder="Enter your transaction ID"
+                           required>
+
+                </div>
+
+
+                <!-- SCREENSHOT -->
+                <div class="form-group">
+
+                    <label>Payment Screenshot (Optional)</label>
+
+                    <label for="paymentProof" class="upload-box">
+
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                        <strong>Upload Payment Screenshot</strong>
+
+                        <small>JPG, JPEG or PNG · Maximum 5 MB</small>
+
+                        <input type="file"
+                               id="paymentProof"
+                               accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+
+                    </label>
+
+                    <div id="filePreview" class="file-preview"></div>
+
+                </div>
+
+
+                <!-- ANONYMOUS -->
+                <label class="anonymous-option">
+                    <input type="checkbox" id="anonymousDonation">
+                    <span>Keep my name anonymous</span>
+                </label>
+
+
+                <!-- TERMS -->
+                <label class="terms-option">
+                    <input type="checkbox" id="donationConsent" required>
+                    <span>
+                        I confirm that the submitted payment information
+                        is accurate and consent to its verification.
+                    </span>
+                </label>
+
+
+                <button type="submit" class="submit-donation">
+
+                    Submit Donation Information
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+                <p class="form-security">
+                    <i class="fa-solid fa-lock"></i>
+                    Your information should be handled securely.
+                </p>
+
+            </form>
+
+        </div>
+
+
+        <!-- DONATION SUMMARY -->
+        <aside class="donation-sidebar">
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <h3>Your Kindness Matters</h3>
+
+                <p>
+                    Every contribution can help someone
+                    overcome a difficult situation.
+                </p>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-row">
+                    <span>Donation Amount</span>
+                    <strong id="summaryAmount">৳500</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Payment Method</span>
+                    <strong id="summaryMethod">bKash</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Purpose</span>
+                    <strong id="summaryPurpose">General Fund</strong>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="trust-note">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    <div>
+                        <strong>Verification Process</strong>
+                        <p>
+                            All submitted donations should be
+                            verified before being marked as received.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="help-card">
+
+                <i class="fa-solid fa-handshake-angle"></i>
+
+                <h3>Want to Help More?</h3>
+
+                <p>
+                    Join our volunteer community and help
+                    deliver support to people in need.
+                </p>
+
+                <a href="index.html#volunteer">
+                    Become a Volunteer
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>
+
+
+<!-- DONATION TRANSPARENCY -->
+<section class="donation-transparency" id="donation-transparency">
+
+    <div class="transparency-heading">
+        <span>PUBLIC DONATION REPORT</span>
+        <h2>Donation <strong>Transparency</strong></h2>
+        <p>See how your contributions are helping people in need.</p>
+    </div>
+
+    <!-- TOTAL SUMMARY -->
+    <div class="donation-stats">
+
+        <div class="donation-stat">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <div>
+                <small>Total Donations</small>
+                <h3 id="publicTotalDonation">৳0</h3>
+            </div>
+        </div>
+
+        <div class="donation-stat">
+            <i class="fa-solid fa-handshake-angle"></i>
+            <div>
+                <small>Total Distributed</small>
+                <h3 id="publicTotalDistributed">৳0</h3>
+            </div>
+        </div>
+
+        <div class="donation-stat">
+            <i class="fa-solid fa-wallet"></i>
+            <div>
+                <small>Available Balance</small>
+                <h3 id="publicAvailableBalance">৳0</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DISTRIBUTION HISTORY -->
+    <div class="distribution-card">
+
+        <div class="distribution-header">
+            <div>
+                <h3>Recent Assistance</h3>
+                <p>Verified donation distribution records</p>
+            </div>
+
+            <span class="verified-label">
+                <i class="fa-solid fa-circle-check"></i>
+                Verified Records
+            </span>
+        </div>
+
+        <div class="distribution-table-wrapper">
+
+            <table class="distribution-table">
+
+                <thead>
+                    <tr>
+                        <th>Beneficiary</th>
+                        <th>Purpose</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody id="publicDistributionList">
+
+                    <tr>
+                        <td colspan="4" class="loading-records">
+                            Loading donation records...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="transparency-footer">
+            <i class="fa-solid fa-shield-heart"></i>
+            Only verified distribution records are displayed.
+        </div>
+
+    </div>
+
+</section>
+<!-- FOOTER -->
+<footer class="donation-footer">
+
+    <div class="footer-content">
+
+        <a href="index.html" class="footer-brand">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            Safe Aid
+        </a>
+
+        <p>
+            Together, we can make the world safer
+            and kinder for everyone.
+        </p>
+
+        <div class="footer-bottom">
+            © 2026 Safe Aid. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- MESSAGE MODAL -->
+<div class="message-modal" id="messageModal">
+
+    <div class="message-box">
+
+        <div class="message-icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+
+        <h3 id="modalTitle">Information</h3>
+
+        <p id="modalMessage"></p>
+
+        <button type="button" id="closeModal">OK</button>
+
+    </div>
+
+</div>
+
+
+<script src="donation.js"></script>
+
+</body>
+</html>
