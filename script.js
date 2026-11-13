@@ -250,104 +250,104 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ================================================
-    // 5. MISSING PERSONS SLIDER
-    // Single Responsive Slider
-    // ================================================
+// 5. MISSING PERSONS SLIDER
+// Mobile: Automatic Slider ON
+// Desktop/Laptop: Animation OFF
+// ================================================
 
-    const missingGrid = document.querySelector(".missing-grid");
+const missingGrid = document.querySelector(".missing-grid");
 
-    if (missingGrid) {
+if (missingGrid) {
 
-        const missingCards = Array.from(
-            missingGrid.querySelectorAll(".missing-card")
-        );
+    const missingCards = Array.from(
+        missingGrid.querySelectorAll(".missing-card")
+    );
 
-        if (missingCards.length > 1) {
+    if (missingCards.length > 1) {
 
-            let currentIndex = 0;
-            let sliderInterval = null;
+        let currentIndex = 0;
+        let sliderInterval = null;
 
-            function showMissingCard(index) {
+        function showMissingCard(index) {
 
-                missingCards.forEach(function (card, i) {
+            missingCards.forEach(function (card, i) {
 
-                    card.classList.toggle(
-                        "is-active",
-                        i === index
-                    );
-
-                });
-
-            }
-
-            function stopMissingSlider() {
-
-                if (sliderInterval !== null) {
-
-                    clearInterval(sliderInterval);
-
-                    sliderInterval = null;
-
-                }
-
-            }
-
-            function startMissingSlider() {
-
-                // Mobile slider only
-                if (window.innerWidth > 768) {
-
-                    stopMissingSlider();
-
-                    missingCards.forEach(function (card) {
-
-                        card.classList.remove("is-active");
-
-                    });
-
-                    return;
-                }
-
-                showMissingCard(currentIndex);
-
-                // Prevent duplicate intervals
-                if (sliderInterval !== null) return;
-
-                sliderInterval = setInterval(function () {
-
-                    currentIndex =
-                        (currentIndex + 1) % missingCards.length;
-
-                    showMissingCard(currentIndex);
-
-                }, 3500);
-
-            }
-
-            // Initial slider
-            startMissingSlider();
-
-            // Responsive slider
-            window.addEventListener("resize", startMissingSlider);
-
-            // Pause slider when tab is hidden
-            document.addEventListener("visibilitychange", function () {
-
-                if (document.hidden) {
-
-                    stopMissingSlider();
-
-                } else {
-
-                    startMissingSlider();
-
-                }
+                card.classList.toggle(
+                    "is-active",
+                    i === index
+                );
 
             });
 
         }
 
+        function stopMissingSlider() {
+
+            if (sliderInterval !== null) {
+
+                clearInterval(sliderInterval);
+                sliderInterval = null;
+
+            }
+
+        }
+
+        function startMissingSlider() {
+
+            stopMissingSlider();
+
+            // Desktop/Laptop: Show all cards, no slider
+            if (window.innerWidth > 768) {
+
+                missingCards.forEach(function (card) {
+
+                    card.classList.remove("is-active");
+
+                });
+
+                return;
+            }
+
+            // Mobile: Automatic slider
+            showMissingCard(currentIndex);
+
+            if (document.hidden) return;
+
+            sliderInterval = setInterval(function () {
+
+                currentIndex =
+                    (currentIndex + 1) % missingCards.length;
+
+                showMissingCard(currentIndex);
+
+            }, 3500);
+
+        }
+
+        // Initial setup
+        startMissingSlider();
+
+        // Responsive setup
+        window.addEventListener("resize", startMissingSlider);
+
+        // Tab visibility
+        document.addEventListener("visibilitychange", function () {
+
+            if (document.hidden) {
+
+                stopMissingSlider();
+
+            } else {
+
+                startMissingSlider();
+
+            }
+
+        });
+
     }
+
+}
 
 
     // ================================================
