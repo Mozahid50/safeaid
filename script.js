@@ -138,92 +138,141 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ================================================
-    // 3. LIVE LOCATION
-    // ================================================
+// 3. LIVE LOCATION & LEAFLET MAP
+// ================================================
 
-    const locationBtn = document.getElementById("locationBtn");
-    const locationStatus = document.getElementById("locationStatus");
+const locationBtn = document.getElementById("locationBtn");
+const locationStatus = document.getElementById("locationStatus");
+const homeLiveMap = document.getElementById("homeLiveMap");
 
-    if (locationBtn) {
+let safeAidMap = null;
+let userLocationMarker = null;
 
-        locationBtn.addEventListener("click", function () {
+// Initialize Leaflet Map
+if (homeLiveMap && typeof L !== "undefined") {
 
-            if (!navigator.geolocation) {
+    safeAidMap = L.map("homeLiveMap").setView(
+        [23.8103, 90.4125],
+        7
+    );
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19
+        }
+    ).addTo(safeAidMap);
+
+    setTimeout(function () {
+        safeAidMap.invalidateSize();
+    }, 300);
+
+}
+
+// Detect My Location
+if (locationBtn) {
+
+    locationBtn.addEventListener("click", function () {
+
+        if (!navigator.geolocation) {
+
+            if (locationStatus) {
+                locationStatus.textContent =
+                    "Your browser does not support location services.";
+            }
+
+            return;
+        }
+
+        if (locationStatus) {
+            locationStatus.textContent = "Getting your location...";
+        }
+
+        locationBtn.disabled = true;
+
+        navigator.geolocation.getCurrentPosition(
+
+            function (position) {
+
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
 
                 if (locationStatus) {
                     locationStatus.textContent =
-                        "Your browser does not support location services.";
+                        "Location found successfully!";
                 }
 
-                return;
-            }
+                locationBtn.disabled = false;
 
-            if (locationStatus) {
-                locationStatus.textContent = "Getting your location...";
-            }
+                if (safeAidMap) {
 
-            locationBtn.disabled = true;
-
-            navigator.geolocation.getCurrentPosition(
-
-                function (position) {
-
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-
-                    if (locationStatus) {
-                        locationStatus.textContent =
-                            "Location found successfully!";
-                    }
-
-                    locationBtn.disabled = false;
-
-                    window.open(
-                        `https://www.google.com/maps?q=${latitude},${longitude}`,
-                        "_blank",
-                        "noopener,noreferrer"
+                    safeAidMap.setView(
+                        [latitude, longitude],
+                        15
                     );
 
-                },
+                    if (userLocationMarker) {
+                        safeAidMap.removeLayer(userLocationMarker);
+                    }
 
-                function (error) {
+                    userLocationMarker = L.marker([
+                        latitude,
+                        longitude
+                    ]).addTo(safeAidMap);
 
-                    locationBtn.disabled = false;
+                    userLocationMarker.bindPopup(
+                        "Your Current Location"
+                    ).openPopup();
 
-                    if (locationStatus) {
+                }
 
-                        if (error.code === error.PERMISSION_DENIED) {
+                window.open(
+                    `https://www.google.com/maps?q=${latitude},${longitude}`,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
 
-                            locationStatus.textContent =
-                                "Location permission denied. Please allow location access.";
+            },
 
-                        } else if (error.code === error.TIMEOUT) {
+            function (error) {
 
-                            locationStatus.textContent =
-                                "Location request timed out. Please try again.";
+                locationBtn.disabled = false;
 
-                        } else {
+                if (locationStatus) {
 
-                            locationStatus.textContent =
-                                "Unable to get location. Please try again.";
+                    if (error.code === error.PERMISSION_DENIED) {
 
-                        }
+                        locationStatus.textContent =
+                            "Location permission denied. Please allow location access.";
+
+                    } else if (error.code === error.TIMEOUT) {
+
+                        locationStatus.textContent =
+                            "Location request timed out. Please try again.";
+
+                    } else {
+
+                        locationStatus.textContent =
+                            "Unable to get location. Please try again.";
 
                     }
 
-                },
-
-                {
-                    enableHighAccuracy: true,
-                    timeout: 15000,
-                    maximumAge: 0
                 }
 
-            );
+            },
 
-        });
+            {
+                enableHighAccuracy: true,
+                timeout: 15000,
+                maximumAge: 0
+            }
 
-    }
+        );
+
+    });
+
+}
 
 
     // ================================================

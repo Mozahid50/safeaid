@@ -5311,3 +5311,83 @@ button {
 .map-location-actions .map-btn {
     margin-top: 0;
 }
+
+/* =========================================
+   LOCATION BUTTON - RESTORE DESIGN
+========================================= */
+
+.map-location-actions .map-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    width: 100%;
+    max-width: 240px;
+    min-height: 44px;
+
+    padding: 12px 22px;
+
+    background: #315B68;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.map-location-actions .map-btn:hover {
+    background: #244752;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(49, 91, 104, 0.2);
+}
+
+.map-location-actions .map-btn:active {
+    transform: translateY(0);
+}
+
+.map-location-actions .map-btn i {
+    font-size: 14px;
+}
+
+.location-status {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    color: #687981;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.location-status i {
+    color: #315B68;
+    margin-right: 4px;
+}
+
+/* Map visibility */
+
+#homeLiveMap {
+    display: block;
+    width: 100%;
+    min-height: 220px;
+    height: 220px;
+}
+
+@media (max-width: 600px) {
+    #homeLiveMap {
+        height: 190px;
+        min-height: 190px;
+    }
+
+    .map-location-actions .map-btn {
+        max-width: 240px;
+    }
+}
