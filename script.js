@@ -347,11 +347,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-/* ================================================
-   5. MISSING PERSONS SLIDER
-   Mobile: Single Card
-   Desktop: 3 Card Continuous Slider
-================================================ */
+    // ================================================
+// 5. MISSING PERSONS SLIDER
+// RESPONSIVE MOBILE + DESKTOP
+// ================================================
 
 const missingGrid = document.querySelector(".missing-grid");
 
@@ -365,161 +364,68 @@ if (missingGrid) {
 
         let currentIndex = 0;
         let sliderInterval = null;
-        let isAnimating = false;
 
-        const desktop = window.matchMedia("(min-width: 769px)");
+        function showMissingCard(index) {
 
-        function stopSlider() {
-
-            if (sliderInterval) {
-                clearInterval(sliderInterval);
-                sliderInterval = null;
-            }
-
-        }
-
-        function showMobileCard() {
-
-            missingCards.forEach(function(card, index) {
-
-                card.classList.remove(
-                    "is-exiting",
-                    "is-entering"
-                );
+            missingCards.forEach(function (card, i) {
 
                 card.classList.toggle(
                     "is-active",
-                    index === currentIndex
+                    i === index
                 );
 
             });
 
         }
 
-        function showDesktopCards() {
+        function stopMissingSlider() {
 
-            missingCards.forEach(function(card) {
+            if (sliderInterval !== null) {
 
-                card.classList.remove(
-                    "is-active",
-                    "is-exiting",
-                    "is-entering"
-                );
+                clearInterval(sliderInterval);
 
-                card.style.display = "none";
-
-            });
-
-            for (let i = 0; i < 3; i++) {
-
-                const index =
-                    (currentIndex + i) % missingCards.length;
-
-                missingCards[index].style.display = "block";
+                sliderInterval = null;
 
             }
 
         }
 
-        function nextDesktopSlide() {
+        function startMissingSlider() {
 
-            if (isAnimating) return;
+            // Desktop and mobile both enabled
+            showMissingCard(currentIndex);
 
-            isAnimating = true;
+            // Prevent duplicate intervals
+            if (sliderInterval !== null) return;
 
-            const visibleCards = [];
-
-            for (let i = 0; i < 3; i++) {
-
-                const index =
-                    (currentIndex + i) % missingCards.length;
-
-                visibleCards.push(missingCards[index]);
-
-            }
-
-            const outgoingCard = visibleCards[0];
-
-            outgoingCard.classList.add("is-exiting");
-
-            setTimeout(function() {
-
-                outgoingCard.style.display = "none";
-
-                outgoingCard.classList.remove("is-exiting");
+            sliderInterval = setInterval(function () {
 
                 currentIndex =
                     (currentIndex + 1) % missingCards.length;
 
-                const newIndex =
-                    (currentIndex + 2) % missingCards.length;
+                showMissingCard(currentIndex);
 
-                const incomingCard = missingCards[newIndex];
-
-                incomingCard.style.display = "block";
-
-                incomingCard.classList.add("is-entering");
-
-                setTimeout(function() {
-
-                    incomingCard.classList.remove("is-entering");
-
-                    isAnimating = false;
-
-                }, 700);
-
-            }, 650);
+            }, 3000);
 
         }
 
-        function startSlider() {
+        // Initial slider
+        startMissingSlider();
 
-            stopSlider();
+        // Pause when browser tab is hidden
+        document.addEventListener("visibilitychange", function () {
 
-            isAnimating = false;
+            if (document.hidden) {
 
-            if (desktop.matches) {
-
-                showDesktopCards();
-
-                sliderInterval = setInterval(
-                    nextDesktopSlide,
-                    3000
-                );
+                stopMissingSlider();
 
             } else {
 
-                showMobileCard();
-
-                sliderInterval = setInterval(function() {
-
-                    currentIndex =
-                        (currentIndex + 1) % missingCards.length;
-
-                    showMobileCard();
-
-                }, 3500);
+                startMissingSlider();
 
             }
 
-        }
-
-        startSlider();
-
-        desktop.addEventListener("change", startSlider);
-
-        document.addEventListener(
-            "visibilitychange",
-            function() {
-
-                if (document.hidden) {
-                    stopSlider();
-                } else {
-                    startSlider();
-                }
-
-            }
-        );
+        });
 
     }
 
