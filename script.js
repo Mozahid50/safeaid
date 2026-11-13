@@ -138,53 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ================================================
-    // 3. LIVE LOCATION - INTERACTIVE LEAFLET MAP
+    // 3. LIVE LOCATION
     // ================================================
 
     const locationBtn = document.getElementById("locationBtn");
     const locationStatus = document.getElementById("locationStatus");
-    const mapElement = document.getElementById("homeLiveMap");
 
-    let safeAidMap = null;
-    let currentLocationMarker = null;
-    let currentAccuracyCircle = null;
-
-    // Initialize map
-    if (mapElement && typeof L !== "undefined") {
-
-        safeAidMap = L.map("homeLiveMap", {
-            zoomControl: true,
-            scrollWheelZoom: true
-        }).setView([23.6850, 90.3563], 7);
-
-        L.tileLayer(
-            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            {
-                maxZoom: 19,
-                attribution:
-                    '&copy; OpenStreetMap contributors'
-            }
-        ).addTo(safeAidMap);
-
-        // Fix map display when section becomes visible
-        setTimeout(function () {
-            safeAidMap.invalidateSize();
-        }, 300);
-
-        // Handle page resizing
-        window.addEventListener("resize", function () {
-            safeAidMap.invalidateSize();
-        });
-
-    } else if (mapElement && locationStatus) {
-
-        locationStatus.textContent =
-            "Map library could not load. Please check your internet connection.";
-
-    }
-
-
-    // Find current location
     if (locationBtn) {
 
         locationBtn.addEventListener("click", function () {
@@ -199,26 +158,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            if (!window.isSecureContext) {
-
-                if (locationStatus) {
-                    locationStatus.textContent =
-                        "Location access requires HTTPS or localhost.";
-                }
-
-                return;
-            }
-
             if (locationStatus) {
-                locationStatus.textContent =
-                    "Getting your current location...";
+                locationStatus.textContent = "Getting your location...";
             }
 
             locationBtn.disabled = true;
-
-            locationBtn.innerHTML =
-                '<i class="fa-solid fa-spinner fa-spin"></i> Finding Location...';
-
 
             navigator.geolocation.getCurrentPosition(
 
@@ -226,55 +170,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const latitude = position.coords.latitude;
                     const longitude = position.coords.longitude;
-                    const accuracy = position.coords.accuracy;
-
-                    const userLocation = [latitude, longitude];
-
-                    // Update inline map
-                    if (safeAidMap) {
-
-                        if (currentLocationMarker) {
-                            safeAidMap.removeLayer(currentLocationMarker);
-                        }
-
-                        if (currentAccuracyCircle) {
-                            safeAidMap.removeLayer(currentAccuracyCircle);
-                        }
-
-                        currentLocationMarker = L.marker(userLocation)
-                            .addTo(safeAidMap)
-                            .bindPopup(
-                                "<b>Your Current Location</b>"
-                            );
-
-                        currentAccuracyCircle = L.circle(userLocation, {
-                            radius: accuracy,
-                            color: "#315B68",
-                            fillColor: "#78aaa9",
-                            fillOpacity: 0.2,
-                            weight: 2
-                        }).addTo(safeAidMap);
-
-                        safeAidMap.flyTo(userLocation, 15, {
-                            duration: 1.5
-                        });
-
-                        currentLocationMarker.openPopup();
-
-                    }
 
                     if (locationStatus) {
                         locationStatus.textContent =
-                            "Location found successfully! Accuracy: approximately " +
-                            Math.round(accuracy) + " meters.";
+                            "Location found successfully!";
                     }
 
                     locationBtn.disabled = false;
 
-                    locationBtn.innerHTML =
-                        '<i class="fa-solid fa-crosshairs"></i> Find My Location';
-
-                    // Preserve previous Google Maps functionality
                     window.open(
                         `https://www.google.com/maps?q=${latitude},${longitude}`,
                         "_blank",
@@ -286,9 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 function (error) {
 
                     locationBtn.disabled = false;
-
-                    locationBtn.innerHTML =
-                        '<i class="fa-solid fa-crosshairs"></i> Find My Location';
 
                     if (locationStatus) {
 
@@ -324,6 +224,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
+
+
     // ================================================
     // 4. CONTACT FORM - DEMO
     // ================================================
@@ -348,88 +250,105 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ================================================
-// 5. MISSING PERSONS SLIDER
-// RESPONSIVE MOBILE + DESKTOP
-// ================================================
+    // 5. MISSING PERSONS SLIDER
+    // Single Responsive Slider
+    // ================================================
 
-const missingGrid = document.querySelector(".missing-grid");
+    const missingGrid = document.querySelector(".missing-grid");
 
-if (missingGrid) {
+    if (missingGrid) {
 
-    const missingCards = Array.from(
-        missingGrid.querySelectorAll(".missing-card")
-    );
+        const missingCards = Array.from(
+            missingGrid.querySelectorAll(".missing-card")
+        );
 
-    if (missingCards.length > 1) {
+        if (missingCards.length > 1) {
 
-        let currentIndex = 0;
-        let sliderInterval = null;
+            let currentIndex = 0;
+            let sliderInterval = null;
 
-        function showMissingCard(index) {
+            function showMissingCard(index) {
 
-            missingCards.forEach(function (card, i) {
+                missingCards.forEach(function (card, i) {
 
-                card.classList.toggle(
-                    "is-active",
-                    i === index
-                );
+                    card.classList.toggle(
+                        "is-active",
+                        i === index
+                    );
+
+                });
+
+            }
+
+            function stopMissingSlider() {
+
+                if (sliderInterval !== null) {
+
+                    clearInterval(sliderInterval);
+
+                    sliderInterval = null;
+
+                }
+
+            }
+
+            function startMissingSlider() {
+
+                // Mobile slider only
+                if (window.innerWidth > 768) {
+
+                    stopMissingSlider();
+
+                    missingCards.forEach(function (card) {
+
+                        card.classList.remove("is-active");
+
+                    });
+
+                    return;
+                }
+
+                showMissingCard(currentIndex);
+
+                // Prevent duplicate intervals
+                if (sliderInterval !== null) return;
+
+                sliderInterval = setInterval(function () {
+
+                    currentIndex =
+                        (currentIndex + 1) % missingCards.length;
+
+                    showMissingCard(currentIndex);
+
+                }, 3500);
+
+            }
+
+            // Initial slider
+            startMissingSlider();
+
+            // Responsive slider
+            window.addEventListener("resize", startMissingSlider);
+
+            // Pause slider when tab is hidden
+            document.addEventListener("visibilitychange", function () {
+
+                if (document.hidden) {
+
+                    stopMissingSlider();
+
+                } else {
+
+                    startMissingSlider();
+
+                }
 
             });
 
         }
 
-        function stopMissingSlider() {
-
-            if (sliderInterval !== null) {
-
-                clearInterval(sliderInterval);
-
-                sliderInterval = null;
-
-            }
-
-        }
-
-        function startMissingSlider() {
-
-            // Desktop and mobile both enabled
-            showMissingCard(currentIndex);
-
-            // Prevent duplicate intervals
-            if (sliderInterval !== null) return;
-
-            sliderInterval = setInterval(function () {
-
-                currentIndex =
-                    (currentIndex + 1) % missingCards.length;
-
-                showMissingCard(currentIndex);
-
-            }, 3000);
-
-        }
-
-        // Initial slider
-        startMissingSlider();
-
-        // Pause when browser tab is hidden
-        document.addEventListener("visibilitychange", function () {
-
-            if (document.hidden) {
-
-                stopMissingSlider();
-
-            } else {
-
-                startMissingSlider();
-
-            }
-
-        });
-
     }
 
-}
 
     // ================================================
     // 6. PUBLIC COMMUNITY FEED
