@@ -346,10 +346,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
 /* ================================================
    5. MISSING PERSONS SLIDER
-   Mobile: Animation ON
-   Desktop: Animation OFF
+   Mobile: Single Card
+   Desktop: 3 Card Continuous Slider
 ================================================ */
 
 const missingGrid = document.querySelector(".missing-grid");
@@ -360,19 +361,170 @@ if (missingGrid) {
         missingGrid.querySelectorAll(".missing-card")
     );
 
-    // Desktop/Laptop: Stop animation
-    if (window.innerWidth > 768) {
+    if (missingCards.length > 1) {
 
-        missingGrid.style.animation = "none";
+        let currentIndex = 0;
+        let sliderInterval = null;
+        let isAnimating = false;
 
-        missingCards.forEach(card => {
-            card.style.animation = "none";
-            card.style.transform = "none";
-        });
+        const desktop = window.matchMedia("(min-width: 769px)");
+
+        function stopSlider() {
+
+            if (sliderInterval) {
+                clearInterval(sliderInterval);
+                sliderInterval = null;
+            }
+
+        }
+
+        function showMobileCard() {
+
+            missingCards.forEach(function(card, index) {
+
+                card.classList.remove(
+                    "is-exiting",
+                    "is-entering"
+                );
+
+                card.classList.toggle(
+                    "is-active",
+                    index === currentIndex
+                );
+
+            });
+
+        }
+
+        function showDesktopCards() {
+
+            missingCards.forEach(function(card) {
+
+                card.classList.remove(
+                    "is-active",
+                    "is-exiting",
+                    "is-entering"
+                );
+
+                card.style.display = "none";
+
+            });
+
+            for (let i = 0; i < 3; i++) {
+
+                const index =
+                    (currentIndex + i) % missingCards.length;
+
+                missingCards[index].style.display = "block";
+
+            }
+
+        }
+
+        function nextDesktopSlide() {
+
+            if (isAnimating) return;
+
+            isAnimating = true;
+
+            const visibleCards = [];
+
+            for (let i = 0; i < 3; i++) {
+
+                const index =
+                    (currentIndex + i) % missingCards.length;
+
+                visibleCards.push(missingCards[index]);
+
+            }
+
+            const outgoingCard = visibleCards[0];
+
+            outgoingCard.classList.add("is-exiting");
+
+            setTimeout(function() {
+
+                outgoingCard.style.display = "none";
+
+                outgoingCard.classList.remove("is-exiting");
+
+                currentIndex =
+                    (currentIndex + 1) % missingCards.length;
+
+                const newIndex =
+                    (currentIndex + 2) % missingCards.length;
+
+                const incomingCard = missingCards[newIndex];
+
+                incomingCard.style.display = "block";
+
+                incomingCard.classList.add("is-entering");
+
+                setTimeout(function() {
+
+                    incomingCard.classList.remove("is-entering");
+
+                    isAnimating = false;
+
+                }, 700);
+
+            }, 650);
+
+        }
+
+        function startSlider() {
+
+            stopSlider();
+
+            isAnimating = false;
+
+            if (desktop.matches) {
+
+                showDesktopCards();
+
+                sliderInterval = setInterval(
+                    nextDesktopSlide,
+                    3000
+                );
+
+            } else {
+
+                showMobileCard();
+
+                sliderInterval = setInterval(function() {
+
+                    currentIndex =
+                        (currentIndex + 1) % missingCards.length;
+
+                    showMobileCard();
+
+                }, 3500);
+
+            }
+
+        }
+
+        startSlider();
+
+        desktop.addEventListener("change", startSlider);
+
+        document.addEventListener(
+            "visibilitychange",
+            function() {
+
+                if (document.hidden) {
+                    stopSlider();
+                } else {
+                    startSlider();
+                }
+
+            }
+        );
 
     }
 
 }
+
     // ================================================
     // 6. PUBLIC COMMUNITY FEED
     // FRONTEND DEMO USING LOCAL STORAGE
