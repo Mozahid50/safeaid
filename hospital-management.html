@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Directory | Safe Aid</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="hospital-management.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="hd-navbar">
+        <div class="hd-nav-container">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-shield-heart"></i>
+                Safe<span>Aid</span>
+            </a>
+
+            <a href="index.html" class="hd-back-home">
+                <span>←</span> Back Home
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- HOSPITAL DIRECTORY -->
+    <main class="hd-main">
+
+        <div class="hd-container">
+
+            <!-- SEARCH -->
+            <div class="hd-search-section">
+
+                <div class="hd-search-box">
+
+                    <span class="hd-search-icon">⌕</span>
+
+                    <input
+                        type="search"
+                        id="hospitalSearch"
+                        placeholder="Search hospital by name or location..."
+                        aria-label="Search hospitals"
+                    >
+
+                    <button type="button" id="clearSearch">
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOSPITAL CARDS -->
+            <div class="hospital-grid" id="hospitalGrid">
+
+
+                <!-- HOSPITAL 1 -->
+                <article class="hospital-card">
+
+                    <div class="hospital-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800"
+                            alt="Chittagong Medical College Hospital"
+                            loading="lazy"
+                        >
+
+                        <span class="hospital-type">
+                            Government
+                        </span>
+
+                    </div>
+
+                    <div class="hospital-content">
+
+                        <h2>Chittagong Medical College Hospital</h2>
+
+                        <p class="hospital-detail">
+                            <span>📍</span>
+                            K.B. Fazlul Kader Road, Panchlaish, Chattogram
+                        </p>
+
+                        <p class="hospital-detail">
+                            <span>☎</span>
+                            031619400
+                        </p>
+
+                        <p class="hospital-detail">
+                            <span>✉</span>
+                            Contact information to be verified
+                        </p>
+
+                        <div class="hospital-emergency">
+                            ● Emergency Service Available
+                        </div>
+
+                        <div class="hospital-facilities">
+
+                            <strong>Facilities</strong>
+
+                            <div class="facility-list">
+                                <span>Emergency</span>
+                                <span>ICU</span>
+                                <span>Surgery</span>
+                                <span>Blood Bank</span>
+                            </div>
+
+                        </div>
+
+                        <div class="hospital-actions">
+
+                            <a href="tel:031619400" class="call-hospital">
+                                Call Now
+                            </a>
+
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=Chittagong+Medical+College+Hospital"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="location-hospital"
+                            >
+                                View Location ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- HOSPITAL 2 -->
+                <article class="hospital-card">
+
+                    <div class="hospital-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800"
+                            alt="Evercare Hospital Chattogram"
+                            loading="lazy"
+                        >
+
+                        <span class="hospital-type private">
+                            Private
+                        </span>
+
+                    </div>
+
+                    <div class="hospital-content">
+
+                        <h2>Evercare Hospital Chattogram</h2>
+
+                        <p class="hospital-detail">
+                            <span>📍</span>
+                            Anannya CDA Residential Area, Oxygen, Chattogram
+                        </p>
+
+                        <p class="hospital-detail">
+                            <span>☎</span>
+                            09610810663
+                        </p>
+
+                        <p class="hospital-detail">
+                            <span>✉</span>
+                            info@evercarebd.com
+                        </p>
+
+                        <div class="hospital-emergency">
+                            ● Emergency Service Available
+                        </div>
+
+                        <div class="hospital-facilities">
+
+                            <strong>Facilities</strong>
+
+                            <div class="facility-list">
+                                <span>Emergency</span>
+                                <span>ICU</span>
+                                <span>Cardiology</span>
+                                <span>Diagnostics</span>
+                            </div>
+
+                        </div>
+
+                        <div class="hospital-actions">
+
+                            <a href="tel:09610810663" class="call-hospital">
+                                Call Now
+                            </a>
+
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=Evercare+Hospital+Chattogram"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="location-hospital"
+                            >
+                                View Location ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- HOSPITAL 3 -->
+                <article class="hospital-card">
+
+                    <div class="hospital-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800"
+                            alt="Cox's Bazar District Sadar Hospital"
+                            loading="lazy"
+                        >
+
+                        <span class="hospital-type">
+                            Government
+                        </span>
+
+                    </div>
+
+                    <div class="hospital-content">
+
+                        <h2>Cox's Bazar District Sadar Hospital</h2>
+
+                        <p class="hospital-detail">
+                            <span>📍</span>
+                            Hospital Road, Cox's Bazar
+                        </p>
+
+                        <p class="hospital-detail">
+                            <span>☎</span>
+                            Contact number unavailable
+                        </p>
+
+                        <p class="hospital-detail">
+                            <span>✉</span>
+                            Email information unavailable
+                        </p>
+
+                        <div class="hospital-emergency">
+                            ● Emergency Service Available
+                        </div>
+
+                        <div class="hospital-facilities">
+
+                            <strong>Facilities</strong>
+
+                            <div class="facility-list">
+                                <span>Emergency</span>
+                                <span>Medicine</span>
+                                <span>Surgery</span>
+                            </div>
+
+                        </div>
+
+                        <div class="hospital-actions">
+
+                            <span class="call-hospital disabled">
+                                Contact Unavailable
+                            </span>
+
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=Coxs+Bazar+District+Sadar+Hospital"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="location-hospital"
+                            >
+                                View Location ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- NO RESULT -->
+            <div class="hd-no-result" id="noResult" hidden>
+
+                <h3>No Hospital Found</h3>
+
+                <p>
+                    Try searching with another hospital name or location.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="hd-footer">
+
+        <div class="hd-footer-container">
+
+        </div>
+
+        <div class="hd-footer-bottom">
+
+            <p>© 2026 Safe Aid. All Rights Reserved.</p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="hospital-management.js"></script>
+
+</body>
+</html>

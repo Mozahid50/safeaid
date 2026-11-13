@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ambulance Management | Safe Aid</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="ambulance-management.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="hd-navbar">
+        <div class="hd-nav-container">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-shield-heart"></i>
+                Safe<span>Aid</span>
+            </a>
+
+            <a href="index.html" class="hd-back-home">
+                <span>←</span> Back Home
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="am-main">
+
+        <div class="am-container">
+
+            <!-- PAGE HEADING -->
+            <section class="am-heading">
+                <span class="am-subtitle">EMERGENCY TRANSPORT SUPPORT</span>
+
+                <h1>Ambulance Management</h1>
+
+                <p>
+                    Find emergency ambulance services and get medical
+                    transportation support when every second matters.
+                </p>
+            </section>
+
+
+            <!-- EMERGENCY BANNER -->
+            <section class="am-emergency-banner">
+
+                <div class="am-emergency-icon">
+                    <i class="fa-solid fa-truck-medical"></i>
+                </div>
+
+                <div class="am-emergency-text">
+                    <h2>Need an Emergency Ambulance?</h2>
+                    <p>
+                        For immediate emergency assistance in Bangladesh,
+                        call the national emergency number.
+                    </p>
+                </div>
+
+                <a href="tel:999" class="am-emergency-btn">
+                    <i class="fa-solid fa-phone"></i>
+                    Call 999
+                </a>
+
+            </section>
+
+
+            <!-- LEFT COLUMN: REQUEST FORM -->
+            <section class="am-request-section" id="ambulanceRequest">
+
+                <div class="am-request-heading">
+                    <span>EMERGENCY SUPPORT</span>
+
+                    <h2>Request an Ambulance</h2>
+
+                    <p>
+                        Submit your information to prepare an ambulance
+                        service request.
+                    </p>
+                </div>
+
+                <form id="ambulanceRequestForm">
+
+                    <div class="am-form-grid">
+
+                        <div class="am-form-group">
+                            <label for="patientName">Patient Name</label>
+
+                            <input
+                                type="text"
+                                id="patientName"
+                                placeholder="Enter patient name"
+                                required
+                            >
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="patientPhone">Contact Number</label>
+
+                            <input
+                                type="tel"
+                                id="patientPhone"
+                                placeholder="Enter contact number"
+                                pattern="[0-9+\-\s]{7,20}"
+                                required
+                            >
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="pickupLocation">Pickup Location</label>
+
+                            <input
+                                type="text"
+                                id="pickupLocation"
+                                placeholder="Enter pickup address"
+                                required
+                            >
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="destination">Destination Hospital</label>
+
+                            <input
+                                type="text"
+                                id="destination"
+                                placeholder="Enter hospital name or address"
+                                required
+                            >
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="ambulanceType">Ambulance Type</label>
+
+                            <select id="ambulanceType" required>
+                                <option value="">Select ambulance type</option>
+                                <option value="General">General Ambulance</option>
+                                <option value="ICU">ICU Ambulance</option>
+                                <option value="Emergency">Emergency Ambulance</option>
+                            </select>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="emergencyLevel">Emergency Level</label>
+
+                            <select id="emergencyLevel" required>
+                                <option value="">Select emergency level</option>
+                                <option value="Critical">Critical</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="Normal">Normal</option>
+                            </select>
+                        </div>
+
+                        <div class="am-form-group am-full-width">
+                            <label for="requestDetails">Additional Details</label>
+
+                            <textarea
+                                id="requestDetails"
+                                rows="4"
+                                placeholder="Describe the patient's condition or additional requirements..."
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="am-form-note">
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        <span>
+                            This form currently prepares a request only.
+                            It does not dispatch an ambulance automatically.
+                            For immediate emergencies, call 999.
+                        </span>
+                    </div>
+
+                    <button type="submit" class="am-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Submit Request
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- RIGHT COLUMN -->
+            <div class="am-right-column">
+
+                <!-- SEARCH SECTION -->
+                <section class="am-search-section">
+
+                    <div class="am-section-heading">
+                        <div>
+                            <h2>Find an Ambulance</h2>
+                            <p>Search ambulance services by name or location.</p>
+                        </div>
+                    </div>
+
+                    <div class="am-search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="ambulanceSearch"
+                            placeholder="Search by ambulance name or location..."
+                            aria-label="Search ambulance"
+                        >
+
+                        <button type="button" id="clearSearch">
+                            Clear
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- SERVICE FILTERS -->
+                <section class="am-filter-section">
+
+                    <button class="am-filter-btn active" data-filter="all">
+                        All Services
+                    </button>
+
+                    <button class="am-filter-btn" data-filter="general">
+                        General
+                    </button>
+
+                    <button class="am-filter-btn" data-filter="icu">
+                        ICU Ambulance
+                    </button>
+
+                    <button class="am-filter-btn" data-filter="emergency">
+                        Emergency
+                    </button>
+
+                </section>
+
+
+                <!-- AMBULANCE DIRECTORY -->
+                <section class="am-directory-section">
+
+                    <div class="am-section-heading">
+
+                        <div>
+                            <h2>Available Ambulance Services</h2>
+                            <p>Explore ambulance service providers.</p>
+                        </div>
+
+                        <span class="am-result-count" id="ambulanceCount">
+                            3 Services
+                        </span>
+
+                    </div>
+
+
+                    <div class="am-grid" id="ambulanceGrid">
+
+
+                        <!-- AMBULANCE 1 -->
+                        <article class="am-card" data-type="general">
+
+                            <div class="am-card-image">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=800"
+                                    alt="General ambulance"
+                                    loading="lazy"
+                                >
+
+                                <span class="am-type-badge">
+                                    General Ambulance
+                                </span>
+
+                            </div>
+
+                            <div class="am-card-content">
+
+                                <h3>General Ambulance Service</h3>
+
+                                <p class="am-detail">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Chattogram, Bangladesh
+                                </p>
+
+                                <p class="am-detail">
+                                    <i class="fa-solid fa-phone"></i>
+                                    Contact number to be verified
+                                </p>
+
+                                <div class="am-status">
+                                    <span></span>
+                                    Contact Provider for Availability
+                                </div>
+
+                                <div class="am-card-actions">
+
+                                    <a href="tel:999" class="am-call-btn">
+                                        <i class="fa-solid fa-phone"></i>
+                                        Emergency Call
+                                    </a>
+
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Ambulance+Service+Chattogram"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="am-location-btn"
+                                    >
+                                        <i class="fa-solid fa-location-arrow"></i>
+                                        Location
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- AMBULANCE 2 -->
+                        <article class="am-card" data-type="icu">
+
+                            <div class="am-card-image">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800"
+                                    alt="ICU ambulance service"
+                                    loading="lazy"
+                                >
+
+                                <span class="am-type-badge am-icu-badge">
+                                    ICU Ambulance
+                                </span>
+
+                            </div>
+
+                            <div class="am-card-content">
+
+                                <h3>ICU Ambulance Service</h3>
+
+                                <p class="am-detail">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Chattogram, Bangladesh
+                                </p>
+
+                                <p class="am-detail">
+                                    <i class="fa-solid fa-phone"></i>
+                                    Contact number to be verified
+                                </p>
+
+                                <div class="am-status">
+                                    <span></span>
+                                    Contact Provider for Availability
+                                </div>
+
+                                <div class="am-card-actions">
+
+                                    <a href="tel:999" class="am-call-btn">
+                                        <i class="fa-solid fa-phone"></i>
+                                        Emergency Call
+                                    </a>
+
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=ICU+Ambulance+Chattogram"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="am-location-btn"
+                                    >
+                                        <i class="fa-solid fa-location-arrow"></i>
+                                        Location
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- AMBULANCE 3 -->
+                        <article class="am-card" data-type="emergency">
+
+                            <div class="am-card-image">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=800"
+                                    alt="Emergency ambulance"
+                                    loading="lazy"
+                                >
+
+                                <span class="am-type-badge am-emergency-badge">
+                                    Emergency
+                                </span>
+
+                            </div>
+
+                            <div class="am-card-content">
+
+                                <h3>Emergency Ambulance Service</h3>
+
+                                <p class="am-detail">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Cox's Bazar, Bangladesh
+                                </p>
+
+                                <p class="am-detail">
+                                    <i class="fa-solid fa-phone"></i>
+                                    Contact number to be verified
+                                </p>
+
+                                <div class="am-status">
+                                    <span></span>
+                                    Contact Provider for Availability
+                                </div>
+
+                                <div class="am-card-actions">
+
+                                    <a href="tel:999" class="am-call-btn">
+                                        <i class="fa-solid fa-phone"></i>
+                                        Emergency Call
+                                    </a>
+
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Ambulance+Service+Coxs+Bazar"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="am-location-btn"
+                                    >
+                                        <i class="fa-solid fa-location-arrow"></i>
+                                        Location
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- NO RESULT -->
+                    <div class="am-no-result" id="noResult" hidden>
+
+                        <i class="fa-solid fa-truck-medical"></i>
+
+                        <h3>No Ambulance Found</h3>
+
+                        <p>
+                            Try searching with another name or location.
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </div>
+            <!-- END RIGHT COLUMN -->
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="hd-footer">
+
+        <div class="hd-footer-container">
+
+        </div>
+
+        <div class="hd-footer-bottom">
+            <p>© 2026 Safe Aid. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="ambulance-management.js"></script>
+
+</body>
+</html>

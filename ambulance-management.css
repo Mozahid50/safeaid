@@ -1,0 +1,1227 @@
+/* =====================================================
+   SAFE AID - AMBULANCE MANAGEMENT
+   Clean • Compact • Professional • Responsive
+===================================================== */
+
+:root {
+    --primary: #315B68;
+    --primary-dark: #244752;
+    --accent: #D36B60;
+    --bg: #F5F8F9;
+    --white: #FFFFFF;
+    --dark: #203642;
+    --text: #53636C;
+    --muted: #849198;
+    --border: #E5EAEC;
+    --light: #EDF3F4;
+    --shadow: 0 2px 9px rgba(36,71,82,0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    color: var(--dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.hd-navbar {
+    width: 100%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.hd-nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 11px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-dark);
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo i {
+    color: var(--accent);
+    font-size: 22px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.hd-back-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 16px;
+    background: var(--primary);
+    color: white;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.hd-back-home:hover {
+    background: var(--primary-dark);
+}
+
+
+/* =========================================
+   MAIN PAGE
+========================================= */
+
+.am-main {
+    flex: 1;
+    width: 100%;
+    padding: 20px 20px 28px;
+}
+
+.am-container {
+    max-width: 1180px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: minmax(270px, 0.82fr) minmax(0, 1.45fr);
+
+    grid-template-areas:
+        "heading heading"
+        "banner banner"
+        "request search"
+        "request filters"
+        "request directory";
+
+    grid-template-rows:
+        max-content
+        max-content
+        max-content
+        max-content
+        max-content;
+
+    align-content: start;
+    align-items: start;
+
+    column-gap: 22px;
+    row-gap: 11px;
+}
+
+
+/* =========================================
+   PAGE HEADING
+========================================= */
+
+.am-heading {
+    grid-area: heading;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.am-subtitle {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.am-heading h1 {
+    color: var(--primary-dark);
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.am-heading p {
+    color: var(--text);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   EMERGENCY BANNER
+========================================= */
+
+.am-emergency-banner {
+    grid-area: banner;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 15px;
+    border-radius: 7px;
+
+    background: var(--primary);
+    color: white;
+}
+
+.am-emergency-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+    background: rgba(255,255,255,0.13);
+}
+
+.am-emergency-icon i {
+    font-size: 17px;
+}
+
+.am-emergency-text {
+    flex: 1;
+}
+
+.am-emergency-text h2 {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.am-emergency-text p {
+    font-size: 9px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.5;
+}
+
+.am-emergency-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 8px 13px;
+    background: var(--accent);
+    color: white;
+
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.am-emergency-btn:hover {
+    background: #BD554B;
+}
+
+
+/* =========================================
+   SEARCH SECTION
+========================================= */
+
+.am-search-section {
+    grid-area: search;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    align-self: start;
+}
+
+.am-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.am-section-heading h2 {
+    color: var(--primary-dark);
+    font-size: 15px;
+    font-weight: 750;
+    margin-bottom: 3px;
+}
+
+.am-section-heading p {
+    font-size: 9px;
+    color: var(--muted);
+}
+
+.am-search-box {
+    width: 100%;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 4px 6px 4px 11px;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    transition: 0.2s;
+}
+
+.am-search-box:focus-within {
+    border-color: var(--primary);
+}
+
+.am-search-box > i {
+    color: var(--primary);
+    font-size: 11px;
+}
+
+.am-search-box input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-size: 10px;
+}
+
+.am-search-box button {
+    padding: 7px 10px;
+    background: var(--light);
+    border: none;
+    border-radius: 4px;
+
+    color: var(--primary);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.am-search-box button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* =========================================
+   FILTER SECTION
+========================================= */
+
+.am-filter-section {
+    grid-area: filters;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+
+    align-self: start;
+}
+
+.am-filter-btn {
+    padding: 7px 11px;
+
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--text);
+
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.am-filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.am-filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+
+/* =========================================
+   AMBULANCE DIRECTORY
+========================================= */
+
+.am-directory-section {
+    grid-area: directory;
+
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+
+    align-self: start;
+}
+
+.am-directory-section .am-section-heading {
+    margin-bottom: 9px;
+}
+
+.am-result-count {
+    padding: 5px 9px;
+
+    background: var(--light);
+    color: var(--primary);
+
+    border-radius: 4px;
+    font-size: 8px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   AMBULANCE GRID
+========================================= */
+
+.am-grid {
+    width: 100%;
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+
+    align-items: start;
+}
+
+
+/* =========================================
+   AMBULANCE CARDS
+========================================= */
+
+.am-card {
+    width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    box-shadow: 0 1px 5px rgba(36,71,82,0.035);
+
+    transition: 0.2s;
+}
+
+.am-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 9px rgba(36,71,82,0.07);
+}
+
+.am-card-image {
+    width: 100%;
+    height: 85px;
+
+    position: relative;
+    overflow: hidden;
+
+    background: var(--light);
+}
+
+.am-card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.am-card:hover .am-card-image img {
+    transform: scale(1.03);
+}
+
+.am-type-badge {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+
+    padding: 4px 6px;
+
+    background: var(--primary);
+    color: white;
+
+    border-radius: 3px;
+    font-size: 7px;
+    font-weight: 700;
+}
+
+.am-icu-badge {
+    background: #426F86;
+}
+
+.am-emergency-badge {
+    background: var(--accent);
+}
+
+.am-card-content {
+    padding: 8px;
+}
+
+.am-card-content h3 {
+    color: var(--primary-dark);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 7px;
+}
+
+.am-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+
+    color: var(--text);
+    font-size: 8px;
+    line-height: 1.4;
+
+    margin-bottom: 5px;
+}
+
+.am-detail i {
+    width: 10px;
+    min-width: 10px;
+    color: var(--accent);
+    margin-top: 1px;
+    text-align: center;
+}
+
+.am-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    border-top: 1px solid var(--border);
+
+    padding-top: 6px;
+    margin-top: 6px;
+
+    color: var(--muted);
+    font-size: 7px;
+    line-height: 1.4;
+}
+
+.am-status span {
+    width: 5px;
+    height: 5px;
+    min-width: 5px;
+
+    background: #D5A34C;
+    border-radius: 50%;
+}
+
+.am-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    margin-top: 7px;
+}
+
+.am-call-btn,
+.am-location-btn {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    padding: 7px 2px;
+
+    border: none;
+    border-radius: 4px;
+
+    font-size: 7px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition: 0.2s;
+}
+
+.am-call-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.am-call-btn:hover {
+    background: var(--primary-dark);
+}
+
+.am-location-btn {
+    background: var(--light);
+    color: var(--primary);
+}
+
+.am-location-btn:hover {
+    background: #DCE8EA;
+}
+
+
+/* =========================================
+   NO RESULT
+========================================= */
+
+.am-no-result {
+    text-align: center;
+    padding: 25px 12px;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.am-no-result i {
+    font-size: 25px;
+    color: var(--muted);
+    margin-bottom: 9px;
+}
+
+.am-no-result h3 {
+    color: var(--primary-dark);
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.am-no-result p {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+
+/* =========================================
+   REQUEST FORM - LEFT COLUMN
+========================================= */
+
+.am-request-section {
+    grid-area: request;
+
+    width: 100%;
+    min-width: 0;
+    height: fit-content;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    padding: 17px 15px;
+
+    box-shadow: var(--shadow);
+}
+
+.am-request-heading {
+    margin-bottom: 15px;
+}
+
+.am-request-heading > span {
+    color: var(--accent);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.am-request-heading h2 {
+    color: var(--primary-dark);
+    font-size: 17px;
+    margin: 6px 0;
+}
+
+.am-request-heading p {
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.am-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+}
+
+.am-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.am-form-group label {
+    color: var(--dark);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.am-form-group input,
+.am-form-group select,
+.am-form-group textarea {
+    width: 100%;
+
+    padding: 9px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    background: #FCFDFD;
+    color: var(--dark);
+
+    font-size: 9px;
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.am-form-group input,
+.am-form-group select {
+    height: 36px;
+}
+
+.am-form-group textarea {
+    min-height: 68px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.am-form-group input:focus,
+.am-form-group select:focus,
+.am-form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(49,91,104,0.06);
+    background: white;
+}
+
+.am-form-group input::placeholder,
+.am-form-group textarea::placeholder {
+    color: #A3ADB1;
+}
+
+.am-full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   FORM NOTE
+========================================= */
+
+.am-form-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+
+    padding: 9px;
+    margin: 13px 0;
+
+    border-left: 3px solid var(--primary);
+    border-radius: 3px;
+
+    background: var(--light);
+    color: var(--text);
+
+    font-size: 8px;
+    line-height: 1.6;
+}
+
+.am-form-note i {
+    color: var(--primary);
+    margin-top: 2px;
+}
+
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.am-submit-btn {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background: var(--primary);
+    border: none;
+    border-radius: 4px;
+
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.am-submit-btn:hover {
+    background: var(--primary-dark);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.hd-footer {
+    width: 100%;
+    margin-top: auto;
+
+    background: var(--primary);
+    color: white;
+}
+
+.hd-footer-container {
+    max-width: 1180px;
+    margin: auto;
+
+    padding: 14px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hd-footer .logo {
+    color: white;
+    font-size: 18px;
+}
+
+.hd-footer .logo i,
+.hd-footer .logo span {
+    color: #F0A096;
+}
+
+.hd-footer-bottom {
+    padding: 9px 15px;
+    text-align: center;
+
+    background: var(--primary-dark);
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.hd-footer-bottom p {
+    color: rgba(255,255,255,0.82);
+    font-size: 9px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .am-main {
+        padding: 18px 15px 25px;
+    }
+
+    .am-container {
+        grid-template-columns: minmax(235px, 0.8fr) minmax(0, 1.2fr);
+        column-gap: 14px;
+        row-gap: 10px;
+    }
+
+    .am-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .am-card-image {
+        height: 90px;
+    }
+
+    .am-card-content {
+        padding: 8px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .hd-nav-container {
+        padding: 10px 14px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .logo i {
+        font-size: 20px;
+    }
+
+    .hd-back-home {
+        padding: 8px 11px;
+        font-size: 9px;
+    }
+
+    .am-main {
+        padding: 18px 12px 25px;
+    }
+
+    .am-container {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .am-heading {
+        width: 100%;
+    }
+
+    .am-heading h1 {
+        font-size: 22px;
+    }
+
+    .am-heading p {
+        font-size: 9px;
+    }
+
+    .am-emergency-banner {
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 11px;
+        gap: 9px;
+    }
+
+    .am-emergency-icon {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+
+    .am-emergency-icon i {
+        font-size: 16px;
+    }
+
+    .am-emergency-text h2 {
+        font-size: 10px;
+    }
+
+    .am-emergency-text p {
+        font-size: 8px;
+    }
+
+    .am-emergency-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    /* Mobile section order */
+
+    .am-search-section {
+        order: 1;
+        width: 100%;
+    }
+
+    .am-filter-section {
+        order: 2;
+        width: 100%;
+    }
+
+    .am-request-section {
+        order: 3;
+        width: 100%;
+        padding: 16px 13px;
+    }
+
+    .am-directory-section {
+        order: 4;
+        width: 100%;
+    }
+
+    .am-section-heading h2 {
+        font-size: 14px;
+    }
+
+    .am-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .am-card-image {
+        height: 85px;
+    }
+
+    .am-card-content {
+        padding: 8px;
+    }
+
+    .am-card-content h3 {
+        font-size: 10px;
+    }
+
+    .am-detail {
+        font-size: 8px;
+    }
+
+    .am-call-btn,
+    .am-location-btn {
+        font-size: 7px;
+        padding: 7px 2px;
+    }
+
+    .am-filter-btn {
+        padding: 7px 9px;
+        font-size: 8px;
+    }
+
+    .am-form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .am-full-width {
+        grid-column: 1 / -1;
+    }
+
+    .hd-footer-container {
+        padding: 13px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .am-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .am-card-image {
+        height: 115px;
+    }
+
+    .am-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .am-full-width {
+        grid-column: auto;
+    }
+
+    .am-card-content h3 {
+        font-size: 11px;
+    }
+
+    .am-call-btn,
+    .am-location-btn {
+        font-size: 8px;
+    }
+
+}
+
+/* =========================================
+   SAFE AID - ANIMATED CARD BORDER
+   Continuous Rotating Color Animation
+========================================= */
+
+.am-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    border: 2px solid transparent;
+    border-radius: 7px;
+
+    background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        conic-gradient(
+            from var(--border-angle, 0deg),
+            #315B68,
+            #64C5C1,
+            #D36B60,
+            #E7B65C,
+            #648ED0,
+            #315B68
+        ) border-box;
+
+    animation: ambulanceBorderRotate 4s linear infinite;
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+/* Rotating Border */
+
+@property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes ambulanceBorderRotate {
+    from {
+        --border-angle: 0deg;
+    }
+
+    to {
+        --border-angle: 360deg;
+    }
+}
+
+/* Hover Effect */
+
+.am-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 4px 14px rgba(49, 91, 104, 0.13),
+        0 0 8px rgba(211, 107, 96, 0.12);
+}
+
+/* Keep Card Content Above Background */
+
+.am-card-image,
+.am-card-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .am-card {
+        animation: none;
+    }
+}
+
+
+
+/* =========================================
+   SAFE AID - SINGLE GRAY MINT FOOTER
+========================================= */
+
+.hd-footer {
+    width: 100%;
+    background: #EEF1EE !important;
+    color: #344B48 !important;
+    padding: 25px 6% 18px;
+    margin-top: 50px;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Footer Container */
+
+.hd-footer-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 5px 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Logo */
+
+.hd-footer .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #244752 !important;
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.hd-footer .logo i {
+    color: #315B68 !important;
+}
+
+.hd-footer .logo span {
+    color: #B95750 !important;
+}
+
+/* Copyright - No Separate Bar */
+
+.hd-footer-bottom {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 10px 0 0;
+    text-align: center;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.hd-footer-bottom p {
+    color: #425650 !important;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 550px) {
+    .hd-footer {
+        padding: 22px 20px 15px;
+    }
+
+    .hd-footer .logo {
+        font-size: 20px;
+    }
+}

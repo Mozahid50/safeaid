@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blood Donation | Safe Aid</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary: #315B68;
+            --primary-dark: #244752;
+            --accent: #D36B60;
+            --dark: #203642;
+            --text: #52616b;
+            --muted: #84919a;
+            --bg: #F5F8F9;
+            --white: #ffffff;
+            --border: #e5ebee;
+            --red: #c94e55;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--dark);
+        }
+
+        button, input, select {
+            font-family: inherit;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 76px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 3px 15px rgba(0,0,0,.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 7px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .back-btn {
+            text-decoration: none;
+            padding: 11px 18px;
+            background: var(--primary);
+            color: white;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* PAGE HEADER */
+
+        .page-header {
+            text-align: center;
+            padding: 55px 20px 40px;
+        }
+
+        .tag {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 4vw, 38px);
+            margin: 12px 0;
+            font-weight: 800;
+        }
+
+        .page-header h1 span {
+            color: var(--primary);
+        }
+
+        .page-header p {
+            max-width: 600px;
+            margin: auto;
+            color: var(--text);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* MAIN LAYOUT */
+
+        .main-container {
+            width: 90%;
+            max-width: 1350px;
+            margin: 0 auto 70px;
+            display: grid;
+            grid-template-columns: 390px 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(32,54,66,.04);
+        }
+
+        .panel-heading {
+            margin-bottom: 23px;
+        }
+
+        .panel-heading h2 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .panel-heading h2 i {
+            color: var(--primary);
+            margin-right: 7px;
+        }
+
+        .panel-heading p {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: var(--accent);
+        }
+
+        .optional {
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            height: 44px;
+            padding: 0 12px;
+            background: #fcfdfd;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            outline: none;
+            font-size: 12px;
+            color: var(--dark);
+            transition: .2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(49,91,104,.07);
+        }
+
+        .form-group input[type="date"] {
+            color-scheme: light;
+        }
+
+        .field-hint {
+            display: block;
+            margin-top: 7px;
+            font-size: 10px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .blood-group-select {
+            font-weight: 700;
+            color: var(--red) !important;
+        }
+
+        .form-note {
+            background: #f0f6f7;
+            padding: 12px;
+            border-radius: 7px;
+            font-size: 10px;
+            line-height: 1.7;
+            color: var(--primary);
+            margin-bottom: 18px;
+        }
+
+        .form-note i {
+            margin-right: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* DONOR LIST */
+
+        .donor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .donor-header h2 {
+            font-size: 20px;
+        }
+
+        .donor-count {
+            background: #edf4f5;
+            color: var(--primary);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+        }
+
+        .search-box input {
+            width: 100%;
+            height: 44px;
+            padding: 0 15px 0 40px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            outline: none;
+            font-size: 12px;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+        }
+
+        /* DONOR CARDS */
+
+        @property --donor-angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .donor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 13px;
+        }
+
+        .donor-card {
+            position: relative;
+            isolation: isolate;
+            min-width: 0;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+
+            border: 2px solid transparent;
+            border-radius: 10px;
+
+            background:
+                linear-gradient(#ffffff, #ffffff) padding-box,
+                conic-gradient(
+                    from var(--donor-angle),
+                    #315B68,
+                    #78aaa9,
+                    #D36B60,
+                    #e9a29a,
+                    #315B68
+                ) border-box;
+
+            animation: donorBorderFlow 5s linear infinite;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        @keyframes donorBorderFlow {
+            to {
+                --donor-angle: 360deg;
+            }
+        }
+
+        .donor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(32,54,66,.10);
+        }
+
+        .donor-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            min-width: 0;
+        }
+
+        .blood-icon {
+            width: 43px;
+            height: 43px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff0f0;
+            color: var(--red);
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .donor-photo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--border);
+        }
+
+        .donor-name {
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            overflow-wrap: anywhere;
+        }
+
+        .donor-type {
+            color: var(--red);
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        /* ACTIVE STATUS */
+
+        .donor-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            width: fit-content;
+            margin-top: 7px;
+            padding: 5px 8px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 800;
+        }
+
+        .donor-status i {
+            font-size: 7px;
+        }
+
+        .donor-status.active {
+            color: #21864a;
+            background: #e9f7ee;
+        }
+
+        .donor-status.inactive {
+            color: #b45a38;
+            background: #fff1e9;
+        }
+
+        .donor-details {
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+        }
+
+        .donor-details p {
+            display: flex;
+            gap: 9px;
+            align-items: flex-start;
+            font-size: 10px;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .donor-details p i {
+            width: 14px;
+            flex-shrink: 0;
+            color: var(--primary);
+            margin-top: 2px;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: auto;
+            padding: 10px;
+            background: #e9f7ee;
+            color: #21864a;
+            border-radius: 7px;
+            font-size: 10px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #d4f0de;
+        }
+
+        /* EDIT BUTTON - ORIGINAL DESIGN */
+
+        .edit-donor-btn {
+            width: 100%;
+            height: 36px;
+            margin-top: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            background: #f4f7f8;
+            color: var(--primary);
+            border: 1px solid #dce6e9;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .2px;
+            cursor: pointer;
+            transition: all .25s ease;
+        }
+
+        .edit-donor-btn i {
+            font-size: 11px;
+        }
+
+        .edit-donor-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 3px 10px rgba(49,91,104,.15);
+        }
+
+        .edit-donor-btn:active {
+            transform: scale(.98);
+        }
+
+        .edit-donor-btn:focus-visible {
+            outline: 3px solid rgba(49,91,104,.2);
+            outline-offset: 2px;
+        }
+
+        /* EMPTY STATE */
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 65px 15px;
+            color: var(--muted);
+        }
+
+        .empty-state i {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: #c7d4d8;
+        }
+
+        .empty-state h3 {
+            color: var(--dark);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        /* DONOR PHOTO UPLOAD */
+
+        .photo-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            padding: 18px;
+            border: 1px dashed #b8c9ce;
+            border-radius: 8px;
+            background: #f9fbfc;
+            cursor: pointer;
+        }
+
+        .photo-upload i {
+            font-size: 25px;
+            color: var(--primary);
+        }
+
+        .photo-upload strong {
+            font-size: 12px;
+        }
+
+        .photo-upload small {
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .photo-upload input {
+            display: none;
+        }
+
+        #photoPreview {
+            display: none;
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-top: 12px;
+            border: 3px solid var(--primary);
+        }
+
+        /* FOOTER - GRAY MINT THEME */
+
+        .footer {
+            background: #EAF0F0;
+            color: var(--primary);
+            text-align: center;
+            padding: 24px 15px;
+            font-size: 11px;
+            border-top: 1px solid #dce6e6;
+        }
+
+        .footer span {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 1100px) {
+            .main-container {
+                grid-template-columns: 340px 1fr;
+                width: 94%;
+            }
+
+            .donor-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media(max-width: 760px) {
+            .navbar {
+                height: 66px;
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .back-btn {
+                padding: 10px 12px;
+                font-size: 10px;
+            }
+
+            .page-header {
+                padding: 38px 18px 28px;
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+                width: 92%;
+                gap: 18px;
+            }
+
+            .panel {
+                padding: 20px;
+            }
+
+            .donor-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media(max-width: 430px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .donor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .donor-header h2 {
+                font-size: 17px;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            .donor-card {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        <i class="fa-solid fa-shield-heart"></i>
+        Safe<span>Aid</span>
+    </a>
+
+    <a href="index.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Home
+    </a>
+</header>
+
+<!-- PAGE HEADER -->
+
+<section class="page-header">
+    <span class="tag">COMMUNITY BLOOD DONATION</span>
+
+    <h1>Blood <span>Donation</span></h1>
+
+    <p>
+        Become a blood donor and help save lives.
+        Register your information and connect with people
+        who may need your support.
+    </p>
+</section>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-container">
+
+    <!-- DONOR FORM -->
+
+    <section class="panel">
+
+        <div class="panel-heading">
+            <h2>
+                <i class="fa-solid fa-droplet"></i>
+                Become a Blood Donor
+            </h2>
+
+            <p>
+                Fill in your information to register as a blood donor.
+            </p>
+        </div>
+
+        <form id="donorForm">
+
+            <div class="form-group">
+                <label for="donorName">
+                    Full Name <span class="required">*</span>
+                </label>
+
+                <input type="text"
+                       id="donorName"
+                       placeholder="Enter your full name"
+                       maxlength="80"
+                       required>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="bloodGroup">
+                        Blood Group <span class="required">*</span>
+                    </label>
+
+                    <select id="bloodGroup"
+                            class="blood-group-select"
+                            required>
+                        <option value="">Select Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="donationCount">
+                        Total Donations <span class="required">*</span>
+                    </label>
+
+                    <input type="number"
+                           id="donationCount"
+                           min="0"
+                           max="200"
+                           placeholder="e.g. 5"
+                           required>
+                </div>
+
+            </div>
+
+            <!-- LAST DONATION DATE -->
+
+            <div class="form-group">
+                <label for="lastDonationDate">
+                    Last Donation Date
+                    <span class="optional">(Optional)</span>
+                </label>
+
+                <input type="date"
+                       id="lastDonationDate">
+
+                <small class="field-hint">
+                    If you have never donated blood before, you can leave this field empty.
+                    Your availability status will update automatically.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="whatsapp">
+                    WhatsApp Number <span class="required">*</span>
+                </label>
+
+                <input type="tel"
+                       id="whatsapp"
+                       placeholder="e.g. 8801XXXXXXXXX"
+                       maxlength="20"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="donorLocation">
+                    Your Location <span class="required">*</span>
+                </label>
+
+                <input type="text"
+                       id="donorLocation"
+                       placeholder="City, area or address"
+                       maxlength="150"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="donorPhoto">
+                    Donor Picture <span class="required">*</span>
+                </label>
+
+                <label class="photo-upload" for="donorPhoto">
+                    <i class="fa-solid fa-camera"></i>
+                    <strong>Upload Profile Picture</strong>
+                    <small>JPG or PNG · Maximum 2 MB</small>
+
+                    <input type="file"
+                           id="donorPhoto"
+                           accept="image/jpeg,image/png"
+                           required>
+                </label>
+
+                <img id="photoPreview" alt="Donor Preview">
+            </div>
+
+            <div class="form-note">
+                <i class="fa-solid fa-shield-halved"></i>
+                Please provide accurate information.
+                Your WhatsApp number and location will be
+                visible on your donor card.
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-user-plus"></i>
+                Register as Donor
+            </button>
+
+        </form>
+    </section>
+
+    <!-- DONOR CARDS -->
+
+    <section class="panel">
+
+        <div class="donor-header">
+            <h2>
+                <i class="fa-solid fa-users"
+                   style="color:var(--primary);"></i>
+                Available Donors
+            </h2>
+
+            <span class="donor-count" id="donorCount">
+                0 Donors
+            </span>
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="search"
+                   id="donorSearch"
+                   placeholder="Search name, blood group or location...">
+        </div>
+
+        <div class="donor-grid" id="donorGrid">
+            <!-- Donor cards appear here -->
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    <p>
+        © 2026 Safe Aid. All Rights Reserved.
+        <span>Designed for a Safer Tomorrow.</span>
+    </p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const STORAGE_KEY = "safeAidBloodDonors";
+
+    const form = document.getElementById("donorForm");
+    const donorGrid = document.getElementById("donorGrid");
+    const donorPhoto = document.getElementById("donorPhoto");
+    const photoPreview = document.getElementById("photoPreview");
+    const donorSearch = document.getElementById("donorSearch");
+    const donorCount = document.getElementById("donorCount");
+    const submitBtn = form.querySelector(".submit-btn");
+    const lastDonationInput = document.getElementById("lastDonationDate");
+
+    let selectedPhoto = "";
+    let editingDonorId = null;
+
+    // CURRENT LOCAL DATE
+
+    function getTodayString() {
+        const today = new Date();
+
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+        const day = String(today.getDate()).padStart(2, "0");
+
+        return `${year}-${month}-${day}`;
+    }
+
+    lastDonationInput.max = getTodayString();
+
+    // SAFE TEXT OUTPUT
+
+    function escapeHTML(value) {
+        return String(value ?? "").replace(/[&<>"']/g, function (char) {
+            return {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            }[char];
+        });
+    }
+
+    // GET DONOR DATA
+
+    function getDonors() {
+        try {
+            const donors = JSON.parse(
+                localStorage.getItem(STORAGE_KEY) || "[]"
+            );
+
+            return Array.isArray(donors) ? donors : [];
+
+        } catch (error) {
+            return [];
+        }
+    }
+
+    // SAVE DONOR DATA
+
+    function saveDonors(donors) {
+        try {
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(donors)
+            );
+
+            return true;
+
+        } catch (error) {
+            alert(
+                "Unable to save donor information. Browser storage may be full."
+            );
+
+            return false;
+        }
+    }
+
+    // FORMAT WHATSAPP NUMBER
+
+    function formatWhatsApp(number) {
+        return String(number || "").replace(/\D/g, "");
+    }
+
+    // FORMAT DATE FOR DISPLAY
+
+    function formatDonationDate(dateString) {
+
+        if (!dateString) {
+            return "Never donated / Not provided";
+        }
+
+        const parts = dateString.split("-");
+
+        if (parts.length !== 3) {
+            return "Not provided";
+        }
+
+        const date = new Date(
+            Number(parts[0]),
+            Number(parts[1]) - 1,
+            Number(parts[2])
+        );
+
+        if (isNaN(date.getTime())) {
+            return "Not provided";
+        }
+
+        return date.toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        });
+    }
+
+    // ADD MONTHS WITHOUT DATE OVERFLOW
+
+    function addMonths(dateString, months) {
+
+        const parts = dateString.split("-").map(Number);
+
+        const year = parts[0];
+        const month = parts[1] - 1;
+        const day = parts[2];
+
+        const targetMonth = month + months;
+
+        const targetYear = year + Math.floor(targetMonth / 12);
+        const normalizedMonth = ((targetMonth % 12) + 12) % 12;
+
+        const lastDayOfTargetMonth = new Date(
+            targetYear,
+            normalizedMonth + 1,
+            0
+        ).getDate();
+
+        const finalDay = Math.min(day, lastDayOfTargetMonth);
+
+        const result = new Date(
+            targetYear,
+            normalizedMonth,
+            finalDay
+        );
+
+        const resultYear = result.getFullYear();
+        const resultMonth = String(result.getMonth() + 1).padStart(2, "0");
+        const resultDay = String(result.getDate()).padStart(2, "0");
+
+        return `${resultYear}-${resultMonth}-${resultDay}`;
+    }
+
+    // AUTOMATIC DONOR STATUS
+
+    function getDonorStatus(lastDonationDate) {
+
+        // No previous donation date means eligible by this date rule.
+        if (!lastDonationDate) {
+            return "active";
+        }
+
+        const today = getTodayString();
+
+        // Invalid or future date should not be treated as active.
+        if (
+            !/^\d{4}-\d{2}-\d{2}$/.test(lastDonationDate) ||
+            lastDonationDate > today
+        ) {
+            return "inactive";
+        }
+
+        const eligibleDate = addMonths(lastDonationDate, 3);
+
+        return today >= eligibleDate ? "active" : "inactive";
+    }
+
+    // PHOTO UPLOAD AND PREVIEW
+
+    donorPhoto.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) return;
+
+        if (!["image/jpeg", "image/png"].includes(file.type)) {
+            alert("Please select JPG or PNG.");
+            this.value = "";
+            return;
+        }
+
+        if (file.size > 2 * 1024 * 1024) {
+            alert("Image must be smaller than 2 MB.");
+            this.value = "";
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+
+            const img = new Image();
+
+            img.onload = function () {
+
+                const canvas = document.createElement("canvas");
+                const maxSize = 400;
+
+                const scale = Math.min(
+                    1,
+                    maxSize / Math.max(img.width, img.height)
+                );
+
+                canvas.width = Math.round(img.width * scale);
+                canvas.height = Math.round(img.height * scale);
+
+                const ctx = canvas.getContext("2d");
+
+                ctx.drawImage(
+                    img,
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+                selectedPhoto = canvas.toDataURL(
+                    "image/jpeg",
+                    0.75
+                );
+
+                photoPreview.src = selectedPhoto;
+                photoPreview.style.display = "block";
+            };
+
+            img.onerror = function () {
+                alert("Unable to read this image.");
+                donorPhoto.value = "";
+            };
+
+            img.src = event.target.result;
+        };
+
+        reader.onerror = function () {
+            alert("Unable to upload image.");
+            donorPhoto.value = "";
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    // SUBMIT AND UPDATE DONOR
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("donorName").value.trim();
+
+        const bloodGroup = document.getElementById("bloodGroup").value;
+
+        const donations = Number(
+            document.getElementById("donationCount").value
+        );
+
+        const rawPhone = document.getElementById("whatsapp").value.trim();
+
+        const phone = formatWhatsApp(rawPhone);
+
+        const location = document.getElementById("donorLocation").value.trim();
+
+        const lastDonationDate = lastDonationInput.value;
+
+        // VALIDATION
+
+        if (!name || !bloodGroup || !location) {
+            alert("Please complete all required fields.");
+            return;
+        }
+
+        if (
+            !Number.isInteger(donations) ||
+            donations < 0 ||
+            donations > 200
+        ) {
+            alert("Please enter a valid donation count.");
+            return;
+        }
+
+        if (phone.length < 10 || phone.length > 15) {
+            alert("Please enter a valid WhatsApp number with country code.");
+            return;
+        }
+
+        if (!selectedPhoto) {
+            alert("Please upload donor picture.");
+            return;
+        }
+
+        if (lastDonationDate && lastDonationDate > getTodayString()) {
+            alert("Last donation date cannot be in the future.");
+            return;
+        }
+
+        const donors = getDonors();
+
+        const existingDonor = editingDonorId
+            ? donors.find(donor => donor.id === editingDonorId)
+            : null;
+
+        // CREATE DONOR OBJECT
+
+        const donor = {
+
+            id: editingDonorId || ("BD-" + Date.now()),
+
+            name: name,
+
+            bloodGroup: bloodGroup,
+
+            donations: donations,
+
+            lastDonationDate: lastDonationDate,
+
+            whatsapp: phone,
+
+            location: location,
+
+            photo: selectedPhoto,
+
+            createdAt: existingDonor
+                ? existingDonor.createdAt
+                : new Date().toISOString(),
+
+            updatedAt: new Date().toISOString()
+        };
+
+        // UPDATE OR REGISTER
+
+        if (editingDonorId) {
+
+            const index = donors.findIndex(
+                item => item.id === editingDonorId
+            );
+
+            if (index === -1) {
+                alert("Donor record not found.");
+                cancelEdit();
+                return;
+            }
+
+            donors[index] = donor;
+
+        } else {
+
+            donors.unshift(donor);
+        }
+
+        if (!saveDonors(donors)) return;
+
+        const wasEditing = Boolean(editingDonorId);
+
+        // RESET FORM
+
+        form.reset();
+
+        selectedPhoto = "";
+        editingDonorId = null;
+
+        photoPreview.src = "";
+        photoPreview.style.display = "none";
+
+        donorPhoto.required = false;
+
+        submitBtn.innerHTML =
+            '<i class="fa-solid fa-user-plus"></i> Register as Donor';
+
+        renderDonors();
+
+        alert(
+            wasEditing
+                ? "Donor information updated successfully!"
+                : "Congratulations! You are now registered as a blood donor."
+        );
+    });
+
+    // CANCEL EDIT
+
+    function cancelEdit() {
+
+        editingDonorId = null;
+        selectedPhoto = "";
+
+        form.reset();
+
+        photoPreview.src = "";
+        photoPreview.style.display = "none";
+
+        donorPhoto.required = false;
+
+        submitBtn.innerHTML =
+            '<i class="fa-solid fa-user-plus"></i> Register as Donor';
+    }
+
+    // EDIT DONOR
+
+    function editDonor(donorId) {
+
+        const donors = getDonors();
+
+        const donor = donors.find(
+            item => item.id === donorId
+        );
+
+        if (!donor) {
+            alert("Donor not found.");
+            return;
+        }
+
+        editingDonorId = donorId;
+
+        // LOAD OLD INFORMATION
+
+        document.getElementById("donorName").value =
+            donor.name || "";
+
+        document.getElementById("bloodGroup").value =
+            donor.bloodGroup || "";
+
+        document.getElementById("donationCount").value =
+            donor.donations ?? 0;
+
+        document.getElementById("whatsapp").value =
+            donor.whatsapp || "";
+
+        document.getElementById("donorLocation").value =
+            donor.location || "";
+
+        lastDonationInput.value =
+            donor.lastDonationDate || "";
+
+        // LOAD OLD PHOTO
+
+        selectedPhoto = donor.photo || "";
+
+        if (selectedPhoto) {
+            photoPreview.src = selectedPhoto;
+            photoPreview.style.display = "block";
+        } else {
+            photoPreview.src = "";
+            photoPreview.style.display = "none";
+        }
+
+        submitBtn.innerHTML =
+            '<i class="fa-solid fa-floppy-disk"></i> Update Donor Information';
+
+        form.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+
+    // RENDER DONOR CARDS
+
+    function renderDonors() {
+
+        const donors = getDonors();
+
+        const search = donorSearch.value.trim().toLowerCase();
+
+        const filtered = donors.filter(function (donor) {
+
+            return (
+                String(donor.name || "").toLowerCase().includes(search) ||
+                String(donor.bloodGroup || "").toLowerCase().includes(search) ||
+                String(donor.location || "").toLowerCase().includes(search)
+            );
+        });
+
+        donorCount.textContent = donors.length + " Donors";
+
+        donorGrid.innerHTML = "";
+
+        // EMPTY STATE
+
+        if (filtered.length === 0) {
+
+            donorGrid.innerHTML = `
+                <div class="empty-state">
+                    <i class="fa-solid fa-droplet"></i>
+
+                    <h3>No Donors Found</h3>
+
+                    <p>
+                        Be the first to register as a blood donor
+                        and help someone in need.
+                    </p>
+                </div>
+            `;
+
+            return;
+        }
+
+        // CREATE DONOR CARDS
+
+        filtered.forEach(function (donor) {
+
+            const card = document.createElement("article");
+
+            card.className = "donor-card";
+
+            const safeName = escapeHTML(donor.name);
+            const safeGroup = escapeHTML(donor.bloodGroup);
+            const safeDonations = escapeHTML(donor.donations);
+            const safeLocation = escapeHTML(donor.location);
+            const safePhone = escapeHTML(donor.whatsapp);
+
+            const safePhoto = donor.photo
+                ? escapeHTML(donor.photo)
+                : "";
+
+            const safeLastDonation = escapeHTML(
+                formatDonationDate(donor.lastDonationDate)
+            );
+
+            const status = getDonorStatus(donor.lastDonationDate);
+
+            const statusHTML = status === "active"
+                ? `
+                    <span class="donor-status active">
+                        <i class="fa-solid fa-circle"></i>
+                        ACTIVE
+                    </span>
+                `
+                : `
+                    <span class="donor-status inactive">
+                        <i class="fa-solid fa-circle"></i>
+                        INACTIVE
+                    </span>
+                `;
+
+            const whatsappURL =
+                "https://wa.me/" +
+                encodeURIComponent(formatWhatsApp(donor.whatsapp || ""));
+
+            card.innerHTML = `
+
+                <div class="donor-top">
+
+                    ${
+                        safePhoto
+                        ?
+                        `<img src="${safePhoto}"
+                              class="donor-photo"
+                              alt="${safeName}">`
+                        :
+                        `<div class="blood-icon">
+                            ${safeGroup}
+                         </div>`
+                    }
+
+                    <div>
+
+                        <h3 class="donor-name">
+                            ${safeName}
+                        </h3>
+
+                        <span class="donor-type">
+                            BLOOD DONOR
+                        </span>
+
+                        ${statusHTML}
+
+                    </div>
+
+                </div>
+
+                <div class="donor-details">
+
+                    <p>
+                        <i class="fa-solid fa-droplet"></i>
+                        Blood Group: ${safeGroup}
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        Total Donations: ${safeDonations} Times
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Last Donation: ${safeLastDonation}
+                    </p>
+
+                    <p>
+                        <i class="fa-brands fa-whatsapp"></i>
+                        ${safePhone}
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        ${safeLocation}
+                    </p>
+
+                </div>
+
+                <a href="${whatsappURL}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="whatsapp-btn">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Contact on WhatsApp
+
+                </a>
+
+                <button type="button"
+                        class="edit-donor-btn"
+                        data-edit-id="${escapeHTML(donor.id)}">
+
+                    <i class="fa-solid fa-pen"></i>
+                    Edit Information
+
+                </button>
+            `;
+
+            donorGrid.appendChild(card);
+        });
+    }
+
+    // EDIT BUTTON CLICK
+
+    donorGrid.addEventListener("click", function (event) {
+
+        const button = event.target.closest(".edit-donor-btn");
+
+        if (!button) return;
+
+        editDonor(button.dataset.editId);
+    });
+
+    // LIVE SEARCH
+
+    donorSearch.addEventListener("input", renderDonors);
+
+    // INITIAL LOAD
+
+    renderDonors();
+
+});
+</script>
+
+</body>
+</html>

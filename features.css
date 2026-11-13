@@ -1,0 +1,613 @@
+/* ==========================================
+   SAFE AID - MISSING PERSONS FEATURE
+   Additional CSS - Does not replace style.css
+========================================== */
+
+.mp-layout {
+    width: min(1180px, 92%);
+    margin: 35px auto 0;
+    display: grid;
+    grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.4fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.mp-report-panel,
+.mp-directory-panel {
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #e9e9ed;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 28px rgba(32, 54, 66, .055);
+}
+
+.mp-panel-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 22px;
+}
+
+.mp-heading-icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #fcecef;
+    color: #c65370;
+    font-size: 18px;
+}
+
+.mp-panel-heading h3,
+.mp-directory-heading h3 {
+    color: #203642;
+    font-size: 19px;
+    margin: 0 0 6px;
+}
+
+.mp-panel-heading p,
+.mp-directory-heading p {
+    color: #777b83;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.mp-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 15px;
+}
+
+.mp-form-group label {
+    color: #344650;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.mp-form-group input,
+.mp-form-group select,
+.mp-form-group textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid #e0e3e6;
+    border-radius: 9px;
+    outline: none;
+    color: #263943;
+    background: #fff;
+    font: inherit;
+    font-size: 13px;
+}
+
+.mp-form-group input:focus,
+.mp-form-group select:focus,
+.mp-form-group textarea:focus {
+    border-color: #c65370;
+    box-shadow: 0 0 0 3px rgba(198, 83, 112, .09);
+}
+
+.mp-form-group textarea {
+    resize: vertical;
+}
+
+.mp-form-group small {
+    color: #888;
+    font-size: 11px;
+}
+
+.mp-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.mp-photo-preview {
+    display: none;
+    margin-top: 8px;
+}
+
+.mp-photo-preview img {
+    width: 100%;
+    max-height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.mp-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 12px 0 17px;
+    color: #68747b;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.mp-consent input {
+    margin-top: 3px;
+    accent-color: #c65370;
+}
+
+.mp-submit-btn {
+    width: 100%;
+    border: 0;
+    border-radius: 9px;
+    padding: 13px 15px;
+    background: #c65370;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.mp-submit-btn:hover {
+    background: #a9435d;
+    transform: translateY(-1px);
+}
+
+.mp-form-status {
+    min-height: 18px;
+    margin: 10px 0 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.mp-form-status.success { color: #238454; }
+.mp-form-status.error { color: #c0394b; }
+
+.mp-directory-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.mp-count {
+    flex-shrink: 0;
+    padding: 7px 10px;
+    background: #fcecef;
+    color: #b84c68;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.mp-search-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 105px;
+    gap: 10px;
+    margin-bottom: 17px;
+}
+
+.mp-search-box {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    padding: 0 12px;
+    border: 1px solid #e4e6e9;
+    border-radius: 9px;
+    color: #9a9fa5;
+}
+
+.mp-search-box input {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    font-size: 12px;
+    background: transparent;
+}
+
+.mp-search-row select {
+    min-width: 0;
+    border: 1px solid #e4e6e9;
+    border-radius: 9px;
+    padding: 0 8px;
+    color: #46545c;
+    background: #fff;
+    font-size: 12px;
+}
+
+.mp-cards-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.mp-person-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #ececef;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.mp-person-card img {
+    display: block;
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    background: #f3f3f3;
+}
+
+.mp-person-card-body {
+    padding: 13px;
+}
+
+.mp-person-card-body h4 {
+    margin: 0 0 9px;
+    color: #263943;
+    font-size: 15px;
+}
+
+.mp-person-card-body p {
+    display: flex;
+    gap: 7px;
+    align-items: flex-start;
+    margin: 6px 0;
+    color: #707b82;
+    font-size: 11px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.mp-person-card-body p i {
+    width: 13px;
+    margin-top: 2px;
+    color: #c65370;
+}
+
+.mp-person-badge {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 7px;
+    border-radius: 5px;
+    background: #fff0f1;
+    color: #b64b60;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .4px;
+}
+
+.mp-view-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 9px;
+    border: 1px solid #c65370;
+    border-radius: 7px;
+    background: #fff;
+    color: #b64b68;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mp-view-btn:hover {
+    background: #c65370;
+    color: #fff;
+}
+
+.mp-empty-state {
+    padding: 35px 12px;
+    text-align: center;
+    color: #8b9298;
+}
+
+.mp-empty-state i {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.mp-empty-state h3 {
+    color: #3b4a52;
+    font-size: 16px;
+}
+
+.mp-empty-state p {
+    font-size: 12px;
+}
+
+.mp-details-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10020;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(16, 29, 36, .65);
+}
+
+.mp-details-overlay.active {
+    display: flex;
+}
+
+.mp-details-modal {
+    position: relative;
+    width: min(520px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.mp-details-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f3f3f3;
+    cursor: pointer;
+}
+
+.mp-details-modal img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.mp-details-modal h2 {
+    color: #203642;
+    font-size: 21px;
+    margin: 5px 0 12px;
+}
+
+.mp-details-modal p {
+    color: #65727a;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+    .mp-layout {
+        grid-template-columns: 1fr;
+        max-width: 680px;
+    }
+}
+
+@media (max-width: 520px) {
+    .mp-layout {
+        width: 94%;
+        gap: 15px;
+        margin-top: 24px;
+    }
+
+    .mp-report-panel,
+    .mp-directory-panel {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .mp-cards-list {
+        grid-template-columns: 1fr;
+    }
+
+    .mp-person-card {
+        display: grid;
+        grid-template-columns: 112px minmax(0, 1fr);
+    }
+
+    .mp-person-card img {
+        height: 100%;
+        min-height: 150px;
+    }
+
+    .mp-person-card-body {
+        padding: 11px;
+    }
+
+    .mp-directory-heading {
+        align-items: flex-start;
+    }
+
+    .mp-search-row {
+        grid-template-columns: minmax(0, 1fr) 90px;
+    }
+
+    .mp-details-modal {
+        padding: 18px;
+    }
+}
+
+
+/* ==========================================
+   SOS SERVICE INTERFACE
+========================================== */
+
+.sos-service-view {
+    margin-top: 20px;
+}
+
+.sos-service-view[hidden] {
+    display: none !important;
+}
+
+.sos-services[hidden] {
+    display: none !important;
+}
+
+.sos-back-btn {
+    border: 0;
+    background: #fcecef;
+    color: #b64b68;
+    padding: 9px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.sos-service-title {
+    text-align: center;
+    padding: 22px 10px 15px;
+}
+
+.sos-service-title > i {
+    font-size: 32px;
+    color: #c65370;
+}
+
+.sos-service-title h2 {
+    color: #203642;
+    margin: 12px 0 6px;
+    font-size: 21px;
+}
+
+.sos-service-title p {
+    color: #7c858b;
+    font-size: 12px;
+}
+
+.sos-feature-card {
+    padding: 18px;
+    border: 1px solid #ececef;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.sos-feature-card h3 {
+    color: #203642;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.sos-feature-card p {
+    color: #778087;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.sos-feature-card form {
+    display: grid;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.sos-feature-card label {
+    color: #46545c;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sos-feature-card input,
+.sos-feature-card select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #e0e3e6;
+    border-radius: 8px;
+    background: #fff;
+    color: #263943;
+}
+
+.sos-feature-card form button,
+.sos-feature-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 10px;
+    background: #c65370;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.sos-feature-action.secondary {
+    background: #315b68;
+}
+
+.sos-feature-action.emergency {
+    background: #c83e45;
+}
+
+.sos-contact-list {
+    display: grid;
+    gap: 10px;
+}
+
+.sos-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid #ececef;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #203642;
+}
+
+.sos-contact-item > span {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #fcecef;
+    color: #c65370;
+}
+
+.sos-contact-item div {
+    flex: 1;
+    min-width: 0;
+}
+
+.sos-contact-item strong,
+.sos-contact-item small {
+    display: block;
+}
+
+.sos-contact-item strong {
+    font-size: 12px;
+}
+
+.sos-contact-item small {
+    margin-top: 4px;
+    color: #c65370;
+    font-weight: 700;
+}
+
+.sos-contact-item > i {
+    color: #89939a;
+    font-size: 12px;
+}
+
+.sos-demo-note {
+    margin-top: 13px;
+    color: #858d93;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+    .sos-feature-card {
+        padding: 13px;
+    }
+
+    .sos-service-title h2 {
+        font-size: 18px;
+    }
+}

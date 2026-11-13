@@ -1,0 +1,678 @@
+/* ==========================================
+   SAFE AID - HOSPITAL DIRECTORY
+   Professional Compact Design
+========================================== */
+
+:root {
+    --primary: #315B68;
+    --primary-dark: #244752;
+    --accent: #D36B60;
+    --dark: #203642;
+    --text: #52636B;
+    --muted: #849198;
+    --bg: #F5F8F9;
+    --white: #FFFFFF;
+    --border: #E5EBED;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.hd-navbar {
+    width: 100%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 10px rgba(0,0,0,.025);
+}
+
+.hd-nav-container {
+    width: min(1150px, 92%);
+    min-height: 68px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hd-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--dark);
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.hd-brand strong {
+    color: var(--primary);
+}
+
+.hd-logo {
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--primary);
+    color: white;
+
+    border-radius: 9px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.hd-back-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 10px 17px;
+
+    border: 1px solid var(--primary);
+    border-radius: 7px;
+
+    background: var(--primary);
+    color: white;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.hd-back-home:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.hd-main {
+    min-height: calc(100vh - 135px);
+    padding: 27px 0 40px;
+}
+
+.hd-container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.hd-search-section {
+    margin-bottom: 22px;
+}
+
+.hd-search-box {
+    width: min(550px, 100%);
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 0 13px;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    transition: .2s;
+}
+
+.hd-search-box:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(49,91,104,.07);
+}
+
+.hd-search-icon {
+    color: var(--primary);
+    font-size: 23px;
+}
+
+.hd-search-box input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: var(--dark);
+
+    font-size: 11px;
+}
+
+.hd-search-box input::placeholder {
+    color: #A1ADB2;
+}
+
+.hd-search-box button {
+    border: none;
+    background: none;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ==========================================
+   HOSPITAL GRID
+========================================== */
+
+.hospital-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+/* ==========================================
+   HOSPITAL CARD
+========================================== */
+
+.hospital-card {
+    min-width: 0;
+    overflow: hidden;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    box-shadow: 0 3px 14px rgba(32,54,66,.045);
+
+    transition: .22s ease;
+}
+
+.hospital-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(32,54,66,.09);
+}
+
+/* IMAGE */
+
+.hospital-image {
+    width: 100%;
+    height: 150px;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #EAF1F3;
+}
+
+.hospital-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hospital-type {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    padding: 5px 9px;
+
+    background: white;
+    color: var(--primary);
+
+    border-radius: 4px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.hospital-type.private {
+    color: var(--accent);
+}
+
+/* CONTENT */
+
+.hospital-content {
+    padding: 14px;
+}
+
+.hospital-content h2 {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 800;
+    color: var(--dark);
+
+    min-height: 42px;
+    margin-bottom: 9px;
+}
+
+.hospital-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    margin-top: 8px;
+
+    color: var(--text);
+    font-size: 10px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.hospital-detail span:first-child {
+    flex-shrink: 0;
+    width: 14px;
+}
+
+/* EMERGENCY */
+
+.hospital-emergency {
+    display: inline-flex;
+    margin-top: 12px;
+
+    padding: 6px 9px;
+
+    background: #EAF5EF;
+    color: #25845C;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+/* FACILITIES */
+
+.hospital-facilities {
+    margin-top: 13px;
+    padding-top: 12px;
+
+    border-top: 1px solid var(--border);
+}
+
+.hospital-facilities strong {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 10px;
+    color: var(--dark);
+}
+
+.facility-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.facility-list span {
+    padding: 5px 7px;
+
+    background: #F0F5F6;
+    color: var(--primary);
+
+    border-radius: 4px;
+
+    font-size: 8px;
+    font-weight: 600;
+}
+
+/* ACTION BUTTONS */
+
+.hospital-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+
+    margin-top: 14px;
+}
+
+.hospital-actions a,
+.hospital-actions .disabled {
+    min-height: 34px;
+    padding: 7px 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+
+    font-size: 9px;
+    font-weight: 700;
+    text-align: center;
+
+    transition: .2s;
+}
+
+.call-hospital {
+    background: var(--primary);
+    color: white;
+    border: 1px solid var(--primary);
+}
+
+.location-hospital {
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.hospital-actions a:hover {
+    opacity: .83;
+}
+
+.hospital-actions .disabled {
+    background: #F0F2F3;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   SEARCH EMPTY STATE
+========================================== */
+
+.hd-no-result {
+    padding: 45px 15px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.hd-no-result h3 {
+    font-size: 16px;
+    color: var(--dark);
+}
+
+.hd-no-result p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.hd-footer {
+    background: #203D48;
+    padding: 15px 4%;
+}
+
+.hd-footer-content {
+    width: min(1150px, 100%);
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.hd-footer-content p,
+.hd-footer-content span {
+    color: #D0DDE0;
+    font-size: 9px;
+}
+
+.hd-footer-content strong {
+    color: white;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 950px) {
+
+    .hospital-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .hd-nav-container {
+        min-height: 60px;
+    }
+
+    .hd-brand {
+        font-size: 19px;
+    }
+
+    .hd-logo {
+        width: 33px;
+        height: 33px;
+        font-size: 23px;
+    }
+
+    .hd-back-home {
+        padding: 9px 12px;
+        font-size: 10px;
+    }
+
+    .hd-main {
+        padding: 20px 0 28px;
+    }
+
+    .hd-search-section {
+        margin-bottom: 17px;
+    }
+
+    .hd-search-box {
+        height: 41px;
+    }
+
+    .hospital-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .hospital-card {
+        display: grid;
+        grid-template-columns: 115px minmax(0, 1fr);
+        align-items: stretch;
+    }
+
+    .hospital-image {
+        height: 100%;
+        min-height: 100%;
+    }
+
+    .hospital-image img {
+        position: absolute;
+        inset: 0;
+    }
+
+    .hospital-type {
+        top: 8px;
+        left: 6px;
+        padding: 4px 5px;
+        font-size: 7px;
+    }
+
+    .hospital-content {
+        padding: 12px 10px;
+        min-width: 0;
+    }
+
+    .hospital-content h2 {
+        min-height: auto;
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .hospital-detail {
+        font-size: 9px;
+        gap: 5px;
+        margin-top: 6px;
+    }
+
+    .hospital-emergency {
+        font-size: 8px;
+        padding: 5px 6px;
+    }
+
+    .hospital-facilities {
+        margin-top: 10px;
+        padding-top: 9px;
+    }
+
+    .facility-list {
+        gap: 4px;
+    }
+
+    .facility-list span {
+        font-size: 7px;
+        padding: 4px 5px;
+    }
+
+    .hospital-actions {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin-top: 10px;
+    }
+
+    .hospital-actions a,
+    .hospital-actions .disabled {
+        min-height: 29px;
+        font-size: 8px;
+    }
+
+    .hd-footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 6px;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .hospital-card {
+        grid-template-columns: 100px minmax(0, 1fr);
+    }
+
+    .hospital-content {
+        padding: 10px 8px;
+    }
+
+}
+
+.hd-footer {
+    margin-top: 75px;
+    background: #F8F7F4;
+    padding: 25px 7% 15px;
+    border-top: 1px solid #EAE8E2;
+}
+
+.hd-footer-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hd-footer-bottom {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding-top: 13px;
+    border-top: 1px solid #E5E3DC;
+    text-align: center;
+}
+
+.hd-footer-bottom p {
+    font-size: 11px;
+    color: #777B83;
+}
+
+@media (max-width: 700px) {
+    .hd-footer {
+        margin-top: 50px;
+        padding: 22px 20px 12px;
+    }
+}
+
+/* SafeAid Logo Fix */
+
+.hd-brand {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+}
+
+.hd-brand-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #315B68 !important;
+    font-size: 25px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.hd-brand-icon i {
+    display: inline-block !important;
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    color: #315B68 !important;
+}
+
+.hd-brand-name {
+    display: inline-block !important;
+    color: #252B35 !important;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.hd-brand-name span {
+    color: #D36B60 !important;
+}
+
+
+/* Homepage Logo Design */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    color: #252B35;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.logo i {
+    color: #315B68;
+    font-size: 25px;
+}
+
+.logo span {
+    color: #D36B60;
+}

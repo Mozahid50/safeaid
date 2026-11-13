@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Missing Persons | Safe Aid</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary: #315B68;
+            --primary-dark: #244752;
+            --accent: #D36B60;
+            --dark: #203642;
+            --text: #52616b;
+            --muted: #84919a;
+            --bg: #F5F8F9;
+            --white: #ffffff;
+            --border: #e5ebee;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 76px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo i {
+            margin-right: 7px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .back-home {
+            padding: 11px 19px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* PAGE HEADER */
+
+        .page-header {
+            text-align: center;
+            padding: 55px 20px 40px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 4vw, 39px);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .page-header h1 span {
+            color: var(--primary);
+        }
+
+        .page-header p {
+            max-width: 620px;
+            margin: auto;
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* MAIN LAYOUT */
+
+        .main-container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto 70px;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            align-items: start;
+            gap: 25px;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(32,54,66,0.04);
+        }
+
+        .panel-heading {
+            margin-bottom: 23px;
+        }
+
+        .panel-heading h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .panel-heading h2 i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        .panel-heading p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .required {
+            color: var(--accent);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            outline: none;
+            background: #fcfdfd;
+            color: var(--dark);
+            font-size: 12px;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(49,91,104,0.07);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 95px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .upload-box {
+            border: 1px dashed #b8c9ce;
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+            background: #f9fbfc;
+            cursor: pointer;
+        }
+
+        .upload-box i {
+            display: block;
+            font-size: 25px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .upload-box strong {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .upload-box small {
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .upload-box input {
+            display: none;
+        }
+
+        #imagePreview {
+            display: none;
+            width: 100%;
+            max-height: 190px;
+            object-fit: contain;
+            margin-top: 12px;
+            border-radius: 8px;
+            background: #f1f4f5;
+        }
+
+        .privacy-note {
+            padding: 12px;
+            border-radius: 7px;
+            background: #f0f6f7;
+            color: var(--primary);
+            font-size: 11px;
+            line-height: 1.6;
+            margin-bottom: 17px;
+        }
+
+        .privacy-note i {
+            margin-right: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* RIGHT SIDE */
+
+        .list-panel {
+            min-height: 500px;
+        }
+
+        .list-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .list-heading h2 {
+            font-size: 20px;
+        }
+
+        .total-count {
+            background: #edf4f5;
+            color: var(--primary);
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* SEARCH */
+
+        .search-filter {
+            display: grid;
+            grid-template-columns: 1fr 155px;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .search-box input,
+        .search-filter select {
+            width: 100%;
+            height: 42px;
+            padding: 0 12px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: #fcfdfd;
+            outline: none;
+            font-size: 11px;
+        }
+
+        .search-box input {
+            padding-left: 37px;
+        }
+
+        .search-box input:focus,
+        .search-filter select:focus {
+            border-color: var(--primary);
+        }
+
+        /* PERSON CARDS */
+
+        .persons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .person-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            transition: 0.25s;
+        }
+
+        .person-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(32,54,66,0.08);
+        }
+
+        .person-image {
+            height: 190px;
+            background: #edf2f3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .person-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 800;
+            background: #fff0ed;
+            color: #c34e43;
+        }
+
+        .status-badge.found {
+            background: #e7f6ed;
+            color: #25814a;
+        }
+
+        .person-info {
+            padding: 15px;
+        }
+
+        .person-info h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .person-info p {
+            font-size: 11px;
+            color: var(--text);
+            margin-bottom: 9px;
+            display: flex;
+            gap: 8px;
+            line-height: 1.5;
+        }
+
+        .person-info p i {
+            color: var(--primary);
+            width: 13px;
+        }
+
+        .details-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            margin-top: 13px;
+            border: none;
+            border-radius: 6px;
+            background: #edf4f5;
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .details-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 55px 15px;
+            color: var(--muted);
+        }
+
+        .empty-state i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #b8c9ce;
+        }
+
+        .empty-state h3 {
+            color: var(--dark);
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        /* DETAILS MODAL */
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            background: rgba(20,35,42,0.65);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .details-modal {
+            width: 100%;
+            max-width: 540px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 17px;
+            top: 17px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 50%;
+            background: #f1f4f5;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .details-modal h2 {
+            font-size: 20px;
+            margin-bottom: 18px;
+            padding-right: 30px;
+        }
+
+        .details-modal img {
+            width: 100%;
+            max-height: 260px;
+            object-fit: contain;
+            background: #f2f5f6;
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+
+        .detail-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .detail-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            text-align: center;
+            background: var(--dark);
+            color: white;
+            padding: 25px 15px;
+            font-size: 11px;
+        }
+
+        .footer span {
+            color: #e98b80;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 1050px) {
+            .main-container {
+                grid-template-columns: 350px 1fr;
+                width: 94%;
+            }
+
+            .persons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .person-image {
+                height: 220px;
+            }
+        }
+
+        @media(max-width: 760px) {
+            .navbar {
+                height: 66px;
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .back-home {
+                padding: 10px 12px;
+                font-size: 11px;
+            }
+
+            .page-header {
+                padding: 38px 18px 28px;
+            }
+
+            .page-header p {
+                font-size: 12px;
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+                width: 92%;
+                gap: 18px;
+            }
+
+            .panel {
+                padding: 19px;
+            }
+
+            .persons-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .person-image {
+                height: 150px;
+            }
+
+            .person-info {
+                padding: 11px;
+            }
+
+            .person-info h3 {
+                font-size: 13px;
+            }
+        }
+
+        @media(max-width: 430px) {
+            .persons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .person-image {
+                height: 210px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .search-filter {
+                grid-template-columns: 1fr;
+            }
+
+            .list-heading h2 {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        <i class="fa-solid fa-shield-heart"></i>
+        Safe<span>Aid</span>
+    </a>
+
+    <a href="index.html#missing" class="back-home">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+</header>
+
+
+<!-- PAGE HEADER -->
+
+<section class="page-header">
+
+    <span class="section-tag">COMMUNITY SUPPORT SYSTEM</span>
+
+    <h1>Missing <span>Persons</span></h1>
+
+    <p>
+        Report a missing person, share important information
+        and help families reunite with their loved ones.
+    </p>
+
+</section>
+
+
+<!-- MAIN CONTENT -->
+
+<main class="main-container">
+
+    <!-- LEFT: REPORT FORM -->
+
+    <section class="panel">
+
+        <div class="panel-heading">
+
+            <h2>
+                <i class="fa-solid fa-file-circle-plus"></i>
+                Report Missing Person
+            </h2>
+
+            <p>
+                Provide accurate information to create a missing
+                person report.
+            </p>
+
+        </div>
+
+
+        <form id="missingPersonForm">
+
+            <div class="form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <input type="text" id="personName"
+                       placeholder="Enter person's full name"
+                       maxlength="100" required>
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Age <span class="required">*</span></label>
+                    <input type="number" id="personAge"
+                           min="0" max="120"
+                           placeholder="Age" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender <span class="required">*</span></label>
+
+                    <select id="personGender" required>
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Last Seen Location <span class="required">*</span></label>
+
+                <input type="text" id="lastSeen"
+                       placeholder="City, area or specific location"
+                       maxlength="150" required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Date Last Seen <span class="required">*</span></label>
+
+                <input type="date" id="missingDate" required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Upload Person's Photo <span class="required">*</span></label>
+
+                <label class="upload-box" for="personPhoto">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    <strong>Click to Upload Photo</strong>
+
+                    <small>JPG, JPEG or PNG · Maximum 1 MB</small>
+
+                    <input type="file" id="personPhoto"
+                           accept="image/png,image/jpeg,image/jpg"
+                           required>
+
+                </label>
+
+                <img id="imagePreview" alt="Photo preview">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Contact Person Name <span class="required">*</span></label>
+
+                <input type="text" id="contactName"
+                       placeholder="Your name"
+                       maxlength="100" required>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Relationship</label>
+
+                    <input type="text" id="relationship"
+                           placeholder="e.g. Brother"
+                           maxlength="50">
+                </div>
+
+                <div class="form-group">
+                    <label>Contact Number <span class="required">*</span></label>
+
+                    <input type="tel" id="contactPhone"
+                           placeholder="Phone number"
+                           maxlength="20" required>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Additional Details</label>
+
+                <textarea id="personDescription"
+                          placeholder="Clothing, physical appearance, identifying marks or other useful information..."
+                          maxlength="1500"></textarea>
+
+            </div>
+
+
+            <div class="privacy-note">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Please submit accurate information.
+                Only share contact information that you have
+                permission to publish.
+
+            </div>
+
+
+            <button type="submit" class="submit-btn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+                Submit Missing Person Report
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- RIGHT: MISSING PERSONS LIST -->
+
+    <section class="panel list-panel">
+
+        <div class="list-heading">
+
+            <h2>
+                <i class="fa-solid fa-users"
+                   style="color:var(--primary);"></i>
+                Missing Persons List
+            </h2>
+
+            <span class="total-count" id="totalCount">
+                0 Reports
+            </span>
+
+        </div>
+
+
+        <!-- SEARCH AND FILTER -->
+
+        <div class="search-filter">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="search"
+                       id="searchInput"
+                       placeholder="Search by name or location...">
+
+            </div>
+
+
+            <select id="statusFilter">
+
+                <option value="all">All Reports</option>
+                <option value="Missing">Missing</option>
+                <option value="Found">Found</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- CARDS -->
+
+        <div class="persons-grid" id="personsGrid">
+
+            <!-- JavaScript renders reports here -->
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- DETAILS MODAL -->
+
+<div class="modal-overlay" id="detailsOverlay">
+
+    <div class="details-modal">
+
+        <button class="close-modal" id="closeModal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div id="detailsContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Safe Aid. All Rights Reserved.
+        <span>Designed for a Safer Tomorrow.</span>
+    </p>
+
+</footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const STORAGE_KEY = "safeAidMissingPersons";
+
+    const form = document.getElementById("missingPersonForm");
+    const photoInput = document.getElementById("personPhoto");
+    const imagePreview = document.getElementById("imagePreview");
+
+    const personsGrid = document.getElementById("personsGrid");
+    const searchInput = document.getElementById("searchInput");
+    const statusFilter = document.getElementById("statusFilter");
+
+    const totalCount = document.getElementById("totalCount");
+
+    const detailsOverlay = document.getElementById("detailsOverlay");
+    const detailsContent = document.getElementById("detailsContent");
+    const closeModal = document.getElementById("closeModal");
+
+    let selectedPhoto = "";
+
+    // SAFE TEXT OUTPUT
+
+    function escapeHTML(value) {
+
+        return String(value ?? "").replace(/[&<>"']/g, function (char) {
+
+            return {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            }[char];
+
+        });
+
+    }
+
+
+    // GET SAVED REPORTS
+
+    function getReports() {
+
+        try {
+
+            const reports = JSON.parse(
+                localStorage.getItem(STORAGE_KEY) || "[]"
+            );
+
+            return Array.isArray(reports) ? reports : [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+    // SAVE REPORTS
+
+    function saveReports(reports) {
+
+        try {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(reports)
+            );
+
+            return true;
+
+        } catch (error) {
+
+            alert("Storage is full. Please try a smaller image.");
+
+            return false;
+
+        }
+
+    }
+
+
+    // PHOTO PREVIEW
+
+    photoInput.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        selectedPhoto = "";
+        imagePreview.style.display = "none";
+
+        if (!file) return;
+
+        if (!["image/jpeg", "image/png"].includes(file.type)) {
+
+            alert("Please upload a JPG or PNG image.");
+
+            this.value = "";
+            return;
+
+        }
+
+        if (file.size > 1024 * 1024) {
+
+            alert("Photo size must be less than 1 MB.");
+
+            this.value = "";
+            return;
+
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+
+            selectedPhoto = event.target.result;
+
+            imagePreview.src = selectedPhoto;
+            imagePreview.style.display = "block";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+
+    // SUBMIT REPORT
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        if (!selectedPhoto) {
+
+            alert("Please upload the missing person's photo.");
+
+            return;
+
+        }
+
+        const report = {
+
+            id: "MP-" + Date.now(),
+
+            name: document.getElementById("personName").value.trim(),
+
+            age: document.getElementById("personAge").value,
+
+            gender: document.getElementById("personGender").value,
+
+            location: document.getElementById("lastSeen").value.trim(),
+
+            date: document.getElementById("missingDate").value,
+
+            photo: selectedPhoto,
+
+            contactName: document.getElementById("contactName").value.trim(),
+
+            relationship: document.getElementById("relationship").value.trim(),
+
+            phone: document.getElementById("contactPhone").value.trim(),
+
+            description: document.getElementById("personDescription").value.trim(),
+
+            status: "Missing",
+
+            createdAt: new Date().toISOString()
+
+        };
+
+
+        const reports = getReports();
+
+        reports.unshift(report);
+
+        if (!saveReports(reports)) return;
+
+
+        alert("Missing person report submitted successfully!");
+
+        form.reset();
+
+        selectedPhoto = "";
+
+        imagePreview.src = "";
+        imagePreview.style.display = "none";
+
+        renderReports();
+
+    });
+
+
+    // RENDER PERSON CARDS
+
+    function renderReports() {
+
+        const reports = getReports();
+
+        const search = searchInput.value.trim().toLowerCase();
+
+        const filter = statusFilter.value;
+
+        const filtered = reports.filter(function (person) {
+
+            const matchesSearch =
+
+                person.name.toLowerCase().includes(search) ||
+
+                person.location.toLowerCase().includes(search);
+
+            const matchesStatus =
+
+                filter === "all" || person.status === filter;
+
+            return matchesSearch && matchesStatus;
+
+        });
+
+
+        totalCount.textContent = reports.length + " Reports";
+
+        personsGrid.innerHTML = "";
+
+
+        if (filtered.length === 0) {
+
+            personsGrid.innerHTML = `
+
+                <div class="empty-state">
+
+                    <i class="fa-solid fa-user-slash"></i>
+
+                    <h3>No Missing Person Found</h3>
+
+                    <p>
+                        No matching reports are available.
+                        Submit a new report or try another search.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        filtered.forEach(function (person) {
+
+            const card = document.createElement("article");
+
+            card.className = "person-card";
+
+            const safeName = escapeHTML(person.name);
+            const safeLocation = escapeHTML(person.location);
+            const safeAge = escapeHTML(person.age);
+
+            const safePhoto = person.photo &&
+                /^data:image\/(jpeg|png);base64,/.test(person.photo)
+                ? person.photo
+                : "";
+
+            const formattedDate = escapeHTML(person.date);
+
+            card.innerHTML = `
+
+                <div class="person-image">
+
+                    <img src="${safePhoto}" alt="${safeName}">
+
+                    <span class="status-badge ${person.status === "Found" ? "found" : ""}">
+                        ${escapeHTML(person.status)}
+                    </span>
+
+                </div>
+
+
+                <div class="person-info">
+
+                    <h3>${safeName}</h3>
+
+                    <p>
+                        <i class="fa-solid fa-user"></i>
+                        Age: ${safeAge} years
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        ${safeLocation}
+                    </p>
+
+                    <p>
+                        <i class="fa-regular fa-calendar"></i>
+                        ${formattedDate}
+                    </p>
+
+                    <button class="details-btn"
+                            type="button"
+                            data-id="${escapeHTML(person.id)}">
+
+                        View Details
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            personsGrid.appendChild(card);
+
+        });
+
+    }
+
+
+    // SEARCH
+
+    searchInput.addEventListener("input", renderReports);
+
+    statusFilter.addEventListener("change", renderReports);
+
+
+    // VIEW DETAILS
+
+    personsGrid.addEventListener("click", function (event) {
+
+        const button = event.target.closest(".details-btn");
+
+        if (!button) return;
+
+        const report = getReports().find(function (person) {
+
+            return person.id === button.dataset.id;
+
+        });
+
+        if (!report) return;
+
+        const safePhoto = report.photo &&
+            /^data:image\/(jpeg|png);base64,/.test(report.photo)
+            ? report.photo
+            : "";
+
+        detailsContent.innerHTML = `
+
+            <h2>${escapeHTML(report.name)}</h2>
+
+            <img src="${safePhoto}" alt="Missing person">
+
+            <div class="detail-item">
+                <strong>Report Status</strong>
+                ${escapeHTML(report.status)}
+            </div>
+
+            <div class="detail-item">
+                <strong>Age</strong>
+                ${escapeHTML(report.age)} years
+            </div>
+
+            <div class="detail-item">
+                <strong>Gender</strong>
+                ${escapeHTML(report.gender)}
+            </div>
+
+            <div class="detail-item">
+                <strong>Last Seen Location</strong>
+                ${escapeHTML(report.location)}
+            </div>
+
+            <div class="detail-item">
+                <strong>Date Last Seen</strong>
+                ${escapeHTML(report.date)}
+            </div>
+
+            <div class="detail-item">
+                <strong>Contact Person</strong>
+                ${escapeHTML(report.contactName)}
+            </div>
+
+            <div class="detail-item">
+                <strong>Relationship</strong>
+                ${escapeHTML(report.relationship || "Not provided")}
+            </div>
+
+            <div class="detail-item">
+                <strong>Contact Number</strong>
+                ${escapeHTML(report.phone)}
+            </div>
+
+            <div class="detail-item">
+                <strong>Additional Details</strong>
+                ${escapeHTML(report.description || "No additional information.")}
+            </div>
+
+            <div class="detail-item">
+                <strong>Report ID</strong>
+                ${escapeHTML(report.id)}
+            </div>
+
+        `;
+
+        detailsOverlay.classList.add("active");
+
+    });
+
+
+    // CLOSE MODAL
+
+    closeModal.addEventListener("click", function () {
+
+        detailsOverlay.classList.remove("active");
+
+    });
+
+
+    detailsOverlay.addEventListener("click", function (event) {
+
+        if (event.target === detailsOverlay) {
+
+            detailsOverlay.classList.remove("active");
+
+        }
+
+    });
+
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            detailsOverlay.classList.remove("active");
+
+        }
+
+    });
+
+
+    // INITIAL LOAD
+
+    renderReports();
+
+});
+
+</script>
+
+</body>
+</html>

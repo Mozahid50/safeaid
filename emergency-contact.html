@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Emergency Contacts | Safe Aid</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="emergency-contact.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="ec-navbar">
+        <div class="ec-nav-container">
+
+            <a href="index.html" class="ec-logo">
+                <i class="fa-solid fa-shield-heart"></i>
+                <span>Safe Aid</span>
+            </a>
+
+            <a href="index.html" class="ec-back-home">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back Home
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="ec-main">
+
+        <div class="ec-container">
+
+            <!-- PAGE HEADING -->
+
+            <section class="ec-heading">
+
+                <span class="ec-subtitle">
+                    EMERGENCY SUPPORT DIRECTORY
+                </span>
+
+                <h1>Emergency Contact Numbers</h1>
+
+                <p>
+                    Important emergency helpline numbers to help you
+                    reach the right authorities when you need assistance.
+                </p>
+
+            </section>
+
+
+            <!-- IMPORTANT EMERGENCY NOTICE -->
+
+            <section class="ec-emergency-banner">
+
+                <div class="ec-banner-content">
+
+                    <div class="ec-banner-icon">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+
+                    <div>
+                        <h2>Need Immediate Emergency Help?</h2>
+
+                        <p>
+                            Call Bangladesh National Emergency Service
+                            for immediate assistance.
+                        </p>
+                    </div>
+
+                </div>
+
+                <a href="tel:999" class="ec-emergency-btn">
+                    <i class="fa-solid fa-phone"></i>
+                    Call 999
+                </a>
+
+            </section>
+
+
+            <!-- ================= CONTACT DIRECTORY ================= -->
+
+            <section class="ec-contact-section">
+
+                <div class="ec-contact-header">
+
+                    <div>
+                        <span class="ec-section-label">
+                            IMPORTANT HELPLINES
+                        </span>
+
+                        <h2>Emergency Helpline Directory</h2>
+
+                        <p>
+                            Find the important emergency contact
+                            numbers and call directly.
+                        </p>
+                    </div>
+
+                    <div class="ec-contact-count">
+                        <i class="fa-solid fa-address-book"></i>
+                        <span id="contactCount">5 Contacts</span>
+                    </div>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="ec-search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="search"
+                        id="searchContacts"
+                        placeholder="Search emergency service or number..."
+                    >
+
+                </div>
+
+
+                <!-- CONTACT CARDS -->
+
+                <div class="ec-contact-grid" id="emergencyContactGrid">
+
+
+                    <!-- FIRE SERVICE -->
+
+                    <article class="ec-contact-card"
+                             data-name="Fire Service"
+                             data-number="102"
+                             data-description="Fire emergency and rescue assistance">
+
+                        <div class="ec-card-top">
+
+                            <div class="ec-contact-avatar ec-fire">
+                                <i class="fa-solid fa-fire-extinguisher"></i>
+                            </div>
+
+                            <div class="ec-contact-info">
+                                <h3>Fire Service</h3>
+                                <span class="ec-contact-category">
+                                    Fire & Rescue
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p class="ec-card-description">
+                            Contact the Fire Service for fire emergencies
+                            and rescue assistance.
+                        </p>
+
+                        <div class="ec-phone-number">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>102</span>
+                        </div>
+
+                        <div class="ec-card-actions">
+
+                            <a href="tel:102" class="ec-call-btn">
+                                <i class="fa-solid fa-phone"></i>
+                                Call Now
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- NATIONAL EMERGENCY -->
+
+                    <article class="ec-contact-card"
+                             data-name="National Emergency Service"
+                             data-number="999"
+                             data-description="Police fire service and ambulance emergency assistance">
+
+                        <div class="ec-card-top">
+
+                            <div class="ec-contact-avatar ec-emergency">
+                                <i class="fa-solid fa-shield-heart"></i>
+                            </div>
+
+                            <div class="ec-contact-info">
+                                <h3>National Emergency Service</h3>
+                                <span class="ec-contact-category">
+                                    National Helpline
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p class="ec-card-description">
+                            Get emergency assistance from police,
+                            fire service and ambulance services.
+                        </p>
+
+                        <div class="ec-phone-number">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>999</span>
+                        </div>
+
+                        <div class="ec-card-actions">
+
+                            <a href="tel:999" class="ec-call-btn">
+                                <i class="fa-solid fa-phone"></i>
+                                Call Now
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- WOMEN AND CHILDREN HELPLINE -->
+
+                    <article class="ec-contact-card"
+                             data-name="Women and Children Helpline"
+                             data-number="109"
+                             data-description="Women and children violence prevention support">
+
+                        <div class="ec-card-top">
+
+                            <div class="ec-contact-avatar ec-women">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </div>
+
+                            <div class="ec-contact-info">
+                                <h3>Women and Children Helpline</h3>
+                                <span class="ec-contact-category">
+                                    Protection Support
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p class="ec-card-description">
+                            Helpline for assistance regarding violence
+                            against women and children.
+                        </p>
+
+                        <div class="ec-phone-number">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>109</span>
+                        </div>
+
+                        <div class="ec-card-actions">
+
+                            <a href="tel:109" class="ec-call-btn">
+                                <i class="fa-solid fa-phone"></i>
+                                Call Now
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CHILD HELPLINE -->
+
+                    <article class="ec-contact-card"
+                             data-name="Child Helpline"
+                             data-number="1098"
+                             data-description="Child protection and support">
+
+                        <div class="ec-card-top">
+
+                            <div class="ec-contact-avatar ec-child">
+                                <i class="fa-solid fa-child-reaching"></i>
+                            </div>
+
+                            <div class="ec-contact-info">
+                                <h3>Child Helpline</h3>
+                                <span class="ec-contact-category">
+                                    Child Protection
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p class="ec-card-description">
+                            Contact the child helpline for support
+                            and protection of children.
+                        </p>
+
+                        <div class="ec-phone-number">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>1098</span>
+                        </div>
+
+                        <div class="ec-card-actions">
+
+                            <a href="tel:1098" class="ec-call-btn">
+                                <i class="fa-solid fa-phone"></i>
+                                Call Now
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DISASTER HELPLINE -->
+
+                    <article class="ec-contact-card"
+                             data-name="Disaster Management Helpline"
+                             data-number="1090"
+                             data-description="Disaster early warning information">
+
+                        <div class="ec-card-top">
+
+                            <div class="ec-contact-avatar ec-disaster">
+                                <i class="fa-solid fa-house-flood-water"></i>
+                            </div>
+
+                            <div class="ec-contact-info">
+                                <h3>Disaster Management Helpline</h3>
+                                <span class="ec-contact-category">
+                                    Disaster Support
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p class="ec-card-description">
+                            Get disaster early-warning information
+                            and related assistance.
+                        </p>
+
+                        <div class="ec-phone-number">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>1090</span>
+                        </div>
+
+                        <div class="ec-card-actions">
+
+                            <a href="tel:1090" class="ec-call-btn">
+                                <i class="fa-solid fa-phone"></i>
+                                Call Now
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- EMPTY SEARCH RESULT -->
+
+                <div class="ec-empty-state" id="emptyContactState">
+
+                    <div class="ec-empty-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                    <h3>No Contact Found</h3>
+
+                    <p>
+                        We couldn't find any emergency contact
+                        matching your search.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- EMERGENCY REMINDER -->
+
+            <section class="ec-bottom-note">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <p>
+                    Keep these emergency numbers accessible.
+                    In an emergency, stay calm and provide accurate
+                    information to the relevant authority.
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="ec-footer">
+
+        <div class="ec-footer-container">
+
+            <div class="ec-footer-brand">
+
+            </div>
+
+        </div>
+
+        <div class="ec-footer-bottom">
+
+            <p>
+                © 2026 Safe Aid. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="emergency-contact.js"></script>
+
+</body>
+</html>

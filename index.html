@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 
 <body>
@@ -179,22 +181,25 @@
                 <span class="map-status">LOCATION</span>
             </div>
 
-            <div class="map-placeholder">
-                <i class="fa-solid fa-location-crosshairs"></i>
+         <div class="map-placeholder">
 
-                <h3>Explore Your Location</h3>
+    <div id="homeLiveMap"></div>
 
-                <p>
-                    Allow location permission to view your position on Google Maps.
-                </p>
+    <div class="map-location-actions">
 
-                <button class="map-btn" id="locationBtn">
-                    <i class="fa-solid fa-crosshairs"></i>
-                    Find My Location
-                </button>
+        <button class="map-btn" id="locationBtn" type="button">
+            <i class="fa-solid fa-crosshairs"></i>
+            Detect My Location
+        </button>
 
-                <p id="locationStatus" class="location-status" aria-live="polite"></p>
-            </div>
+        <p id="locationStatus" class="location-status" aria-live="polite">
+            <i class="fa-solid fa-shield-halved"></i>
+            Your location is accessed only with your permission.
+        </p>
+
+    </div>
+
+</div>
         </div>
     </section>
 
@@ -348,16 +353,15 @@
             <article class="missing-card animated-border">
 
                 <div class="missing-image">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500" alt="Missing person profile placeholder">
                     <span class="missing-badge">DEMO PROFILE</span>
                 </div>
 
                 <div class="missing-info">
                     <span class="missing-label">MISSING PERSON</span>
-                    <h3>Sample Person One</h3>
-                    <p><i class="fa-solid fa-user"></i> Age: 25 years</p>
+                    <h3>Arowa Tabassom</h3>
+                    <p><i class="fa-solid fa-user"></i> Age:22 years</p>
                     <p><i class="fa-solid fa-location-dot"></i> Last seen: Chattogram</p>
-                    <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
+                    <p><i class="fa-regular fa-calendar"></i> Date: 12-11-2026</p>
 
                     <a href="login.html" class="missing-link">
                         View Details <i class="fa-solid fa-arrow-right"></i>
@@ -370,16 +374,15 @@
             <article class="missing-card animated-border">
 
                 <div class="missing-image">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Missing person profile placeholder">
                     <span class="missing-badge">DEMO PROFILE</span>
                 </div>
 
                 <div class="missing-info">
                     <span class="missing-label">MISSING PERSON</span>
-                    <h3>Sample Person Two</h3>
-                    <p><i class="fa-solid fa-user"></i> Age: 19 years</p>
-                    <p><i class="fa-solid fa-location-dot"></i> Last seen: Dhaka</p>
-                    <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
+                    <h3>Sumaiya Jannat Saima</h3>
+                    <p><i class="fa-solid fa-user"></i> Age: 21 years</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Last seen: Gasbaria</p>
+                    <p><i class="fa-regular fa-calendar"></i> Date: 10-11-2026</p>
 
                     <a href="login.html" class="missing-link">
                         View Details <i class="fa-solid fa-arrow-right"></i>
@@ -392,16 +395,15 @@
             <article class="missing-card animated-border">
 
                 <div class="missing-image">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500" alt="Missing person profile placeholder">
                     <span class="missing-badge">DEMO PROFILE</span>
                 </div>
 
                 <div class="missing-info">
                     <span class="missing-label">MISSING PERSON</span>
-                    <h3>Sample Person Three</h3>
-                    <p><i class="fa-solid fa-user"></i> Age: 30 years</p>
+                    <h3>Waciya Tabassom Samiha</h3>
+                    <p><i class="fa-solid fa-user"></i> Age:21 years</p>
                     <p><i class="fa-solid fa-location-dot"></i> Last seen: Cox's Bazar</p>
-                    <p><i class="fa-regular fa-calendar"></i> Date: Sample date</p>
+                    <p><i class="fa-regular fa-calendar"></i> Date:9-11-2026</p>
 
                     <a href="login.html" class="missing-link">
                         View Details <i class="fa-solid fa-arrow-right"></i>
@@ -412,12 +414,12 @@
 
         </div>
 
-        <div class="missing-action">
-            <a href="login.html" class="secondary-btn">
-                Report Missing Person
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </div>
+       <div class="missing-action">
+    <a href="missing-person-report.html" class="secondary-btn">
+        Report Missing Person
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+</div>
 
     </section>
 
@@ -712,7 +714,7 @@
 
         <div class="sos-services">
 
-            <a href="login.html" class="sos-service">
+           <a href="blood-donation.html" class="sos-service">
                 <i class="fa-solid fa-droplet"></i>
                 <div>
                     <h3>Blood Donation</h3>
@@ -721,7 +723,7 @@
             </a>
 
 
-            <a href="login.html" class="sos-service">
+            <a href="hospital-management.html" class="sos-service">
                 <i class="fa-solid fa-hospital"></i>
                 <div>
                     <h3>Hospital Management</h3>
@@ -730,16 +732,7 @@
             </a>
 
 
-            <a href="login.html" class="sos-service">
-                <i class="fa-solid fa-phone-volume"></i>
-                <div>
-                    <h3>Emergency Contact</h3>
-                    <p>Important contact numbers</p>
-                </div>
-            </a>
-
-
-            <a href="login.html" class="sos-service">
+             <a href="ambulance-management.html" class="sos-service">
                 <i class="fa-solid fa-truck-medical"></i>
                 <div>
                     <h3>Ambulance Management</h3>
@@ -747,11 +740,20 @@
                 </div>
             </a>
 
+
+            <a href="emergency-contact.html" class="sos-service">
+                <i class="fa-solid fa-phone-volume"></i>
+                <div>
+                    <h3>Emergency Contact</h3>
+                    <p>Important contact numbers</p>
+                </div>
+            </a>
+
         </div>
     </div>
 </div>
 
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 
 </body>
